@@ -40,6 +40,8 @@ description: >- # this means to ignore newlines until "baseurl:"
 # Then write "/repository-name" the subpath of your site, e.g. /blog
 baseurl: "angular" # the subpath of your site, e.g. /blog
 url: "https://incyverse.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# Github username/repo-name e.g. incyverse/incyverse.github.io
+repository: incyverse/angular
 # Add cname for website to be created.
 #CNAME
 
