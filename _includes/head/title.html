@@ -1,0 +1,29 @@
+{% assign title_separator = site.title_separator | default: " - " | replace: "|", "&#124;" %}
+
+{% case page.layout %}
+{% when "author" %}
+    {% capture title %}{{ site.title }}{% endcapture %}
+{% when "post" %}
+    {% capture title %}{{ page.title }}{{ title_separator }}{{ site.title }}{% endcapture %}
+{% when "category" %}
+    {% capture title %}Category{{ title_separator }}{{
+        page.url |
+        remove: "category" |
+        remove: "/" |
+        url_decode |
+        replace: "-", " " |
+        capitalizeall
+    }}{{ title_separator }}{{ site.title }}{% endcapture %}
+{% when "tag" %}
+    {% capture title %}Tag{{ title_separator }}{{
+        page.url |
+        remove: "tag" |
+        remove: "/" |
+        url_decode |
+        replace: "-", " " |
+        capitalizeall
+    }}{{ title_separator }}{{ site.title }}{% endcapture %}
+{% else %}
+    {% capture title %}{{ site.title }}{% endcapture %}
+{% endcase %}
+{% assign title = title | strip_newlines %}

@@ -1,0 +1,23 @@
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+</script>
+
+<script type="text/javascript" id="hexo.configurations">
+  let inCyverse = window.inCyverse || {};
+  let config = {
+    root: '{{ site.baseurl }}',
+    scheme: '{{ site.scheme }}',
+    sidebar: '{{ site.sidebar | jsonify }}',
+    fancybox: '{{ site.fancybox }}',
+    motion: '{{ site.use_motion }}',
+    algolia: {
+      applicationID: '{{ site.algolia.applicationID }}',
+      apiKey: '{{ site.algolia.apiKey }}',
+      indexName: '{{ site.algolia.indexName }}',
+      hits: '{{ site.algoria.search.hits | jsonify }}',
+      labels: '{{ site.algolia.search.labels | jsonify }}',
+    },
+  };
+</script>
+
+<!--<script data-ad-client="ca-pub-7025527560636552" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->

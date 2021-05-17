@@ -1,0 +1,174 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve`. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# ────────────────────────────────────────
+# Site Settings
+# ────────────────────────────────────────
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+version: 2.0.0
+locale: ko-KR
+language: ko
+timezone: Asia/Seoul
+
+name: inCyverse
+title: inCyverse
+title_separator: " | "
+email: incyverse@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  I want to put a ding in the universe. - Steve Jobs
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+
+# Add the second-level domain name of your blog. generally your repository name.
+# If the URL of your blog is: (http://your-username.github.io/repository-name)
+# Then write "/repository-name" the subpath of your site, e.g. /blog
+baseurl: "angular" # the subpath of your site, e.g. /blog
+url: "https://incyverse.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+# Add cname for website to be created.
+#CNAME
+
+#twitter_username: incyverse
+github_username: incyverse
+
+# ────────────────────────────────────────
+# Build Settings
+# ────────────────────────────────────────
+#theme: minima
+# Use the following plugins:
+plugins_dir: _plugins
+# Settings for building master branch with travis-ci with jekyll-travis
+plugins:
+  - jekyll-feed
+  # Create a sitemap using the official Jekyll feed gem
+  - jekyll-sitemap
+  #  - jekyll-paginate
+  # gem install jekyll-gist
+#  - jekyll-gist
+#  - jekyll-include-cache
+#  - jekyll/tagging
+
+# mimic GitHub Pages with --safe
+#whitelist:
+#  - jekyll-feed
+#  - jekyll-sitemap
+#  - jekyll-paginate
+#  - jekyll-gist
+#  - jekyll-include-cache
+
+# Set the sass partials directory, as we're using @import
+sass:
+  sass_dir: _sass
+  #  style: :expanded
+  style: :compressed
+
+feed:
+  path: feed.xml
+
+# None of the following settings need to be changed.
+#permalink: pretty
+permalink: /:title
+
+# Number of articles per page
+#paginate: 20
+#paginate_path: /page:num
+
+words_per_minute: 200
+
+# ────────────────────────────────────────
+# Exclude Settings
+# ────────────────────────────────────────
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+exclude:
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+#  - vendor/bundle
+#  - vendor/cache
+#  - vendor/gems
+#  - vendor/ruby
+
+#exclude:
+#  - "*.sublime-project"
+#  - "*.sublime-workspace"
+#  - vendor
+#  - .asset-cache
+#  - .bundle
+#  - .jekyll-assets-cache
+#  - .sass-cache
+#  - assets/js/plugins
+#  - assets/js/_main.js
+#  - assets/js/vendor
+#  - Capfile
+#  - CHANGELOG
+#  - config
+#  - Gemfile
+#  - Gruntfile.js
+#  - gulpfile.js
+#  - LICENSE
+#  - log
+#  - node_modules
+#  - package.json
+#  - package-lock.json
+#  - Rakefile
+#  - README
+#  - tmp
+#  - /docs # ignore Minimal Mistakes /docs
+#  - /test # ignore Minimal Mistakes /test
+
+# ────────────────────────────────────────
+# Include Settings
+# ────────────────────────────────────────
+excerpt_separator: ---
+
+# Reading files
+include:
+  - _pages
+
+# ────────────────────────────────────────
+# Scheme Settings
+# ────────────────────────────────────────
+#scheme: Muse
+scheme: ""
+
+# ────────────────────────────────────────
+# Sidebar Settings
+# ────────────────────────────────────────
+# Table of Contents in the sidebar
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
+  # If true, all words will placed on next lines if header width longer then sidebar width.
+  wrap: false
+
+# ────────────────────────────────────────
+# SEO Settings
+# ────────────────────────────────────────
+seo: ""

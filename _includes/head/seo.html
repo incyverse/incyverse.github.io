@@ -1,0 +1,4 @@
+{% assign page_content = page.content %}
+
+{% assign seo_author = page.authors | default: page.authors[0] | default: "anthony" %}
+<meta name="author" content="{{ seo_author }}">

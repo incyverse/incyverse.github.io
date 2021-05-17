@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% assign html_class = "no-js" %}
+{% if site.use_motion %}
+    {% assign html_class = html_class | append: " use-motion" %}
+{% endif %}
+<html class="{{ html_class | downcase }}" lang="{{ site.language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    {% include head/title.html %}
+    <title>{{ title }}</title>
+
+    {% include head/style.html %}
+
+    {% include head/script.html %}
+</head>
+<body>
+
+</body>
+</html>

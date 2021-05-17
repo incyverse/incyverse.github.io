@@ -1,4 +1,12 @@
-_site/
-.sass-cache/
-.jekyll-cache/
+.DS_Store
+.idea
+
+_drafts
+_site
+.sass-cache
+.jekyll-cache
 .jekyll-metadata
+.bundle
+vendor
+
+*.swp
