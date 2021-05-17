@@ -15,7 +15,34 @@
 
     {% include head/script.html %}
 </head>
-<body>
 
+{% assign body_class = page.layout | default: layout.class | default: "home" | join: " " | prepend: " " %}
+<body class="{{ body_class | append: '-template' }}" itemtype="https://schema.org/WebPage" itemscope>
+<div id="app">
+    {% include component/header.html %}
+
+    <main id="app-main" aria-label="Content" role="main">
+        <div class="container">
+            {{ content }}
+        </div>
+
+        {% case page.layout %}
+        {% when "post" %}
+            {% include component/pagination-post.html %}
+        {% else %}
+            {% if paginator.total_posts > site.paginate %}
+                {% include component/pagination.html %}
+            {% endif %}
+        {% endcase %}
+    </main>
+
+    {% include component/footer.html %}
+</div>
+
+<div id="top" class="top" title="Top">
+    <i class="fas fa-chevron-up"></i>
+</div>
+
+{% include component/footer-script.html %}
 </body>
 </html>

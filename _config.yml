@@ -31,22 +31,60 @@ title_separator: " | "
 email: incyverse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   I want to put a ding in the universe. - Steve Jobs
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
 
 # Add the second-level domain name of your blog. generally your repository name.
 # If the URL of your blog is: (http://your-username.github.io/repository-name)
 # Then write "/repository-name" the subpath of your site, e.g. /blog
-baseurl: "angular" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://incyverse.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 # Github username/repo-name e.g. incyverse/incyverse.github.io
-repository: incyverse/angular
+#repository: incyverse/angular
 # Add cname for website to be created.
 #CNAME
 
 #twitter_username: incyverse
 github_username: incyverse
+
+# ────────────────────────────────────────
+# Site Information Settings
+# ────────────────────────────────────────
+# Specify the date when the site was setup
+since: 2020
+
+logo: /assets/images/avatar/ghost.png
+logo_dark: false
+
+# Put your favicon.ico into 'assets/' directory.
+favicon: /assets/images/favicon.ico
+
+cover: /assets/images/cover/home.jpg
+
+# Set default keywords (Use a comma to separate)
+keywords: inCyverse
+
+# Set rss to false to disable feed link. Leave rss as empty to use site's feed link.
+# Set rss to specific value if you have burned your feed already.
+rss: ""
+
+links:
+  - label: Email
+    icon: ""
+    url: mailto:incyverse@gmail.com
+  - label: GitHub
+    icon: ""
+    url: https://github.com/incyverse
+  - label: stackoverflow
+    icon: ""
+    url: https://stackoverflow.com/users/14294775/incyverse
+#  - label: Facebook
+#    icon: ""
+#    url: ""
+#  - label: Twitter
+#    icon: ""
+#    url: ""
+#  - label: Instagram
+#    icon: ""
+#    url: ""
 
 # ────────────────────────────────────────
 # Build Settings

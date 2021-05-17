@@ -1,0 +1,38 @@
+{% assign header_cover = page.cover | default: layout.cover | default: site.cover %}
+<header id="app-header" style="background-image: url('{{ header_cover | prepend: site.baseurl }}');">
+    {% capture page.title %}{{ page.title }}{% endcapture %}
+    {% include component/header-bar.html title=page_title %}
+
+    <div class="container">
+        <div class="contents">
+            {% if page.tags.size > 0 %}
+            <div class="meta">
+                <span class="tags">
+                    <i class="fas fa-tag"></i>
+                    {% for tag in page.tags %}
+                    <a href="{{ site.baseurl }}/tag/{{ tag | slugify: 'latin' }}" class="tag" rel="tag">
+                        #{{ tag | upcase }}
+                    </a>
+                    {% endfor %}
+                </span>
+            </div>
+            {% endif %}
+
+            <h1 class="title">{{ page.title | default: site.title }}</h1>
+
+            <p class="description">
+                {% case page.layout %}
+                {% when "author" %}
+                    {% assign author = site.authors | where: "short_name", page.author | first %}
+                    {{ author.bio }}
+                {% else %}
+                    {{ page.description | default: site.description }}
+                {% endcase %}
+            </p>
+        </div>
+    </div>
+
+    {% include component/header-navigation.html %}
+
+    {% include component/header-search.html %}
+</header>
