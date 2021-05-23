@@ -1,0 +1,85 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  VARIABLE
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+/*────────────────────────────────────────
+  General
+  ────────────────────────────────────────*/
+$mobile: 576px;
+$tablet: 768px;
+$laptop: 992px;
+$desktop: 1200px;
+
+$transition: all 0.5s ease-in-out;
+$transition-cubic: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+/*────────────────────────────────────────
+  Color Set
+  ────────────────────────────────────────*/
+/* Dracula Color Scheme */
+$red: #ff5555;
+$red-light: #ff6e6e;
+$orange: #ffb86c;
+$yellow: #f1fa8c;
+$yellow-light: #ffffa5;
+$green: #50fa7b;
+$green-light: #69ff94;
+$purple: #bd93f9;
+$purple-light: #d6acff;
+$cyan: #8be9fd;
+$cyan-light: #a4ffff;
+$pink: #ff79c6;
+$pink-light: #ff92df;
+
+$brand-color: #ffde06;
+// $link-color: #5b90fa;
+$link-color: rgb(48,188,238);
+$text-color: #ece4d8;
+$text-dark: #383a59;
+$comment-color: #6272a4;
+$meta-color: $red-light;
+$gutter-color: #3f4152;
+$tear-color: #6B7090;
+$lineno-color: #a4a3a3;
+
+$background-color: #383a59;
+$background-dark: #282a36;
+$background-dark-rgb: rgba(56, 58, 89, 0.85);
+$background-light: #ece4d8;
+$background-light-rgb: rgba(40, 42, 54, 0.2);
+
+$border-color: #ded7cc;
+$border-light: rgba(98, 114, 164, 0.25);
+
+$selection-color: #44475a;
+
+$foreground-color: #44475a;
+
+$button-color: #83b7da;
+$button-hover: #417090;
+
+/*────────────────────────────────────────
+  Font
+  ────────────────────────────────────────*/
+/* Brand Font */
+$font-family-brand: "Montserrat Subrayada", sans-serif;
+// $font-family-brand: "Amarante", cursive;
+// $font-family-brand: "Kaushan Script", cursive;
+
+/* Global Font */
+$font-family: "Changa", "Nanum Gothic", sans-serif;
+// $font-family: "Saira Extra Condensed", "Nanum Gothic", sans-serif;
+// $font-family: "Sarpanch", "Nanum Gothic", sans-serif;
+
+/* Heading Font */
+$font-family-heading: "Rajdhani", "Nanum Gothic", sans-serif;
+// Halloween
+// $font-family-heading: "Mystery Quest", cursive;
+// Holiday
+// $font-family-heading: "Mountains of Christmas", cursive;
+
+/* Code Font */
+$font-family-code: "Prompt", "Nanum Gothic", sans-serif;
+// $font-family-code: "Ubuntu Mono", monospace, "Nanum Gothic", sans-serif;
+// $font-family-code: "Press Start 2P", cursive, "Nanum Gothic", sans-serif;
+
+$font-size: 62.8%;

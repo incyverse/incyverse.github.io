@@ -1,0 +1,207 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  POST CARD
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.card {
+  background-color: $background-dark;
+  border: 1px solid rgba(0, 0, 0, 0);
+  -webkit-box-shadow: 0.1rem 0.3rem 0.8rem rgba(40, 42, 54, 0.6), 0.1rem 0.3rem 0.8rem rgba(40, 42, 54, 0.3);
+  box-shadow: 0.1rem 0.3rem 0.8rem rgba(40, 42, 54, 0.6), 0.1rem 0.3rem 0.8rem rgba(40, 42, 54, 0.3);
+  -ms-flex: 1 1 30rem;
+  flex: 1 1 30rem;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin: 0 2rem 5vh;
+  min-height: 20rem;
+  overflow: hidden;
+  transition: $transition;
+
+  &:hover {
+    transform: translate3d(0, -1em, 0);
+    transition: $transition;
+  }
+
+  .card-img-top {
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    &:before {
+      content: none;
+    }
+
+    .image {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 20rem;
+      width: auto;
+    }
+  }
+
+  .card-body {
+    padding: 2.5rem;
+
+    .card-title {
+      font-size: 2.4rem;
+      transition: color 0.2s ease-in-out;
+    }
+
+    .card-text {
+      color: $comment-color;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+
+      span {
+        background-image: linear-gradient(transparent calc(100% - 1px), $comment-color 1px);
+      }
+    }
+
+    .tags {
+      margin-bottom: 0.6rem;
+
+      span {
+        background-color: $link-color;
+        border-radius: 0.3rem;
+        box-shadow: 0 1.2rem 2.6rem rgba(39, 44, 49, 0.08), 0.1rem 0.3rem 0.8rem rgba(39, 44, 49, 0.03);
+        color: $text-dark;
+        font-size: 1.2rem;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+        margin: 0 0.2rem;
+        padding: 0 0.8rem;
+        text-transform: uppercase;
+        transform: translateY(0.6rem);
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .meta {
+      align-items: flex-start;
+      display: flex;
+      padding: 0;
+
+      .author-avatar {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0 0 0 0.4rem;
+        padding: 0;
+
+        .author {
+          flex-shrink: 0;
+          margin: 0;
+          padding: 0;
+          position: relative;
+
+          &:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .avatar {
+          border: 2px solid $border-light;
+          border-radius: 100%;
+          display: block;
+          height: 3.4rem;
+          margin: 0 0 0 -0.6rem;
+          overflow: hidden;
+          width: 3.4rem;
+
+          &:before {
+            content: none;
+          }
+
+          .image {
+            border-radius: 100%;
+            display: block;
+            height: 100%;
+            object-fit: cover;
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .entry {
+      display: flex;
+      flex: 1 1 50%;
+      flex-direction: column;
+      font-size: 1.2rem;
+      letter-spacing: 0.2px;
+      line-height: 1.4rem;
+      margin: 0.2rem 0 0 0.6rem;
+      text-transform: uppercase;
+
+      .author-name {
+        font-weight: 700;
+      }
+
+      .reading-time {
+        align-items: flex-end;
+        display: flex;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        margin-left: 20px;
+        float: right;
+        color: #738a94;
+
+        i {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: $laptop) {
+    background-color: $background-color;
+    box-shadow: none;
+
+    &:hover {
+      background-color: $background-dark;
+    }
+
+    &:nth-child(6n + 1):not(no-image) {
+      -ms-flex: 1 1 100%;
+      flex: 1 1 100%;
+      -ms-flex-direction: row;
+      flex-direction: row;
+
+      .card-img-top {
+        -ms-flex: 1 1 0;
+        flex: 1 1 0;
+        position: relative;
+
+        .image {
+          height: 100%;
+          position: absolute;
+          width: 100%;
+        }
+      }
+
+      .card-title {
+        font-size: 2rem;
+      }
+
+      .card-body {
+        -ms-flex: 0 1 350px;
+        flex: 0 1 350px;
+
+        .card-title {
+          font-size: 2.8rem;
+        }
+
+        .card-text {
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{% assign header_cover = page.cover | default: layout.cover | default: site.cover %}
+<header id="app-header" style="background-image: url('{{ header_cover | prepend: site.baseurl }}');">
+    <div class="container">
+        <div class="row">
+            {% capture page.title %}{{ page.title }}{% endcapture %}
+            {% include component/header/bar.html title=page_title %}
+
+            {% include component/header/content.html %}
+
+            {% include component/header/navigation.html %}
+
+            {% include component/header/search.html %}
+        </div>
+    </div>
+</header>

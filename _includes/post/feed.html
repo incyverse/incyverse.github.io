@@ -1,3 +1,24 @@
+{% case page.layout %}
+{% when "author" %}
+    {% assign posts = site.posts | where: "authors", page.title %}
+{% when "category" %}
+    {% assign posts = site.posts | where: "categories", page.title %}
+{% when "tag" %}
+    {% assign posts = site.posts | where: "tags", page.title %}
+{% else %}
+    {% assign posts = site.posts %}
+{% endcase %}
+
+{% if site.paginate > 0 %}
+    {% assign posts = paginator.posts %}
+{% endif %}
+
 <section class="post-feed">
-  <h2>No Post Found.</h2>
+    {% if site.posts.size == 0 %}
+    <h2>No Post Found...</h2>
+    {% else %}
+        {% for post in posts %}
+            {% include component/card.html %}
+        {% endfor %}
+    {% endif %}
 </section>

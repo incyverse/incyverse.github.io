@@ -1,12 +1,12 @@
 <nav id="mega-menu" class="mega-menu">
     <div class="container">
-        <div id="mega-close" class="mega-close">
+        <button class="btn-close" aria-label="Close">
             <i class="fas fa-times"></i>
-        </div>
+        </button>
 
-        <div class="menu-grid">
-            <div class="grid-item">
-                <h2 class="grid-title">menu</h2>
+        <div class="row menu-grid">
+            <div class="col grid-item">
+                <h2 class="title">menu</h2>
                 <ul class="list list-reset">
                     {% for menu in site.menus %}
                     <li class="item">
@@ -18,8 +18,8 @@
                 </ul>
             </div>
 
-            <div class="grid-item">
-                <h2 class="grid-title">category</h2>
+            <div class="col grid-item">
+                <h2 class="title">category</h2>
                 <ul class="list list-reset">
                     {% for category in site.categories %}
                     <li class="item">
@@ -40,8 +40,8 @@
                 </ul>
             </div>
 
-            <div class="grid-item">
-                <h2 class="grid-title">tag</h2>
+            <div class="col grid-item">
+                <h2 class="title">tag</h2>
                 <div class="widget-tags">
                     {% for tag in site.tags %}
                     <a href="{{ tag.url | prepend: site.baseurl }}" class="link tag">

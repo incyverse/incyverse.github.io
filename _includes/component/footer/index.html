@@ -1,0 +1,12 @@
+<footer id="app-footer">
+  <div class="container">
+      <div class="row">
+          {% include component/footer/contact.html %}
+
+          <div class="copyright col-12 col-lg-6">
+              {% assign since = site.since | downcase %}
+              &copy; {{ since }} - {{ site.time | date: "%Y" }} <a href="https://www.incyverse.com" target="_blank"><span>{{ site.name }}</span></a>
+          </div>
+      </div>
+  </div>
+</footer>

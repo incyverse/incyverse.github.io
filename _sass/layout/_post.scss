@@ -1,0 +1,60 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  POST
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+article#app-post {
+  > .content {
+    //line-height: 1.5;
+    //margin: 0 auto;
+    min-height: 23rem;
+    padding-top: 2em;
+    position: relative;
+
+    @media only screen and (min-width: $tablet) {
+      background-color: $background-color;
+      top: -10rem;
+      padding: 2em 2em 0;
+
+      &:before {
+        background-color: rgba(40, 42, 54, 0.4);
+        content: "";
+        display: block;
+        filter: blur(0.5rem);
+        height: 20rem;
+        left: -0.5px;
+        position: absolute;
+        transform: rotate(-5deg);
+        top: 1.5rem;
+        width: 2rem;
+        z-index: -1;
+      }
+
+      &:after {
+        background-color: rgba(40, 42, 54, 0.4);
+        content: "";
+        display: block;
+        filter: blur(0.5rem);
+        height: 20rem;
+        position: absolute;
+        right: -0.5rem;
+        top: 1.5rem;
+        transform: rotate(5deg);
+        width: 2rem;
+        z-index: -1;
+      }
+    }
+  }
+
+  > .meta {
+    .entry-author {
+
+    }
+
+    .entry-share {
+
+    }
+
+    .entry-comment {
+
+    }
+  }
+}

@@ -1,0 +1,94 @@
+html {
+  font-family: $font-family;
+  font-size: $font-size;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: $font-family;
+  font-size: 1.6rem;
+  font-style: normal;
+  letter-spacing: 0;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:after {
+    background-color: $background-color;
+    content: "";
+    height: 100vh;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: 1s;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  &.is-in {
+    overflow-y: auto;
+
+    &:after {
+      opacity: 0;
+      pointer-events: none;
+      visibility: visible;
+    }
+  }
+}
+
+a {
+  color: $link-color;
+  line-height: 1;
+  opacity: 0.9;
+  text-decoration: none;
+  transition: $transition;
+
+  &.nav-link {
+    color: $link-color;
+    display: flex;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  &:before {
+    background-color: $link-color;
+    content: "";
+  }
+
+  &:hover {
+    color: $link-color;
+
+    span {
+      background-size: 100% 100%;
+    }
+  }
+
+  > i {
+    margin-right: 0.4rem;
+  }
+
+  span {
+    background-image: linear-gradient(transparent calc(100% - 1px), $link-color 1px);
+    background-repeat: no-repeat;
+    background-size: 0 100%;
+    transition: background-size 0.3s ease-in-out;
+  }
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}

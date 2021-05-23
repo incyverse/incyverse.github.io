@@ -1,0 +1,173 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  HEADER
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+header#app-header {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    background-repeat: repeat-x, repeat;
+    background-size: 2000px 120px;
+    bottom: -2px;
+    content: "";
+    display: block;
+    height: 9rem;
+    left: 0;
+    opacity: 0.4;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .header-bar {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: $transition;
+    width: 100%;
+    z-index: 998;
+
+    &.is-init {
+      top: -8rem;
+    }
+
+    &.is-back {
+      background-color: $background-light-rgb;
+
+      .left {
+        &:after {
+          opacity: 1;
+          transition: $transition;
+        }
+
+        .title {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .container {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      overflow-y: hidden;
+    }
+
+    .left {
+      align-items: center;
+      display: inline-flex;
+      flex: 1 0 auto;
+      letter-spacing: 0.2px;
+      -webkit-overflow-scrolling: touch;
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+
+      &:after {
+        content: "";
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 4rem;
+      }
+
+      .logo {
+        color: $brand-color;
+        font-family: $font-family-brand;
+        flex-shrink: 0;
+        font-size: 2.4rem;
+        font-style: italic;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        line-height: 8rem;
+        text-transform: uppercase;
+
+        &:before {
+          content: none;
+        }
+
+        @media only screen and (min-width: $tablet) {
+          font-size: 3.2rem;
+        }
+      }
+
+      .title {
+        margin-left: 1.5rem;
+        opacity: 0;
+        text-transform: capitalize;
+        transform: translateY(175%);
+        transition: $transition;
+        visibility: hidden;
+      }
+
+      @media only screen and (min-width: $laptop) {
+        margin-right: 1rem;
+      }
+    }
+
+    .right {
+      i {
+        color: $link-color;
+        cursor: pointer;
+        font-size: 2rem;
+        margin: 0 3px;
+        transition: $transition;
+
+        &:hover {
+          color: $link-color;
+          opacity: 0.5;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .header-content {
+    margin: 0 2rem;
+    position: relative;
+    z-index: 2;
+
+    .title {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 3rem;
+
+      @media only screen and (min-width: $tablet) {
+        font-size: 4rem;
+        line-height: 4rem;
+      }
+
+      @media only screen and (min-width: $laptop) {
+        font-size: 6rem;
+        line-height: 6rem;
+      }
+    }
+
+    .description {
+      line-height: 1.6rem;
+      margin-top: 1.5rem;
+
+      @media only screen and (min-width: $tablet) {
+        line-height: 2rem;
+      }
+    }
+  }
+
+  @media only screen and (min-width: $laptop) {
+    background-attachment: fixed;
+    padding: 0 5vh;
+  }
+}

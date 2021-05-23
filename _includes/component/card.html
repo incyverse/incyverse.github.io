@@ -1,0 +1,72 @@
+<article class="card">
+    <a href="{{ post.url | prepend: site.baseurl }}" class="card-img-top">
+        <div class="image" style="background-image: url('{{ post.cover | prepend: site.baseurl }}');"></div>
+    </a>
+
+    <div class="card-body">
+        {% if post.tags.size > 0 %}
+        <div class="tags">
+            {% for tag in post.tags %}
+            <span>#{{ tag | upcase }}</span>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <a href="{{ post.url | prepend: site.baseurl }}" class="card-link">
+            <h5 class="card-title"><span>{{ post.title }}</span></h5>
+
+            <p class="card-text">
+                {% if post.description %}
+                <span>{{ post.description | strip_html | truncatewords: 33, "" }}</span>
+                {% else %}
+                <span>{{ post.content | strip_html | truncatewords: 33, "" }}</span>
+                {% endif %}
+            </p>
+        </a>
+
+        <div class="meta">
+            <ul class="author-avatar">
+                {% for author in site.authors %}
+                <li class="author">
+                    {% if author.short_name == post.authors %}
+                    <div class="tooltip">{{ author.name }}</div>
+                    <a href="{{ author.url |  prepend: site.baseurl }}" class="avatar">
+                        <img src="{{ author.avatar | prepend: site.baseurl }}" alt="{{ author.name }}" class="image">
+                    </a>
+                    {% else %}
+                    <div class="tooltip">anonymous</div>
+                    <span class="avatar">
+                        <img src="/assets/images/avatar/anonymous.png" alt="anonymous" class="image">
+                    </span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="entry">
+                <span class="author-name">
+                    {% for author in site.authors %}
+                    {% if author.short_name == post.authors %}
+                    <a href="{{ author.url | prepend: site.baseurl }}">{{ author.short_name }}</a>
+                    {% else %}
+                    anonymous
+                    {% endif %}
+                    {% endfor %}
+                </span>
+
+                <span class="date">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %y" }}</time>
+                    <span class="reading-time">
+                        <i class="far fa-clock bull"></i>
+                        {% assign words = post.content | strip_html | number_of_words %}
+                        {% if words <= site.words_per_minute %}
+                        1 min read
+                        {% else %}
+                        {{ words | divided_by: site.words_per_minute }} min read
+                        {% endif %}
+                    </span>
+                </span>
+            </div>
+        </div>
+    </div>
+</article>

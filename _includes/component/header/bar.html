@@ -1,0 +1,13 @@
+<div id="header-bar" class="header-bar">
+    <div class="left">
+        <a href="{{ site.baseurl }}/" class="logo">{{ site.name }}</a>
+        {% if page.layout == "post" %}
+        <span class="title">{{ page.title }}</span>
+        {% endif %}
+    </div>
+
+    <div class="right">
+        <i id="mega-open" class="fas fa-bars d-none"></i>
+        <i id="search-open" class="fas fa-search d-none"></i>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+---
+layout: app
+---
+
+<article id="app-post" class="col-12 col-lg-9">
+    <div class="content">
+        <section class="entry-author">
+            {% include post/author.html %}
+        </section>
+
+        <section class="entry-markdown">
+            {{ content }}
+        </section>
+    </div>
+
+    <div class="meta">
+        <section class="entry-share">
+            {% include post/social.html %}
+        </section>
+
+        <section class="entry-comment">
+            {% include post/comment.html %}
+        </section>
+    </div>
+</article>
+
+<article id="app-sidebar" class="col-12 col-lg-3">
+    {% include component/sidebar.html %}
+</article>
