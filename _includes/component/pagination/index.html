@@ -1,0 +1,52 @@
+<nav class="pagination outer">
+    <div class="prev">
+        {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+        <a href="/" class="link">
+            <i class="fas fa-chevron-left"></i>
+            prev
+        </a>
+        {% else %}
+        <a href="{{ site.baseurl }}/page/{{ paginator.previous_page }}">
+            <i class="fas fa-chevron-left"></i>
+            prev
+        </a>
+        {% endif %}
+        {% else %}
+        <span class="disabled">
+            <i class="fas fa-chevron-left"></i>
+            prev
+        </span>
+        {% endif %}
+    </div>
+
+    <div class="counter">
+        {% if paginator.page == 1 %}
+        <span class="active-link">1</span>
+        {% else %}
+        <a href="{{ site.baseurl }}/">1</a>
+        {% endif %}
+
+        {% for count in (2..paginator.total_pages) %}
+        {% if count == paginator.page %}
+        <span class="active-link">{{ count }}</span>
+        {% else %}
+        <a href="{{ site.baseurl }}/page/{{ count }}">{{ count }}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="next">
+        {% if paginator.next_page %}
+        <a href="{{ site.baseurl }}/page/{{ paginator.next_page }}">
+            next
+            <i class="fas fa-chevron-right"></i>
+        </a>
+        {% else %}
+        <span class="disabled">
+            next
+            <i class="fas fa-chevron-right"></i>
+        </span>
+        {% endif %}
+    </div>
+</nav>

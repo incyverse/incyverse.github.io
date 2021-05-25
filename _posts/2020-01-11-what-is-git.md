@@ -5,8 +5,8 @@ title: "Git"
 description: "Git is ..."
 authors: anthony
 date: 2020-01-08 13:42:53 +0900
-categories: git
-tags: dev git
+categories: development
+tags: git
 class: post
 navigation: true
 comment: true

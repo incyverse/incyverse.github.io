@@ -28,6 +28,12 @@
             </div>
         </div>
 
+        {% case page.layout %}
+        {% when "post" %}
+        {% include component/pagination/post.html %}
+        {% else %}
+        {% endcase %}
+
         <!--{% case page.layout %}
         {% when "post" %}
             {% include component/pagination-post.html %}

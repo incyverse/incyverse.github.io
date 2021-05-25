@@ -1,0 +1,155 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AUTHOR
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.author-template {
+  .title {
+    text-transform: uppercase;
+  }
+}
+
+.entry-author {
+  border-bottom: 1px solid rgba(98, 114, 164, 0.25);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+
+  .post-author {
+    align-items: flex-start;
+    display: flex;
+    flex-grow: 1;
+  }
+
+  .authors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    list-style: none;
+    margin: 0 0 0 0.4rem;
+    padding: 0 1.2rem 0 0;
+  }
+
+  .author {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+    .avatar {
+      border: 2px solid $border-light;
+      border-radius: 100%;
+      display: block;
+      height: 4rem;
+      margin: 0 -0.4rem;
+      overflow: hidden;
+      width: 4rem;
+      transition: $transition-cubic;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .image {
+      background-color: $background-light;
+      border-radius: 100%;
+      display: block;
+      height: 100%;
+      -o-object-fit: cover;
+      object-fit: cover;
+      width: 100%;
+    }
+  }
+
+  .author-card {
+    background-color: map-get($blue-grey, "darken-4");
+    border-radius: 0.3rem;
+    bottom: 130%;
+    box-shadow: 0 1.2rem 2.6rem rgba(0, 0, 0, 0.4);
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    left: -6.2rem;
+    line-height: 1.5;
+    opacity: 0;
+    padding: 2rem 2rem 2.2rem;
+    pointer-events: none;
+    position: absolute;
+    transform: scale(0.9) translateY(4rem);
+    transition: $transition;
+    width: 40rem;
+    z-index: 600;
+
+    &:before {
+      border-left: 0.8rem solid transparent;
+      border-right: 0.8rem solid transparent;
+      border-top: 0.8rem solid map-get($blue-grey, "darken-4");
+      content: "";
+      display: block;
+      height: 0;
+      //left: 4.3rem;
+      left: 5.8rem;
+      position: absolute;
+      top: 100%;
+      width: 0;
+    }
+
+    .avatar {
+      background-color: $background-dark;
+      border: none;
+      border-radius: 100%;
+      display: block;
+      flex: 0 0 6rem;
+      height: 6rem;
+      margin: 0;
+      -o-object-fit: cover;
+      object-fit: cover;
+      opacity: 0.9;
+      width: 6rem;
+    }
+
+    .info {
+      flex: 1 1 auto;
+      padding: 0 0 0 2rem;
+    }
+
+    h2 {
+      font-weight: 800;
+      margin: 0;
+    }
+
+    p {
+      color: $text-color;
+      margin: 0.8rem 0 0;
+    }
+  }
+
+  .meta {
+    font-size: 1.2rem;
+    letter-spacing: 0.2px;
+    line-height: 1.2;
+    margin: 0.2rem 0 0;
+    text-transform: uppercase;
+
+    .name {
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 0.3rem;
+    }
+  }
+
+  @media only screen and (min-width: $tablet) {
+    .author-card {
+      &.hovered {
+        left: -5rem;
+        opacity: 1;
+        pointer-events: auto;
+        transform: scale(1) translateY(0);
+
+        &:before {
+          left: 5.8rem;
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,9 @@ footer#app-footer:after {
 }
 
 main {
+  position: relative;
+  z-index: 3;
+
   .post-feed {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;

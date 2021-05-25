@@ -1,0 +1,157 @@
+/*━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PAGINATION
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━*/
+.post-template {
+  .pagination {
+    align-items: baseline;
+    flex-wrap: wrap;
+    overflow: hidden;
+
+    &:before,
+    &:after {
+      content: "";
+      display: table;
+    }
+
+    &:after {
+      clear: both;
+    }
+
+    .inner {
+      margin: 0;
+    }
+
+    .prev,
+    .next {
+      box-sizing: border-box;
+      display: flex;
+      flex: 1 0 100%;
+      min-height: 30rem;
+      overflow: hidden;
+      position: relative;
+
+      &:hover {
+        opacity: inherit;
+
+        .cover {
+          opacity: 0.5;
+          -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+          transition: $transition;
+        }
+      }
+
+      @media only screen and (min-width: $tablet) {
+        flex: 1 0 50%;
+      }
+    }
+
+    .prev {
+      .arrow {
+        margin-right: 1.5rem;
+        transition: $transition;
+      }
+
+      &:hover {
+        .arrow {
+          margin-right: 0.5rem;
+          transition: $transition;
+        }
+      }
+    }
+
+    .next {
+      text-align: right;
+
+      .arrow {
+        margin-left: 1.5rem;
+        transition: $transition;
+      }
+
+      &:hover {
+        .arrow {
+          margin-left: 0.5rem;
+          transition: $transition;
+        }
+      }
+    }
+
+    .cover {
+      bottom: 0;
+      left: 0;
+      opacity: 0.3;
+      position: absolute;
+      right: 0;
+      top: 0;
+      -webkit-transform: scale(1.5, 1.5);
+      transform: scale(1.5, 1.5);
+      -webkit-transition: -webkit-transform 1s;
+      -webkit-transition: transform 1s;
+      transition: transform 1s;
+      transition: $transition;
+
+      img {
+        height: 100%;
+        left: 0;
+        -o-object-fit: cover;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
+    .inside {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+
+      a {
+        display: block;
+        padding: 3rem 3rem 0;
+        position: relative;
+      }
+
+      .title {
+        align-items: center;
+        display: inline-flex;
+        font-weight: 800;
+      }
+
+      .arrow {
+        color: $link-color;
+        font-size: 1.4rem;
+        position: relative;
+      }
+
+      .excerpt {
+        color: $text-color;
+        display: block;
+        font-size: 1.2rem;
+        line-height: 1.5;
+        letter-spacing: 0.2rem;
+
+        span {
+          background-image: linear-gradient(transparent calc(100% - 1px), $text-color 1px);
+        }
+      }
+
+      .date {
+        padding: 0 3rem 3rem;
+        text-align: right;
+      }
+    }
+
+    @media only screen and (min-width: $tablet) {
+      .prev {
+        text-align: left;
+      }
+
+      .next {
+        text-align: right;
+      }
+    }
+  }
+}

@@ -1,9 +1,21 @@
 <footer id="app-footer">
   <div class="container">
       <div class="row">
-          {% include component/footer/contact.html %}
+          {% assign contacts = site.links %}
+          <div class="contact col">
+              <ul class="nav">
+                  {% for contact in contacts %}
+                  <li class="nav-item">
+                      <a href="{{ contact.url }}" class="nav-link" target="_blank">
+                          <i class="{{ contact.icon }}"></i>
+                          <span>{{ contact.label }}</span>
+                      </a>
+                  </li>
+                  {% endfor %}
+              </ul>
+          </div>
 
-          <div class="copyright col-12 col-lg-6">
+          <div class="copyright col col-12 col-lg-6">
               {% assign since = site.since | downcase %}
               &copy; {{ since }} - {{ site.time | date: "%Y" }} <a href="https://www.incyverse.com" target="_blank"><span>{{ site.name }}</span></a>
           </div>

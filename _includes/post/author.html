@@ -1,0 +1,52 @@
+<div class="post-author">
+    <ul class="authors">
+        {% for author in site.authors %}
+        <li class="author">
+            {% if author.short_name == page.authors %}
+            <div class="author-card">
+                <img src="{{ author.avatar | prepend: site.baseurl }}" class="avatar" alt="{{ author.name }}">
+                <div class="info">
+                    <div class="bio">
+                        <h2>{{ author.name }}</h2>
+                        <p>{{ author.bio }}</p>
+                        <p><a href="{{ author.url | prepend: site.baseurl }}">More posts</a> by {{ author.name }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ author.url | prepend: site.baseurl }}" class="avatar">
+                <img src="{{ author.avatar | prepend: site.baseurl }}" class="image" alt="{{ author.name }}">
+            </a>
+            {% else %}
+            <span class="avatar">
+                <img src="/assets/images/avatar/anonymous.png" class="image" alt="anonymous"/>
+            </span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="meta">
+        <h4 class="name">
+            {% for author in site.authors %}
+            {% if author.short_name == page.authors %}
+            <a href="{{ author.url | prepend: site.baseurl }}">{{ author.short_name }}</a>
+            {% else %}
+            anonymous
+            {% endif %}
+            {% endfor %}
+        </h4>
+        <div class="entry">
+            <time class="date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+            <span class="bull"><i class="far fa-clock"></i></span>
+            <span class="reading-time">
+                {% assign words = page.content | strip_html | number_of_words %}
+                {% if words <= site.words_per_minute %}
+                1 min read
+                {% else %}
+                {{ words | divided_by: site.words_per_minute }} min read
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>

@@ -275,6 +275,10 @@
     max-width: 100%;
     padding: 0.1rem 0.6rem;
     word-break: break-word;
+
+    a {
+      line-height: 1.5;
+    }
   }
 
   sup {

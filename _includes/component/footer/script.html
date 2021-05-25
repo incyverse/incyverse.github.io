@@ -2,3 +2,33 @@
 <script src="https://kit.fontawesome.com/872df1065e.js" crossorigin="anonymous"></script>
 <script src="{{ site.baseurl }}/assets/vendors/zoom.min.js"></script>
 <script src="{{ site.baseurl }}/assets/js/common.js?v={{ site.version }}"></script>
+<script src="{{ site.baseurl }}/assets/js/motion.js?v={{ site.version }}"></script>
+{% if page.layout == "post" %}
+<script src="{{ site.baseurl }}/assets/vendors/scrollspy.js?v=3.3.2"></script>
+{% endif %}
+
+{% if site.search %}
+{% assign search_provider = site.search_provider | default: "lunr" %}
+{% case search_provider %}
+{% when "lunr" %}
+<!--include_cached lunr-search.html-->
+{% when "google" %}
+<!--include_cached google-search.html-->
+{% when "algolia" %}
+<!--include_cached algolia-search.html-->
+{% endcase %}
+{% endif %}
+
+{% if site.google %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google.analytics }}"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google.analytics }}');
+</script>
+{% endif %}
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v8.0" nonce="VqbA7sGo"></script>

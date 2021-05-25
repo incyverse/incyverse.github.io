@@ -1,0 +1,65 @@
+<nav class="pagination outer">
+    {% if page.previous.url %}
+    <div class="prev">
+        <div class="cover">
+            {% if page.previous.cover %}
+            <img src="{{ page.previous.cover | prepend: site.baseurl }}" alt="{{ page.previous.title }}">
+            {% endif %}
+        </div>
+
+        <div class="inside">
+            <a href="{{ page.previous.url | prepend: site.baseurl }}">
+                <h2 class="title">
+                    <i class="fas fa-chevron-left arrow"></i>
+                    <span>{{ page.previous.title }}</span>
+                </h2>
+                <p class="excerpt">
+                    <span>
+                        {% if page.previous.description %}
+                        {{ page.previous.description }}
+                        {% else %}
+                        {{ page.previous.content | strip_html | truncate: 110 }}
+                        {% endif %}
+                    </span>
+                </p>
+            </a>
+
+            <time class="date" datetime="{{ page.previous.date | date_to_xmlschema }}">
+                {{ page.previous.date | date: "%B %-d, %Y" }}
+            </time>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if page.next.url %}
+    <div class="next">
+        <div class="cover">
+            {% if page.next.cover %}
+            <img src="{{ page.next.cover | prepend: site.baseurl }}" alt="{{ page.next.title }}">
+            {% endif %}
+        </div>
+
+        <div class="inside">
+            <a href="{{ page.next.url | prepend: site.baseurl }}">
+                <h2 class="title">
+                    <span>{{ page.next.title }}</span>
+                    <i class="fas fa-chevron-right arrow"></i>
+                </h2>
+                <p class="excerpt">
+                    <span>
+                        {% if page.next.description %}
+                        {{ page.next.description }}
+                        {% else %}
+                        {{ page.next.content | strip_html | truncate: 110 }}
+                        {% endif %}
+                    </span>
+                </p>
+            </a>
+
+            <time class="date" datetime="{{ page.next.date | date_to_xmlschema }}">
+                {{ page.next.date | date: "%B %-d, %Y" }}
+            </time>
+        </div>
+    </div>
+    {% endif %}
+</nav>

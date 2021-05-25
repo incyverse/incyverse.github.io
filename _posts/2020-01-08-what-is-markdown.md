@@ -4,8 +4,8 @@ cover: /assets/images/cover/markdown.png
 title: "Markdown 이란?"
 authors: anthony
 date: 2020-01-08 17:03:11 +0900
-categories: markdown
-tags: dev markdown
+categories: development
+tags: markdown
 class: post
 navigation: true
 comment: true
