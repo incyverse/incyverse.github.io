@@ -13,9 +13,7 @@
     }
     window.addEventListener('scroll', this.initScroll);
 
-    if (this.topArrow.classList.contains('is-top')) {
-      this.initArrow();
-    }
+    this.initArrow();
 
     if (this.authorCard) {
       this.initTooltip();
@@ -54,7 +52,6 @@
   };
   Motion.prototype.initArrow = function() {
     this.topArrow.addEventListener('click', function(e) {
-      e.preventDefault();
       $('html, body').stop().animate({scrollTop: 0}, 'fast', 'swing');
     });
   };
