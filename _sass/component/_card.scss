@@ -54,9 +54,15 @@
     }
 
     .card-text {
+      -webkit-box-orient: vertical;
       color: $comment-color;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
       line-height: 1.2;
       margin-bottom: 1.5rem;
+      max-height: 10rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       span {
         background-image: linear-gradient(transparent calc(100% - 1px), $comment-color 1px);

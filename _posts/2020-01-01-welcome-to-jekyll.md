@@ -1,5 +1,6 @@
 ---
 layout: post
+cover: /assets/images/cover/jekyll.png
 title: "Welcome to Jekyll!!!"
 date: 2020-01-01 22:02:12 +0900
 categories: development

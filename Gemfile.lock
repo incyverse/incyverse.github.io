@@ -27,20 +27,24 @@ GEM
       ffi (>= 1.15.0)
     eventmachine (1.2.7)
     execjs (2.8.1)
-    faraday (1.4.1)
+    faraday (1.4.2)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
       faraday-net_http (~> 1.0)
       faraday-net_http_persistent (~> 1.1)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
     faraday-excon (1.1.0)
     faraday-net_http (1.0.1)
     faraday-net_http_persistent (1.1.0)
-    ffi (1.15.0)
+    ffi (1.15.1)
     forwardable-extended (2.6.0)
     gemoji (3.0.1)
-    github-pages (214)
-      github-pages-health-check (= 1.17.0)
+    github-pages (215)
+      github-pages-health-check (= 1.17.2)
       jekyll (= 3.9.0)
       jekyll-avatar (= 0.7.0)
       jekyll-coffeescript (= 1.1.1)
@@ -83,7 +87,7 @@ GEM
       nokogiri (>= 1.10.4, < 2.0)
       rouge (= 3.26.0)
       terminal-table (~> 1.4)
-    github-pages-health-check (1.17.0)
+    github-pages-health-check (1.17.2)
       addressable (~> 2.3)
       dnsruby (~> 1.60)
       octokit (~> 4.0)
@@ -221,7 +225,7 @@ GEM
     minitest (5.14.4)
     multi_json (1.15.0)
     multipart-post (2.1.1)
-    nokogiri (1.11.4-x86_64-darwin)
+    nokogiri (1.11.6-x86_64-darwin)
       racc (~> 1.4)
     octokit (4.21.0)
       faraday (>= 0.9)
@@ -285,7 +289,6 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  backports (~> 3.21)
   github-pages
   jekyll-admin
   jekyll-feed
@@ -293,4 +296,4 @@ DEPENDENCIES
   webrick (~> 1.7)
 
 BUNDLED WITH
-   2.2.17
+   2.2.18

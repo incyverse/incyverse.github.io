@@ -17,9 +17,9 @@
 
             <p class="card-text">
                 {% if post.description %}
-                <span>{{ post.description | strip_html | truncatewords: 33, "" }}</span>
+                <span>{{ post.description | strip_html | truncatewords: 50, "" }}</span>
                 {% else %}
-                <span>{{ post.content | strip_html | truncatewords: 33, "" }}</span>
+                <span>{{ post.content | strip_html | truncatewords: 50, "" }}</span>
                 {% endif %}
             </p>
         </a>
@@ -44,7 +44,7 @@
             </ul>
 
             <div class="entry">
-                <span class="author-name">
+                <div class="author-name">
                     {% for author in site.authors %}
                     {% if author.short_name == post.authors %}
                     <a href="{{ author.url | prepend: site.baseurl }}">{{ author.short_name }}</a>
@@ -52,9 +52,9 @@
                     anonymous
                     {% endif %}
                     {% endfor %}
-                </span>
+                </div>
 
-                <span class="date">
+                <div class="date">
                     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %y" }}</time>
                     <span class="reading-time">
                         <i class="far fa-clock bull"></i>
@@ -65,7 +65,7 @@
                         {{ words | divided_by: site.words_per_minute }} min read
                         {% endif %}
                     </span>
-                </span>
+                </div>
             </div>
         </div>
     </div>
