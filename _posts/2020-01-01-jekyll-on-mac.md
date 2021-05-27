@@ -98,5 +98,3 @@ $ bundle update github-pages
 $ bundle exec jekyll clean
 $ bundle exec jekyll serve
 {% endhighlight %}
-
-Gemfile을 사용하지 않는 경우 Bundler를 우회하려면: `jekyll serve`
