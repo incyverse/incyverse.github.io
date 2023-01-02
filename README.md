@@ -7,7 +7,7 @@ LICENSE, and .gitignore
 
 ...or create a new repository on the command line
 ```shell
-$ git init
+$ git init --initial-branch=main
 $ git remote add origin git@github.com:incyverse/incyverse.github.io.git
 $ git pull origin main
 $ echo "# incyverse.github.io" >> README.md
