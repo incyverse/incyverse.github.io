@@ -9,13 +9,13 @@
 
     <!-- Previous/Next page links - displayed on every page -->
     {% if paginator.total_posts > site.paginate %}
-    {% if page.class == 'author-template' %}
-    {% include author_pagination.html %}
-    {% elsif page.class == 'tag-template' %}
-    {% include tag_pagination.html %}
-    {% else %}
-    {% include post_pagination.html %}
-    {% endif %}
+        {% if page.class == 'author-template' %}
+            {% include author_pagination.html %}
+        {% elsif page.class == 'tag-template' %}
+            {% include tag_pagination.html %}
+        {% else %}
+            {% include post-pagination.html %}
+        {% endif %}
     {% endif %}
 
     <footer class="site-footer outer">
@@ -79,9 +79,9 @@
 
 <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
 {% if page.class == 'post-template' %}
-{% include post-scripts.html %}
+    {% include post-scripts.html %}
 {% elsif page.class == 'page-template' %}
-{% include page-scripts.html %}
+    {% include page-scripts.html %}
 {% endif %}
 </body>
 </html>

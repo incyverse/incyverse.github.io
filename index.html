@@ -15,16 +15,16 @@ into the {body} of the default.hbs template -->
         <div class="site-header-content">
             <h1 class="site-title">
                 {% if site.logo %}
-                <img src="{{ site.baseurl }}{{ site.logo }}" class="site-logo" alt="{{ site.title }}" />
+                    <img src="{{ site.baseurl }}{{ site.logo }}" class="site-logo" alt="{{ site.title }}" />
                 {% else %}
-                {{ site.title }}
+                    {{ site.title }}
                 {% endif %}
             </h1>
             <h2 class="site-description">
                 {% if page.description %}
-                {{ page.description }}
+                    {{ page.description }}
                 {% else %}
-                {{ site.description }}
+                    {{ site.description }}
                 {% endif %}
             </h2>
         </div>
