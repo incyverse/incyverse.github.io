@@ -1,87 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--{% include head.html %}-->
 
-<body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
-<div class="site-wrapper">
-    <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-    {{ content }}
+<!--<body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">-->
+<!--<div class="site-wrapper">-->
+<!--    &lt;!&ndash; All the main content gets inserted here, index.hbs, post.hbs, etc &ndash;&gt;-->
+<!--    {{ content }}-->
 
-    <!-- Previous/Next page links - displayed on every page -->
-    {% if paginator.total_posts > site.paginate %}
-        {% if page.class == 'author-template' %}
-            {% include author_pagination.html %}
-        {% elsif page.class == 'tag-template' %}
-            {% include tag_pagination.html %}
-        {% else %}
-            {% include post-pagination.html %}
-        {% endif %}
-    {% endif %}
+<!--    &lt;!&ndash; Previous/Next page links - displayed on every page &ndash;&gt;-->
+<!--    {% if paginator.total_posts > site.paginate %}-->
+<!--        {% if page.class == 'author-template' %}-->
+<!--            {% include author_pagination.html %}-->
+<!--        {% elsif page.class == 'tag-template' %}-->
+<!--            {% include tag_pagination.html %}-->
+<!--        {% else %}-->
+<!--            {% include post-pagination.html %}-->
+<!--        {% endif %}-->
+<!--    {% endif %}-->
 
-    <footer class="site-footer outer">
-        <div class="site-footer-content inner">
-            <section class="copyright">
-                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
-            </section>
-            <section class="poweredby">
-                Proudly published with <a href="https://jekyll.com/">Jekyll</a> &
-                <a href="https:/pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using
-            </section>
-            <nav class="site-footer-nave">
-                <a href="{{ site.baseurl }}">Latest Posts</a>
-                {% if site.facebook %}<a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}
-                {% if site.twitter %}<a href="https://twiiter.com/{{ site.twitter }}" target="_blank" rel="noopener">Twitter</a>{% endif %}
-            </nav>
-        </div>
-    </footer>
-</div>
+<!--    <footer class="site-footer outer">-->
+<!--        <div class="site-footer-content inner">-->
+<!--            <section class="copyright">-->
+<!--                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}-->
+<!--            </section>-->
+<!--            <section class="poweredby">-->
+<!--                Proudly published with <a href="https://jekyll.com/">Jekyll</a> &-->
+<!--                <a href="https:/pages.github.com/" target="_blank" rel="noopener">GitHub Pages</a> using-->
+<!--            </section>-->
+<!--            <nav class="site-footer-nave">-->
+<!--                <a href="{{ site.baseurl }}">Latest Posts</a>-->
+<!--                {% if site.facebook %}<a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>{% endif %}-->
+<!--                {% if site.twitter %}<a href="https://twiiter.com/{{ site.twitter }}" target="_blank" rel="noopener">Twitter</a>{% endif %}-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </footer>-->
+<!--</div>-->
 
-<!-- The big email subscribe modal content -->
-{% if site.subscribers %}
-<div id="subscribe" class="subscribe-overlay">
-    <a href="#" class="subscribe-overlay-close"></a>
-    <div class="subscribe-overlay-content">
-        {% if site.log %}
-        <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}" />
-        {% endif %}
-        <h1 class="subscribe-overlay-title">Subscribe to {{ site.title }}</h1>
-        <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
-        {% include subscribe-form.html placeholder="incyverse@gmail.com" %}
-    </div>
-</div>
-{% endif %}
+<!--&lt;!&ndash; The big email subscribe modal content &ndash;&gt;-->
+<!--{% if site.subscribers %}-->
+<!--<div id="subscribe" class="subscribe-overlay">-->
+<!--    <a href="#" class="subscribe-overlay-close"></a>-->
+<!--    <div class="subscribe-overlay-content">-->
+<!--        {% if site.log %}-->
+<!--        <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}" />-->
+<!--        {% endif %}-->
+<!--        <h1 class="subscribe-overlay-title">Subscribe to {{ site.title }}</h1>-->
+<!--        <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>-->
+<!--        {% include subscribe-form.html placeholder="incyverse@gmail.com" %}-->
+<!--    </div>-->
+<!--</div>-->
+<!--{% endif %}-->
 
-<!-- jQuery + Fitvids, which makes all video embeds responsive -->
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="{{ site.baseurl }}assets/js/jquery.fitvids.js"></script>
-<!--<script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>-->
+<!--&lt;!&ndash; jQuery + Fitvids, which makes all video embeds responsive &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>-->
+<!--<script type="text/javascript" src="{{ site.baseurl }}assets/js/jquery.fitvids.js"></script>-->
+<!--&lt;!&ndash;<script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>&ndash;&gt;-->
 
-<!-- highlight.js -->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-abap.min.js" integrity="sha512-PNbF9fC5Ufh4GDgB5e/jMYknEDdiBxuv1r7aok1zitYqwJB17bocJK+KQ99DL+l0LOyXbdpy4EALMEWEY0BKSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+<!--&lt;!&ndash; highlight.js &ndash;&gt;-->
+<!--&lt;!&ndash;<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-abap.min.js" integrity="sha512-PNbF9fC5Ufh4GDgB5e/jMYknEDdiBxuv1r7aok1zitYqwJB17bocJK+KQ99DL+l0LOyXbdpy4EALMEWEY0BKSg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>&ndash;&gt;-->
+<!--&lt;!&ndash;<script>&ndash;&gt;-->
+<!--&lt;!&ndash;    $(document).ready(() => {&ndash;&gt;-->
+<!--&lt;!&ndash;        $('pre code').each((i, block) => {&ndash;&gt;-->
+<!--&lt;!&ndash;            hljs.highlightBlock(block);&ndash;&gt;-->
+<!--&lt;!&ndash;        });&ndash;&gt;-->
+<!--&lt;!&ndash;    });&ndash;&gt;-->
+<!--&lt;!&ndash;</script>&ndash;&gt;-->
+
+<!--&lt;!&ndash; Paginator increased to "infinit" in _config.yml &ndash;&gt;-->
+<!--{% if paginator.total_pages > site.paginate %}-->
 <!--<script>-->
-<!--    $(document).ready(() => {-->
-<!--        $('pre code').each((i, block) => {-->
-<!--            hljs.highlightBlock(block);-->
-<!--        });-->
-<!--    });-->
+<!--    const maxPages = parseInt('{{ paginator.total_pages }}');-->
 <!--</script>-->
+<!--<script src="{{ site.baseurl }}assets/js/infinitescroll.js"></script>-->
+<!--{% endif %}-->
 
-<!-- Paginator increased to "infinit" in _config.yml -->
-{% if paginator.total_pages > site.paginate %}
-<script>
-    const maxPages = parseInt('{{ paginator.total_pages }}');
-</script>
-<script src="{{ site.baseurl }}assets/js/infinitescroll.js"></script>
-{% endif %}
+<!--&lt;!&ndash; Add Google Analytics &ndash;&gt;-->
+<!--{% include analytics.html %}-->
 
-<!-- Add Google Analytics -->
-{% include analytics.html %}
-
-<!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
-{% if page.class == 'post-template' %}
-    {% include post-scripts.html %}
-{% elsif page.class == 'page-template' %}
-    {% include page-scripts.html %}
-{% endif %}
-</body>
-</html>
+<!--&lt;!&ndash; The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. &ndash;&gt;-->
+<!--{% if page.class == 'post-template' %}-->
+<!--    {% include post-scripts.html %}-->
+<!--{% elsif page.class == 'page-template' %}-->
+<!--    {% include page-scripts.html %}-->
+<!--{% endif %}-->
+<!--</body>-->
+<!--</html>-->
