@@ -15,6 +15,14 @@
             {% include post-pagination.html %}
         {% endif %}
     {% endif %}
+
+    <footer class="site-footer outer">
+        <div class="site-footer-content inner">
+            <section class="copyright">
+                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+            </section>
+        </div>
+    </footer>
 </div>
 </body>
 </html>
