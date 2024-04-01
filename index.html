@@ -11,7 +11,25 @@ into the {body} of the default.hbs template -->
 
 <!-- The big featured header, it uses blog cover image as a BG if available -->
 <header class="site-header outer">
-    header
+    <div class="inner">
+        <div class="site-header-content">
+            <h1 class="site-title">
+                {% if site.logo %}
+                <img src="{{ site.baseurl }}{{ site.logo }}" class="site-logo" alt="{{ site.title }}" />
+                {% else %}
+                {{ site.title }}
+                {% endif %}
+            </h1>
+            <h2 class="site-description">
+                {% if page.description %}
+                {{ page.description }}
+                {% else %}
+                {{ site.description }}
+                {% endif %}
+            </h2>
+        </div>
+        {% include site-nav.html %}
+    </div>
 </header>
 
 <!-- The main content area -->
