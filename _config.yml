@@ -1,0 +1,146 @@
+# Welcome to Jekyll!!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons,  this file is *NOT* reloaded automatically when you use
+# `bundle exec jekyll server`. If you change this file. please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick reference for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Site settings:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see time accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}
+
+title: InCyVerse
+name:
+email: incyverse@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+
+# the subpath of your site, e.g. /blog
+# edit baseurl to simply '/' if using as your personal page (instead of a project page)
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+CNAME: blog.incyverse.com # add cname for website to be created
+
+logo: assets/images/logo.png
+favicon: assets/images/favicon.png
+cover: assets/images/cover.jpg
+
+# if 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
+github: incyverse
+#facebook:
+#twitter:
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Jekyll configuration:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Analytics
+#google_analytics: UA-69281367-1 # replace with your GA tracking identifier
+
+# Comment
+#disqus: False
+#disqus_shortname: jekyllt # replace with your disqus username
+
+footer-links:
+  email:
+  facebook:
+  flickr:
+  github:
+  instagram:
+  linkedin:
+  pinterest:
+  rss:
+  stackoverflow:
+  tumblr:
+  twitter:
+  youtube:
+
+highlighter: rouge
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
+
+language: 'en-us'
+markdown: kramdown
+
+paginate: 100
+paginate_path: /page:num
+
+# Permalink
+permalink: /:title
+#permalink: /author/:author
+#permalink: /tag/:tag
+
+# Authors' info in `_data/authors.yml`
+# Tags' info in `_data/tags_info.yml`
+
+subscribers: True # you need to connect an external service for this to work.
+
+timezone: Asia/Seoul
+# The release of Jekyll now that you're using
+version: v1.0.0
+words_per_minute: 200
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Build settings:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+feed:
+  path: feed.xml
+
+plugins_dir: [_plugins]
+# Use the following plug-ins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create a Atom using the official Jekyll feed gem
+
+sass:
+  sass_dir: _sass
+  style: :expanded # you might prefer to minify using: :compressed
+
+#theme: minima
+
+#────────────────────────────────────────────────────────────────────────────────────────────────────
+# ─── Default YAML values:
+#────────────────────────────────────────────────────────────────────────────────────────────────────
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Exclude from processing:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# The following items will not be processed. by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `included:` list.
+exclude:
+  - .jekyll-cache/
+  - .sass-cache/
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+excerpt_separator: ---

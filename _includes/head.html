@@ -1,0 +1,30 @@
+<head>
+    {% include meta.html %}
+
+    {% if page.url %}
+        {% if page.url contains "tag/" %}
+            {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: '-', ' ' | capitalizeall %}
+        {% elsif page.url contains "author/" %}
+            {% assign username = page.url | remove: 'author' | remove: '/' | replace: '-' , ' ' | remove: ' ' %}
+            {% for author in site.data.authors %}
+                {% if author[1].username == username %}
+                    {% assign title = author[1].name %}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    {% if title %}
+        {% assign title = title | append: ' - ' | append: site.title %}
+    {% endif %}
+    <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}{{ site.favicon }}" />
+    <link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}{% endif %}{{ page.url | remove_first: '/' }}" />
+    <link rel="alternate" type="application/rss+xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" href="{{ site.baseurl }}feed.xml" />
+    {% include fonts.html %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+    <link rel="stylesheet" href="{{ site.baseurl }}/style.css" />
+
+    {% include scripts.html %}
+</head>
