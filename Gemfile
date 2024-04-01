@@ -9,6 +9,7 @@ source "https://rubygems.org"
 
 # Happy Jekylling!
 gem "jekyll", "~> 4.3.3"
+# gem "jekyll", "~> 3.9.5"
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5"
@@ -39,5 +40,8 @@ end
 # do not have a Java counterpart.
 #gem "http_parser.rb" "~> 0.6.0", :platforms => [:jruby]
 
+gem "csv", "~> 3.0"
+gem "base64", "~> 0.2.0"
+gem "bigdecimal", "~> 3.1", ">= 3.1.7"
 # gem "rake", "~> 13.0.3"
 # gem "slugify", "~> 1.0.7"
