@@ -30,6 +30,20 @@ baseurl: "" # the subpath of your site, e.g. /blog
 #CNAME: blog.incyverse.com # add cname for website to be created
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Build settings:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Use the following plug-ins
+plugins:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
+
+# Set the SASS partials directory, as we're using @imports
+sass:
+  sass_dir: _sass
+  style: :expanded # You might prefer to minify using :compressed
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Exclude from processing:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # The following items will not be processed. by default.
