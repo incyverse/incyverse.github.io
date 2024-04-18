@@ -32,6 +32,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Jekyll configuration:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+paginate: 8
+
+permalink: /:title/
+paginate_path: /page:num/
+
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
