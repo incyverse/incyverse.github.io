@@ -5,6 +5,7 @@
 # 블로그 이름 "LOFFER"를 원하는 블로그 이름올 바꿔주세요. 다음 수정도 비슷하게 처리됩니다.
 # "name: LOFFER"에서는 콜론 뒤의 공백을 생략할 수 없습니다.
 # 파운드가 기호 뒤의 텍스트는 문서이므로 프로그램에서 읽을 수 없습니다.
+title: incyverse
 name: THiRA ROBOTICS
 # 설명/서명
 description: 기술 블로그
