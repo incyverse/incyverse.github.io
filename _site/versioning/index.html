@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Versioning – THiRA ROBOTICS – 기술 블로그</title>
+
+      <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="버전 포맷
+
+
+
+&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;[-&lt;Tag&gt;&lt;HotFix&gt;]
+
+
+  Major (주 번호)
+    
+      기존 버전과 호환되지 않는 기능 추가 또는 삭제 시 버전 업
+      이하 버전 초기화
+    
+  
+  Minor (부 번호)
+    
+      기존 버전과 호환 되는 새로운 기능 추가 또는 일부 삭제 시 버전 업
+      이하 저번 초기화
+    
+  
+  Patch (수정 번호)
+    
+      기존 버전과 호환 되는 버그 수정, 기능 추가 시 버전 업
+      기능이 대폭 추가 또는 개선되거나 예정된 제거 기능 표시가 포함되는 경우 부 버전으로 올릴 수 있다. 유동적으로 상황에 따라 반영한다.
+    
+  
+  Tag
+    
+      alpha (알파 버전)
+        
+          내부 개발 테스트 버전
+        
+      
+      beta (베타 버전)
+        
+          개발 최종 완성 전에 검사를 하기 위한 버전
+        
+      
+      release candidate (발매 버전 후보)
+        
+          베타 버전 보다 한단계 개선된 버전
+          실제 환경에 배포하여 rc1 &gt; rc2 &gt; rc3식의 과정을 거친 후 최종 배포를 진행
+          우리는 해당 버전은 사용하지 않음
+        
+      
+      발매 버전
+        
+          최종 배포 버전
+          태그는 생략하며, 필요에 따라 stable 표기를 한다.
+          stable 표기 사용 시 stable version branch를 생성한다.
+        
+      
+    
+  
+  Hot Fix
+    
+      수정 카운트를 tag 뒤에 증가시킨다.
+    
+  
+
+
+형상 관리 요구사항
+
+
+
+각 tag 별로 branch 관리가 되어야 하며, 작업용/배포용 코드로 나누어 project 진행하기 위해 꼭 필요하다.
+
+
+  작업용 branch : alpha, beta
+  배포용 branch : main
+
+
+버전 표기 시나리오
+
+
+
+최초 개발을 진행할 때는 x.y.z로 시작한다. 초기 개발을 위해 사용하는 x.y.z는 아무때나 마음대로 변경이 가능하다. Software가 운영 서비스에 쓰이기 시작하면 1.0.0으로 시작한다.
+
+프로젝트 시작
+
+
+  
+    
+      Phase
+      Start
+      Iteration 1
+      Iteration 2
+      Iteration 3
+    
+    
+      :
+       
+       
+       
+       
+    
+  
+
+" />
+    <meta property="og:description" content="버전 포맷
+
+
+
+&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;[-&lt;Tag&gt;&lt;HotFix&gt;]
+
+
+  Major (주 번호)
+    
+      기존 버전과 호환되지 않는 기능 추가 또는 삭제 시 버전 업
+      이하 버전 초기화
+    
+  
+  Minor (부 번호)
+    
+      기존 버전과 호환 되는 새로운 기능 추가 또는 일부 삭제 시 버전 업
+      이하 저번 초기화
+    
+  
+  Patch (수정 번호)
+    
+      기존 버전과 호환 되는 버그 수정, 기능 추가 시 버전 업
+      기능이 대폭 추가 또는 개선되거나 예정된 제거 기능 표시가 포함되는 경우 부 버전으로 올릴 수 있다. 유동적으로 상황에 따라 반영한다.
+    
+  
+  Tag
+    
+      alpha (알파 버전)
+        
+          내부 개발 테스트 버전
+        
+      
+      beta (베타 버전)
+        
+          개발 최종 완성 전에 검사를 하기 위한 버전
+        
+      
+      release candidate (발매 버전 후보)
+        
+          베타 버전 보다 한단계 개선된 버전
+          실제 환경에 배포하여 rc1 &gt; rc2 &gt; rc3식의 과정을 거친 후 최종 배포를 진행
+          우리는 해당 버전은 사용하지 않음
+        
+      
+      발매 버전
+        
+          최종 배포 버전
+          태그는 생략하며, 필요에 따라 stable 표기를 한다.
+          stable 표기 사용 시 stable version branch를 생성한다.
+        
+      
+    
+  
+  Hot Fix
+    
+      수정 카운트를 tag 뒤에 증가시킨다.
+    
+  
+
+
+형상 관리 요구사항
+
+
+
+각 tag 별로 branch 관리가 되어야 하며, 작업용/배포용 코드로 나누어 project 진행하기 위해 꼭 필요하다.
+
+
+  작업용 branch : alpha, beta
+  배포용 branch : main
+
+
+버전 표기 시나리오
+
+
+
+최초 개발을 진행할 때는 x.y.z로 시작한다. 초기 개발을 위해 사용하는 x.y.z는 아무때나 마음대로 변경이 가능하다. Software가 운영 서비스에 쓰이기 시작하면 1.0.0으로 시작한다.
+
+프로젝트 시작
+
+
+  
+    
+      Phase
+      Start
+      Iteration 1
+      Iteration 2
+      Iteration 3
+    
+    
+      :
+       
+       
+       
+       
+    
+  
+
+" />
+    
+    <meta name="author" content="THiRA ROBOTICS" />
+
+    
+    <meta property="og:title" content="Versioning" />
+    <meta property="twitter:title" content="Versioning" />
+    
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+
+<!-- Async font loading -->
+<script>
+  window.WebFontConfig = {
+      custom: {
+          families: ['Spoqa Han Sans:100,300,400,700'],
+          urls: ['https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css']
+      },
+      timeout: 60000
+  };
+  (function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js';
+      s.parentNode.insertBefore(wf, s);
+  })(document);
+</script>
+
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/style.css" />
+  <link rel="alternate" type="application/rss+xml" title="THiRA ROBOTICS - 기술 블로그" href="/feed.xml" />
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/favicon.png">
+  <script src="https://kit.fontawesome.com/56f7faf3f4.js"></script>
+
+  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+</head>
+  <body>
+    <div class="wrapper-sidebar">
+  <header class="sidebar clearfix">
+    <div class="site-info">
+      
+        <a href="/" class="site-avatar"><img src="https://raw.githubusercontent.com/FromEndWorld/LOFFER/master/images/logo.png" /></a>
+       
+      <h1 class="site-name"><a href="/">THiRA ROBOTICS</a></h1>
+      <p class="site-description">기술 블로그</p>
+    </div>
+  </header>
+
+  <div class="navlist">
+    <nav>
+      
+      
+      <a href="/">Home</a>
+      
+      
+      
+      <a href="/about">About</a>
+      
+      
+      
+      <a href="/archive">Archive</a>
+      
+      
+      
+      <a href="/tags">Tags</a>
+      
+      
+    </nav>
+  </div>
+
+  <div class="wrapper-footer-desktop">
+    <footer class="footer">
+      <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</ul>
+
+
+
+<p>Copyright (c) 2024</p>
+
+
+    </footer>
+  </div>
+</div>
+
+
+    <div id="main" role="main" class="wrapper-content">
+      <article class="posts">
+  <h1>Versioning</h1>
+
+  <div clsss="meta">
+    <span class="date">
+      2024-03-20
+    </span>
+
+    <ul class="tag">
+      
+      <li>
+        <a href="http://localhost:4000/tags#Development">
+          Development
+        </a>
+      </li>
+      
+    </ul>
+  </div>
+
+  <div class="entry">
+    <h1 id="버전-포맷">버전 포맷</h1>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;[-&lt;Tag&gt;&lt;HotFix&gt;]</code></p>
+
+<ol>
+  <li>Major (주 번호)
+    <ul>
+      <li>기존 버전과 호환되지 않는 기능 추가 또는 삭제 시 버전 업</li>
+      <li>이하 버전 초기화</li>
+    </ul>
+  </li>
+  <li>Minor (부 번호)
+    <ul>
+      <li>기존 버전과 호환 되는 새로운 기능 추가 또는 일부 삭제 시 버전 업</li>
+      <li>이하 저번 초기화</li>
+    </ul>
+  </li>
+  <li>Patch (수정 번호)
+    <ul>
+      <li>기존 버전과 호환 되는 버그 수정, 기능 추가 시 버전 업</li>
+      <li>기능이 대폭 추가 또는 개선되거나 예정된 제거 기능 표시가 포함되는 경우 부 버전으로 올릴 수 있다. 유동적으로 상황에 따라 반영한다.</li>
+    </ul>
+  </li>
+  <li>Tag
+    <ul>
+      <li>alpha (알파 버전)
+        <ul>
+          <li>내부 개발 테스트 버전</li>
+        </ul>
+      </li>
+      <li>beta (베타 버전)
+        <ul>
+          <li>개발 최종 완성 전에 검사를 하기 위한 버전</li>
+        </ul>
+      </li>
+      <li><del>release candidate (발매 버전 후보)</del>
+        <ul>
+          <li><del>베타 버전 보다 한단계 개선된 버전</del></li>
+          <li><del>실제 환경에 배포하여 <code class="language-plaintext highlighter-rouge">rc1</code> &gt; <code class="language-plaintext highlighter-rouge">rc2</code> &gt; <code class="language-plaintext highlighter-rouge">rc3</code>식의 과정을 거친 후 최종 배포를 진행</del></li>
+          <li>우리는 해당 버전은 사용하지 않음</li>
+        </ul>
+      </li>
+      <li>발매 버전
+        <ul>
+          <li>최종 배포 버전</li>
+          <li>태그는 생략하며, 필요에 따라 <strong>stable</strong> 표기를 한다.</li>
+          <li><strong>stable</strong> 표기 사용 시 <strong>stable version branch</strong>를 생성한다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Hot Fix
+    <ul>
+      <li>수정 카운트를 tag 뒤에 증가시킨다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="형상-관리-요구사항">형상 관리 요구사항</h1>
+
+<hr />
+
+<p>각 tag 별로 branch 관리가 되어야 하며, 작업용/배포용 코드로 나누어 project 진행하기 위해 꼭 필요하다.</p>
+
+<ul>
+  <li>작업용 branch : alpha, beta</li>
+  <li>배포용 branch : main</li>
+</ul>
+
+<h1 id="버전-표기-시나리오">버전 표기 시나리오</h1>
+
+<hr />
+
+<p>최초 개발을 진행할 때는 <code class="language-plaintext highlighter-rouge">x.y.z</code>로 시작한다. 초기 개발을 위해 사용하는 <code class="language-plaintext highlighter-rouge">x.y.z</code>는 아무때나 마음대로 변경이 가능하다. Software가 운영 서비스에 쓰이기 시작하면 <code class="language-plaintext highlighter-rouge">1.0.0</code>으로 시작한다.</p>
+
+<h2 id="프로젝트-시작">프로젝트 시작</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Phase</strong></th>
+      <th>Start</th>
+      <th>Iteration 1</th>
+      <th>Iteration 2</th>
+      <th>Iteration 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>v0.1.0-alpha</td>
+      <td>v0.1.1-alpha</td>
+      <td>v0.1.2-alpha</td>
+      <td>v0.1.3-alpha</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>v1.0.0-alpha</td>
+      <td>v1.0.1-alpha</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>v1.1.0-alpha</td>
+      <td>v1.1.1-alpha</td>
+      <td>v1.1.2-alpha</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>v2.0.0-alpha</td>
+      <td>v2.0.1-alpha</td>
+      <td>v2.0.2-alpha</td>
+      <td>v2.0.3-alpha</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="베타-테스트-시작">베타 테스트 시작</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Phase</strong></th>
+      <th>Latest Alpha</th>
+      <th>Bug Fix 1</th>
+      <th>Bug Fix 2</th>
+      <th>Bug Fix 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>v0.1.3-beta</td>
+      <td>v0.1.3-beta1</td>
+      <td>v0.1.3-beta2</td>
+      <td>v0.1.3-beta3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>v1.0.1-beta</td>
+      <td>v1.0.1-beta1</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>v1.1.2-beta</td>
+      <td>v1.1.2-beta1</td>
+      <td>v1.1.2-beta2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>v2.0.3-beta</td>
+      <td>v2.0.3-beta1</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="최종-버전">최종 버전</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Latest Alpha</th>
+      <th>Latest Beta</th>
+      <th>Final Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">v0.1.3-alpha</td>
+      <td>v0.1.3-beta2</td>
+      <td>v1.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v1.0.1-alpha</td>
+      <td>v1.0.1-beta2</td>
+      <td>v1.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v1.1.2-alpha</td>
+      <td>v1.1.2-beta3</td>
+      <td>v1.2.0 or v2.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v2.0.3-alpha</td>
+      <td>v2.0.3-beta1</td>
+      <td>v2.1.0</td>
+    </tr>
+  </tbody>
+</table>
+
+  </div>
+</article>
+
+<div class="pagination">
+  
+    <span class="prev" >
+      <a href="http://localhost:4000/gitignore/">
+        ← 이전
+      </a>
+    </span>
+  
+  
+</div>
+
+    </div>
+
+    
+
+  </body>
+
+  <div class="wrapper-footer-mobile">
+    <footer class="footer">
+      <!-- Refer to https://codepen.io/ruandre/pen/howFi -->
+<ul class="svg-icon">
+
+  
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</ul>
+
+
+
+<p>Copyright (c) 2024</p>
+
+
+    </footer>
+</html>

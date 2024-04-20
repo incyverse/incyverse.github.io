@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-03-23T12:01:51+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">THiRA ROBOTICS</title><subtitle>기술 블로그</subtitle><entry><title type="html">Git commit messages</title><link href="http://localhost:4000/git-commit-message/" rel="alternate" type="text/html" title="Git commit messages" /><published>2024-03-20T00:00:00+09:00</published><updated>2024-03-20T00:00:00+09:00</updated><id>http://localhost:4000/git-commit-message</id><content type="html" xml:base="http://localhost:4000/git-commit-message/"><![CDATA[<h1 id="commit-message-규칙">Commit Message 규칙</h1>
+
+<hr />
+
+<h2 id="동명사보다-명사를-사용한다">동명사보다 명사를 사용한다.</h2>
+
+<p>동사를 명사화 시키기 보다는 그 의미를 잘 표현하는 명사를 찾아서 사용한다. 이렇게 하면 문장이 장황하지 않고 간결 해진다.</p>
+
+<h2 id="관사는-사용하지-않는다">관사는 사용하지 않는다.</h2>
+
+<p>꼭 필요한 경우가 아니면 <strong>a</strong>, <strong>an</strong>, <strong>the</strong>는 사용하지 않는다.</p>
+
+<h2 id="부정문-dont를-사용한다">부정문 Don’t를 사용한다.</h2>
+
+<p>Commit Message를 명령문 형태로 써야 한다는 것은 모두들 알고 있지만, 부정 명령문을 사용하는 것은 잘 모른다. <code class="language-plaintext highlighter-rouge">A를 사용해</code>라고 명령 했으니 반대를 이야기
+할 때는 <code class="language-plaintext highlighter-rouge">A는 사용하지마'로 표현해야 한다. </code>Not use<code class="language-plaintext highlighter-rouge">가 아니라 </code>Don’t use’로 써야 한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Don't use apdy on node &gt;= v10.0.0
+Don't write to the persisted query cache until execution will begin.
+Do not return list if there are too many crashes.
+</code></pre></div></div>
+
+<h2 id="오타-수정은-correct-misspelled-text가-아니다">오타 수정은 Correct misspelled text가 아니다.</h2>
+
+<p>그냥 <strong>Fix typo</strong>라고만 하면 된다.</p>
+
+<h1 id="add">ADD</h1>
+
+<p>Document, Resource, Library, Code 추가가 있을 때 사용한다.</p>
+
+<hr />
+
+<h2 id="add-a">Add A</h2>
+
+<blockquote>
+  <p>A를 추갸했다.<br />
+추가하는 행위는 대부분 목표나 목적이 명시되기 때문에 이 pattern은 자주 사용되지 않는다.</p>
+</blockquote>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Add ERR_INSPECTOR_COMMAND error
+</code></pre></div></div>]]></content><author><name>Anthony</name></author><category term="GIT" /><summary type="html"><![CDATA[Commit Message 규칙 동명사보다 명사를 사용한다. 동사를 명사화 시키기 보다는 그 의미를 잘 표현하는 명사를 찾아서 사용한다. 이렇게 하면 문장이 장황하지 않고 간결 해진다. 관사는 사용하지 않는다. 꼭 필요한 경우가 아니면 a, an, the는 사용하지 않는다. 부정문 Don’t를 사용한다. Commit Message를 명령문 형태로 써야 한다는 것은 모두들 알고 있지만, 부정 명령문을 사용하는 것은 잘 모른다. A를 사용해라고 명령 했으니 반대를 이야기 할 때는 A는 사용하지마'로 표현해야 한다. Not use가 아니라 Don’t use’로 써야 한다. Don't use apdy on node &gt;= v10.0.0 Don't write to the persisted query cache until execution will begin. Do not return list if there are too many crashes. 오타 수정은 Correct misspelled text가 아니다. 그냥 Fix typo라고만 하면 된다. ADD Document, Resource, Library, Code 추가가 있을 때 사용한다. Add A A를 추갸했다. 추가하는 행위는 대부분 목표나 목적이 명시되기 때문에 이 pattern은 자주 사용되지 않는다. Add ERR_INSPECTOR_COMMAND error]]></summary></entry><entry><title type="html">Gitignore 관리</title><link href="http://localhost:4000/gitignore/" rel="alternate" type="text/html" title="Gitignore 관리" /><published>2024-03-20T00:00:00+09:00</published><updated>2024-03-20T00:00:00+09:00</updated><id>http://localhost:4000/gitignore</id><content type="html" xml:base="http://localhost:4000/gitignore/"><![CDATA[<h1 id="개요">개요</h1>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">.gitignore</code> 파일은 Git이 무시해야 하는 의도적으로 추적되지 않은 파일을 지정한다. Git에서 이미 추적한 파일은 영향을 받지 않는다.</p>
+
+<h1 id="구성">구성</h1>
+
+<hr />
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   ENVIRONMENT:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+.env
+.env*
+!.env.example
+*.crt
+*.csr
+*.key
+*.org
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   DEPENDENCIES:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#────: FRONT-END
+node_modeuls
+.pnp
+.pnp.js
+
+#────: BACK-END
+.gradle
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build
+!**/src/test/**/build
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   TESTING:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+coverage
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   OUTPUT:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+dist
+build
+public
+!/public/index.html
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   LOG:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   IDE:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#────: JETBRAINS
+.idea
+
+#────: VSCODE
+.vscode
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+#────: STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin
+!**/src/main/**/bin
+!**/src/test/**/bin
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   OS:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#────: Mac
+.DS_Store
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   DOCKER:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+.docker-sync
+docker-storage
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#   MISC:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*.swp
+</code></pre></div></div>]]></content><author><name>Anthony</name></author><category term="GIT" /><summary type="html"><![CDATA[개요 .gitignore 파일은 Git이 무시해야 하는 의도적으로 추적되지 않은 파일을 지정한다. Git에서 이미 추적한 파일은 영향을 받지 않는다. 구성 #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # ENVIRONMENT: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── .env .env* !.env.example *.crt *.csr *.key *.org #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # DEPENDENCIES: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── #────: FRONT-END node_modeuls .pnp .pnp.js #────: BACK-END .gradle !gradle/wrapper/gradle-wrapper.jar !**/src/main/**/build !**/src/test/**/build #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # TESTING: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── coverage #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # OUTPUT: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── dist build public !/public/index.html #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # LOG: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── logs *.log npm-debug.log* yarn-debug.log* yarn-error.log* #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # IDE: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── #────: JETBRAINS .idea #────: VSCODE .vscode !.vscode/settings.json !.vscode/tasks.json !.vscode/launch.json !.vscode/extensions.json #────: STS .apt_generated .classpath .factorypath .project .settings .springBeans .sts4-cache bin !**/src/main/**/bin !**/src/test/**/bin #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # OS: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── #────: Mac .DS_Store #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # DOCKER: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── .docker-sync docker-storage #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── # MISC: #─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── *.swp]]></summary></entry><entry><title type="html">Versioning</title><link href="http://localhost:4000/versioning/" rel="alternate" type="text/html" title="Versioning" /><published>2024-03-20T00:00:00+09:00</published><updated>2024-03-20T00:00:00+09:00</updated><id>http://localhost:4000/versioning</id><content type="html" xml:base="http://localhost:4000/versioning/"><![CDATA[<h1 id="버전-포맷">버전 포맷</h1>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">&lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;[-&lt;Tag&gt;&lt;HotFix&gt;]</code></p>
+
+<ol>
+  <li>Major (주 번호)
+    <ul>
+      <li>기존 버전과 호환되지 않는 기능 추가 또는 삭제 시 버전 업</li>
+      <li>이하 버전 초기화</li>
+    </ul>
+  </li>
+  <li>Minor (부 번호)
+    <ul>
+      <li>기존 버전과 호환 되는 새로운 기능 추가 또는 일부 삭제 시 버전 업</li>
+      <li>이하 저번 초기화</li>
+    </ul>
+  </li>
+  <li>Patch (수정 번호)
+    <ul>
+      <li>기존 버전과 호환 되는 버그 수정, 기능 추가 시 버전 업</li>
+      <li>기능이 대폭 추가 또는 개선되거나 예정된 제거 기능 표시가 포함되는 경우 부 버전으로 올릴 수 있다. 유동적으로 상황에 따라 반영한다.</li>
+    </ul>
+  </li>
+  <li>Tag
+    <ul>
+      <li>alpha (알파 버전)
+        <ul>
+          <li>내부 개발 테스트 버전</li>
+        </ul>
+      </li>
+      <li>beta (베타 버전)
+        <ul>
+          <li>개발 최종 완성 전에 검사를 하기 위한 버전</li>
+        </ul>
+      </li>
+      <li><del>release candidate (발매 버전 후보)</del>
+        <ul>
+          <li><del>베타 버전 보다 한단계 개선된 버전</del></li>
+          <li><del>실제 환경에 배포하여 <code class="language-plaintext highlighter-rouge">rc1</code> &gt; <code class="language-plaintext highlighter-rouge">rc2</code> &gt; <code class="language-plaintext highlighter-rouge">rc3</code>식의 과정을 거친 후 최종 배포를 진행</del></li>
+          <li>우리는 해당 버전은 사용하지 않음</li>
+        </ul>
+      </li>
+      <li>발매 버전
+        <ul>
+          <li>최종 배포 버전</li>
+          <li>태그는 생략하며, 필요에 따라 <strong>stable</strong> 표기를 한다.</li>
+          <li><strong>stable</strong> 표기 사용 시 <strong>stable version branch</strong>를 생성한다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Hot Fix
+    <ul>
+      <li>수정 카운트를 tag 뒤에 증가시킨다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="형상-관리-요구사항">형상 관리 요구사항</h1>
+
+<hr />
+
+<p>각 tag 별로 branch 관리가 되어야 하며, 작업용/배포용 코드로 나누어 project 진행하기 위해 꼭 필요하다.</p>
+
+<ul>
+  <li>작업용 branch : alpha, beta</li>
+  <li>배포용 branch : main</li>
+</ul>
+
+<h1 id="버전-표기-시나리오">버전 표기 시나리오</h1>
+
+<hr />
+
+<p>최초 개발을 진행할 때는 <code class="language-plaintext highlighter-rouge">x.y.z</code>로 시작한다. 초기 개발을 위해 사용하는 <code class="language-plaintext highlighter-rouge">x.y.z</code>는 아무때나 마음대로 변경이 가능하다. Software가 운영 서비스에 쓰이기 시작하면 <code class="language-plaintext highlighter-rouge">1.0.0</code>으로 시작한다.</p>
+
+<h2 id="프로젝트-시작">프로젝트 시작</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Phase</strong></th>
+      <th>Start</th>
+      <th>Iteration 1</th>
+      <th>Iteration 2</th>
+      <th>Iteration 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>v0.1.0-alpha</td>
+      <td>v0.1.1-alpha</td>
+      <td>v0.1.2-alpha</td>
+      <td>v0.1.3-alpha</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>v1.0.0-alpha</td>
+      <td>v1.0.1-alpha</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>v1.1.0-alpha</td>
+      <td>v1.1.1-alpha</td>
+      <td>v1.1.2-alpha</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>v2.0.0-alpha</td>
+      <td>v2.0.1-alpha</td>
+      <td>v2.0.2-alpha</td>
+      <td>v2.0.3-alpha</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="베타-테스트-시작">베타 테스트 시작</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>Phase</strong></th>
+      <th>Latest Alpha</th>
+      <th>Bug Fix 1</th>
+      <th>Bug Fix 2</th>
+      <th>Bug Fix 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td>v0.1.3-beta</td>
+      <td>v0.1.3-beta1</td>
+      <td>v0.1.3-beta2</td>
+      <td>v0.1.3-beta3</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">2</td>
+      <td>v1.0.1-beta</td>
+      <td>v1.0.1-beta1</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">3</td>
+      <td>v1.1.2-beta</td>
+      <td>v1.1.2-beta1</td>
+      <td>v1.1.2-beta2</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td style="text-align: center">4</td>
+      <td>v2.0.3-beta</td>
+      <td>v2.0.3-beta1</td>
+      <td> </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="최종-버전">최종 버전</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Latest Alpha</th>
+      <th>Latest Beta</th>
+      <th>Final Release</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">v0.1.3-alpha</td>
+      <td>v0.1.3-beta2</td>
+      <td>v1.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v1.0.1-alpha</td>
+      <td>v1.0.1-beta2</td>
+      <td>v1.1.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v1.1.2-alpha</td>
+      <td>v1.1.2-beta3</td>
+      <td>v1.2.0 or v2.0.0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">v2.0.3-alpha</td>
+      <td>v2.0.3-beta1</td>
+      <td>v2.1.0</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Anthony</name></author><category term="Development" /><summary type="html"><![CDATA[버전 포맷 &lt;Major&gt;.&lt;Minor&gt;.&lt;Patch&gt;[-&lt;Tag&gt;&lt;HotFix&gt;] Major (주 번호) 기존 버전과 호환되지 않는 기능 추가 또는 삭제 시 버전 업 이하 버전 초기화 Minor (부 번호) 기존 버전과 호환 되는 새로운 기능 추가 또는 일부 삭제 시 버전 업 이하 저번 초기화 Patch (수정 번호) 기존 버전과 호환 되는 버그 수정, 기능 추가 시 버전 업 기능이 대폭 추가 또는 개선되거나 예정된 제거 기능 표시가 포함되는 경우 부 버전으로 올릴 수 있다. 유동적으로 상황에 따라 반영한다. Tag alpha (알파 버전) 내부 개발 테스트 버전 beta (베타 버전) 개발 최종 완성 전에 검사를 하기 위한 버전 release candidate (발매 버전 후보) 베타 버전 보다 한단계 개선된 버전 실제 환경에 배포하여 rc1 &gt; rc2 &gt; rc3식의 과정을 거친 후 최종 배포를 진행 우리는 해당 버전은 사용하지 않음 발매 버전 최종 배포 버전 태그는 생략하며, 필요에 따라 stable 표기를 한다. stable 표기 사용 시 stable version branch를 생성한다. Hot Fix 수정 카운트를 tag 뒤에 증가시킨다. 형상 관리 요구사항 각 tag 별로 branch 관리가 되어야 하며, 작업용/배포용 코드로 나누어 project 진행하기 위해 꼭 필요하다. 작업용 branch : alpha, beta 배포용 branch : main 버전 표기 시나리오 최초 개발을 진행할 때는 x.y.z로 시작한다. 초기 개발을 위해 사용하는 x.y.z는 아무때나 마음대로 변경이 가능하다. Software가 운영 서비스에 쓰이기 시작하면 1.0.0으로 시작한다. 프로젝트 시작 Phase Start Iteration 1 Iteration 2 Iteration 3 :        ]]></summary></entry></feed>

@@ -5,7 +5,6 @@
 # 블로그 이름 "LOFFER"를 원하는 블로그 이름올 바꿔주세요. 다음 수정도 비슷하게 처리됩니다.
 # "name: LOFFER"에서는 콜론 뒤의 공백을 생략할 수 없습니다.
 # 파운드가 기호 뒤의 텍스트는 문서이므로 프로그램에서 읽을 수 없습니다.
-title: incyverse
 name: THiRA ROBOTICS
 # 설명/서명
 description: 기술 블로그
@@ -35,7 +34,7 @@ navigation:
 paginate: 8
 
 # 소셜 네트워크에 대한 링크 웹사이트 바닥글에 아이콘으로 표시되며 선택 사항입니다.
-footer-links:
+footer-links: 
 #  weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
 #  behance: # https://www.behance.net/<>
 #  dribbble: # https://dribbble.com/<>
@@ -62,7 +61,7 @@ footer-text: Copyright (c) 2024
 google_analytics:
 
 # 웹사이트 도메인 이름을 입력하세요. (자체 도메인 이름을 추가하지 않고 GitHub 페이지에서 할당한 도메인 이름을 직접 사용한 경우에는 생략 가능)
-url:
+url: 
 
 # 블로그의 두 번째 수준 도메인 이름(일반적으로 저장소 이름)을 추가하세요.
 # 블로그의 URL이 다음과 같은 경우：(http://yourusername.github.io/repository-name)

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
-{% include head.html %}
+<html>
+  {% include head.html %}
+  <body>
+    {% include nav.html %}
 
-<body>
-<div class="site-wrapper">
-    <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-    {{ content }}
-</div>
-</body>
+    <div id="main" role="main" class="wrapper-content">
+      {{ content }}
+    </div>
+
+    {% include analytics.html %}
+  </body>
+
+  <div class="wrapper-footer-mobile">
+    <footer class="footer">
+      {% include footer.html %}
+    </footer>
 </html>
