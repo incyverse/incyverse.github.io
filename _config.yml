@@ -20,25 +20,25 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}
 
-title: InCyVerse
+#title: InCyVerse
 name: InCyVerse
-email: incyverse@gmail.com
+#email: incyverse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-CNAME: blog.incyverse.com # add cname for website to be created
+#CNAME: blog.incyverse.com # add cname for website to be created
 
-logo: assets/images/logo.png
+#logo: assets/images/logo.png
 # Favicon (appears in browser tab) image URL, preferably smaller (64px * 64px) image.
 favicon: assets/images/favicon.png
-cover: assets/images/cover.jpg
+#cover: assets/images/cover.jpg
 # Blog logo image URL, recommended size cannot exceed 300px * 300px
 avatar: assets/images/logo.png
 
 # If 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
-github: incyverse
+#github: incyverse
 #facebook:
 #twitter:
 
@@ -70,7 +70,7 @@ navigation:
   - name: Tags
     url: /tags
 
-paginate: 0
+paginate: 10
 paginate_path: /page:num/
 
 #permalink: /author/:author
@@ -81,7 +81,7 @@ permalink: /:title/
 
 #timezone: Asia/Seoul
 
-#version: v2.0.0 # The release of Jekyll now that you're using
+version: v2.0.0 # The release of Jekyll now that you're using
 
 #words_per_minute: 200
 
