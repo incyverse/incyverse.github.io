@@ -45,11 +45,11 @@ github: incyverse
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Jekyll configuration:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-highlighter: rouge
+#highlighter: rouge
 
-language: "en-US"
+#language: "en-US"
 
-markdown: kramdown
+#markdown: kramdown
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
@@ -77,16 +77,16 @@ paginate_path: /page:num/
 #permalink: /tag/:tag
 permalink: /:title/
 
-subscribers: True # You need to connect an external service for this to work.
+#subscribers: True # You need to connect an external service for this to work.
 
-timezone: Asia/Seoul
+#timezone: Asia/Seoul
 
-version: v2.0.0 # The release of Jekyll now that you're using
+#version: v2.0.0 # The release of Jekyll now that you're using
 
-words_per_minute: 200
+#words_per_minute: 200
 
 # Analytics
-google_analytics: UA-69281367-1 # Replace with your GA tracking identifier
+#google_analytics: UA-69281367-1 # Replace with your GA tracking identifier
 
 # Comment
 #disqus: loffer #shortname
@@ -114,7 +114,7 @@ footer-text: Copyright (c) 2020
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Build settings:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-plugins_dir: [_plugins]
+#plugins_dir: [_plugins]
 # Use the following plug-ins
 plugins:
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
@@ -126,8 +126,8 @@ sass:
   sass_dir: _sass
   style: :expanded # You might prefer to minify using :compressed
 
-feed:
-  path: feed.xml
+#feed:
+#  path: feed.xml
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Default YAML values:
@@ -147,14 +147,14 @@ feed:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `included:` list.
 exclude:
-#  - .jekyll-cache
-#  - .sass-cache
-#  - node_modules
-#  - vendor
   - Gemfile
   - Gemfile.lock
   - LICENSE
   - README.md
   - CNAME
+#  - .jekyll-cache
+#  - .sass-cache
+#  - node_modules
+#  - vendor
 
 excerpt_separator: ---
