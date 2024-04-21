@@ -132,11 +132,11 @@ feed:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Default YAML values:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
+#defaults:
+#  -
+#    scope:
+#      path: ""
+#      type: "posts"
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Exclude from processing:
@@ -147,10 +147,10 @@ defaults:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `included:` list.
 exclude:
-  - .jekyll-cache
-  - .sass-cache
-  - node_modules
-  - vendor
+#  - .jekyll-cache
+#  - .sass-cache
+#  - node_modules
+#  - vendor
   - Gemfile
   - Gemfile.lock
   - LICENSE

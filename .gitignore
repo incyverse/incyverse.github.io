@@ -25,6 +25,7 @@ node_modules
 
 # WebStorm
 .idea
+workspace.xml
 
 # ETC
 *.swp
