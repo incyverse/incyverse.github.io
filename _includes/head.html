@@ -1,17 +1,22 @@
 <head>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
   {% include meta.html %}
+
+  {% if page.url %}
+  {% endif %}
+
+  {% if title %}
+    {% assign title = title | append: ' - ' | append: site.title %}
+  {% endif %}
+  <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}{{ site.favicon }}" />
+  <link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}{% endif %}{{ page.url | remove_first: '/' }}" />
+  <link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
+
   {% include fonts.html %}
 
-  <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/style.css" />
 
-  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-  <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-  <link rel="shortcut icon" href="{{ site.favicon }}">
-  <script src="https://kit.fontawesome.com/56f7faf3f4.js"></script>
-
-  <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  {% include scripts.html %}
 </head>

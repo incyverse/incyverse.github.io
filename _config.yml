@@ -40,9 +40,9 @@ favicon: ""
 avatar: ""
 
 # If 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
-#github: incyverse
-#facebook:
-#twitter:
+github: incyverse
+facebook: ""
+twitter: ""
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Jekyll configuration:
