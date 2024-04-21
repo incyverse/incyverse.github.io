@@ -20,7 +20,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}
 
-#title: InCyVerse
+title: InCyVerse
 name: InCyVerse
 #email: incyverse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -32,10 +32,12 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 #logo: assets/images/logo.png
 # Favicon (appears in browser tab) image URL, preferably smaller (64px * 64px) image.
-favicon: assets/images/favicon.png
+#favicon: assets/images/favicon.png
+favicon: ""
 #cover: assets/images/cover.jpg
 # Blog logo image URL, recommended size cannot exceed 300px * 300px
-avatar: assets/images/logo.png
+#avatar: assets/images/logo.png
+avatar: ""
 
 # If 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
 #github: incyverse

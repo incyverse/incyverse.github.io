@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html>
-  {% include head.html %}
-  <body>
-    {% include nav.html %}
+<html lang="en">
+{% include head.html %}
 
-    <div id="main" role="main" class="wrapper-content">
-      {{ content }}
-    </div>
+<body>
+<div class="site-wrapper">
+    <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+    {{ content }}
 
-    {% include analytics.html %}
-  </body>
-
-  <div class="wrapper-footer-mobile">
-    <footer class="footer">
-      {% include footer.html %}
+    <footer class="site-footer outer">
+        <div class="site-footer-content inner">
+            <section class="copyright">
+                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+            </section>
+        </div>
     </footer>
+</div>
+</body>
 </html>
