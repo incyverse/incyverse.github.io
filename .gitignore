@@ -1,0 +1,31 @@
+# OS:
+.DS_Store
+
+# Jekyll build
+_draft
+_site
+.jekyll-metadata
+.jekyll-cache
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+vendor
+Gemfile.lock
+node_modules
+
+# WebStorm
+.idea
+
+# ETC
+*.swp
+package-lock.json
