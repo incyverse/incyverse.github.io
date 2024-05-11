@@ -6,11 +6,12 @@
 # feature for the data you need to update frequently.
 #
 # For technical reasons, this file is *NOT* reloaded automatically when you use
-# `bundle exec jekyll server`. If you change this file. please restart the server process.
+# `bundle exec jekyll serve`. If you change this file. Please restart the server process.
 #
 # If you need help with YAML syntax, here are some quick reference for you:
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.como/docs/yaml/
+#
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Site settings:
@@ -20,48 +21,34 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}
 
+# The release of Jekyll now that you're using
+version: v2.0.0
+
 title: InCyVerse
 name: InCyVerse
-#email: incyverse@gmail.com
+email: incyverse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
+
+language: "en-US"
 
 # edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #CNAME: blog.incyverse.com # add cname for website to be created
 
+# Blog logo image URL, recommended size cannot exceed 300px * 300px
 #logo: assets/images/logo.png
+#logo_dark: assets/images/logo-dark.png
+logo: ""
+
 # Favicon (appears in browser tab) image URL, preferably smaller (64px * 64px) image.
 #favicon: assets/images/favicon.png
 favicon: ""
+
 #cover: assets/images/cover.jpg
-# Blog logo image URL, recommended size cannot exceed 300px * 300px
-#avatar: assets/images/logo.png
-avatar: ""
+#avatar: assets/images/logo.jpg
 
-# If 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
-github: incyverse
-facebook: ""
-twitter: ""
-
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# Jekyll configuration:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#highlighter: rouge
-
-#language: "en-US"
-
-#markdown: kramdown
-# Jekyll 3 now only supports Kramdown for Markdown
-kramdown:
-  # Use GitHub flavored markdown, including triple backtick fenced code blocks
-  input: GFM
-  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    # Use existing pygments syntax highlighting css
-    css_class: "highlight"
-
+#navigation: True
 navigation:
   - name: Home
     url: /
@@ -73,28 +60,24 @@ navigation:
     url: /tags
 
 paginate: 10
-paginate_path: /page:num/
 
-#permalink: /author/:author
-#permalink: /tag/:tag
-permalink: /:title/
-
+# If 'True' the submit button is disabled for now, but you can change that
+# by editing `_includes/subscribe-form.html`
 #subscribers: True # You need to connect an external service for this to work.
-
-#timezone: Asia/Seoul
-
-version: v2.0.0 # The release of Jekyll now that you're using
 
 #words_per_minute: 200
 
-# Analytics
-#google_analytics: UA-69281367-1 # Replace with your GA tracking identifier
+#google_analytics: UA-69281367-1
 
-# Comment
-#disqus: loffer #shortname
-#disqus_shortname: jekyllt # replace with your disqus username
+#disqus: jekyll # shortname
+#disqus_shortname: jekyll
 
-footer-links:
+# If 'True' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html'
+github: incyverse
+facebook: ""
+twitter: ""
+
+#footer-links:
 #  behance: # https://www.behance.net/<>
 #  dribbble: # https://dribbble.com/<>
 #  email: fromendworld@outlook.com
@@ -111,26 +94,6 @@ footer-links:
 #  weibo: frommidworld #请输入你的微博个性域名 https://www.weibo.com/<thispart>
 #  youtube: # channel/<your_long_string> or user/<user-name>
 
-footer-text: Copyright (c) 2020
-
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# Build settings:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#plugins_dir: [_plugins]
-# Use the following plug-ins
-plugins:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
-  - jekyll-paginate
-
-# Set the SASS partials directory, as we're using @imports
-sass:
-  sass_dir: _sass
-  style: :expanded # You might prefer to minify using :compressed
-
-#feed:
-#  path: feed.xml
-
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Default YAML values:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -139,6 +102,49 @@ sass:
 #    scope:
 #      path: ""
 #      type: "posts"
+
+# Authors' info in `_data/authors.yml`
+# Tag' info in `_data/tags_info.yml`
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Jekyll configuration:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+feed:
+  path: feed.xml
+
+highlighter: rouge
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: "highlight"
+
+markdown: kramdown
+
+paginate_path: /page:num
+
+#permalink: /author/:author
+#permalink: /tag/:tag
+permalink: /:title
+
+# Use the following plug-ins
+#plugins_dir: [_plugins] # takes an array of strings and loads plugin in that order
+plugins:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-paginate
+
+# Set the SASS partials directory, as we're using @imports
+sass:
+  sass_dir: _sass
+  style: expanded # You might prefer to minify using :compressed
+
+timezone: Asia/Seoul
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Exclude from processing:
@@ -149,14 +155,24 @@ sass:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `included:` list.
 exclude:
+  - assets/css
+  - node_modules
+  - vendor
+  - .travis.yml
   - Gemfile
   - Gemfile.lock
+  - gulpfile.js
   - LICENSE
-  - README.md
   - CNAME
-#  - .jekyll-cache
-#  - .sass-cache
-#  - node_modules
-#  - vendor
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README.md
+  - script.py
+  - changelog.md
+  - "*.Rmd"
+  - .git*
+  - .sass-cache
+  - .jekyll-cache
 
 excerpt_separator: ---
