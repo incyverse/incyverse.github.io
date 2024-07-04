@@ -1,7 +1,18 @@
 <head>
   {% include meta.html %}
 
+  <!-- dynamically fixing the title for tag/author pages -->
   {% if page.url %}
+    {% if page.url contains "tag/" %}
+      {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: ' - ', ' ' | capitalizeall %}
+    {% elsif page.url contains "author/" %}
+      {% assign username = page.url | remove: 'author' | remove: '/' | replace: ' - ', ' ' | remove: ' ' %}
+      {% for author in site.data.author %}
+        {% if author[1].username == username %}
+          {% assign title = author[1].name %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   {% endif %}
 
   {% if title %}

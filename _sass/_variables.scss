@@ -1,40 +1,11 @@
-
-//
-// VARIABLES
-//
-
-// Colors
-$blue: $oc-teal-8;
-
-// Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
-
-// Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
-
-// Fonts
-//$base-font: "Noto Serif","PT Serif",source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC", "Source Han Serif TW", "Source Han Serif","Songti SC", SimSon, serif;
-$base-font: sans-serif;
-//$code-font: 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
-$code-font: "Fira Code", monospace;
-
-// Font sizes
-$base-font-size: 16px;
-$small-font-size: 14px;
-
+/*──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * VARIABLES
+ * ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
 // Colors
 $base-color: $oc-gray-8;
 $base-lighten-color: $oc-gray-6;
 
 $text-color: $base-color;
-$link-color: $oc-teal-8;
 $divider-color: $oc-gray-1;
 
 $table-border-color: $oc-gray-2;
@@ -46,24 +17,38 @@ $blockquote-border-color: $oc-gray-3;
 $footnote-link-border-color: $oc-gray-1;
 $footnote-link-background-over-color: $oc-gray-1;
 
-$selection-color: $oc-black;
-$selection-background-color: $oc-gray-1;
+$blue: $oc-blue-5;
+$indigo: $oc-indigo-5;
+$green: $oc-green-5;
+$purple: $oc-grape-5;
+$yellow: $oc-yellow-5;
+$red: $oc-red-5;
+$pink: $oc-pink-5;
+$orange: $oc-orange-5;
+$darkgray: $oc-gray-9;
+$midnight: #738a94;
+$lightgray: $oc-gray-4;
+$whitegray: $oc-gray-2;
 
-$pagination-color: $oc-gray-6;
-$pagination-over-color: $oc-gray-8;
+// Fonts
+// "Noto Serif", "PT Serif",source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC", "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSon, serif;
+$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+// 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
+$code-font: "Fira Code", monospace;
 
-$tag-index-label-color: $base-color;
-$tag-index-label-background-color: $oc-gray-2;
-$tag-index-count-background-color: $oc-gray-3;
+// Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, Times, serif;
 
-$footer-border-color: $oc-gray-2;
-$footer-background-color: $oc-gray-0;
+// Font sizes
+$base-font-size: 62.5%;
+$small-font-size: 60%;
+
+// Height
+$base-line-height: 1em;
 
 // List
-$li-bottom-space: 0.4em;
-$li-bullets-width: 1.4em;
-$li-line-height: 1.55;
-
 $ul-bullets-font: inherit;
 $ul-bullets-font-size: 1.4em;
 $ul-bullets-font-line-height: 1.2;
@@ -74,15 +59,19 @@ $ol-bullets-font-size: 1em;
 $ol-bullets-font-line-height: inherit;
 $ol-bullets-right-space: .3em;
 
-$li-child-size-ratio: 0.95;
+$li-bottom-space: .4em;
+$li-bullets-width: 1.4em;
+$li-line-height: 1.55;
+$li-child-size-ratio: .95;
 
 $dt-width: 180px;
 $dt-dd-space: 20px;
-$dd-position: $dt-width+$dt-dd-space;
 
-// Mobile breakpoints
-@mixin mobile {
-  @media screen and (max-width: 1200px) {
-    @content;
-  }
-}
+$dd-position: $dt-width + $dt-dd-space;
+
+// Breakpoints
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 768px;
+//$breakpoint-tablet: 992px;
+$breakpoint-laptop: 1200px;
+$breakpoint-desktop: 1400px;
