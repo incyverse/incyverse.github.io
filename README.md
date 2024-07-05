@@ -36,3 +36,5 @@ bundle install
 
 bundle exec jekyll serve
 ```
+
+> If you are using Ruby version 3.0.0 or higher, step 5 may fail. You may fix it by adding `webrick` to your dependencies: `bundle add webrick`
