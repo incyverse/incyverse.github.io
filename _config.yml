@@ -22,6 +22,18 @@ email: incyverse@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
+cover: assets/images/cover.jpg
+logo: assets/images/icon.png
+logo_dark: assets/images/favicon.png
+favicon: assets/images/favicon.png
+CNAME: # add cname for website to be created
+
+# Jekyll configuration
+markdown: kramdown
+highlighter: rouge
+paginate: 100 # it will paginate after this number
+language: 'en-us'
+words_per_minute: 200
 
 # Social info
 navigation: true # show the navbar links
@@ -60,19 +72,50 @@ feed:
 disqus: false
 disqus_shortname: incyverse # replace with your disqus username
 
+# Settings for building master branch with travis-ci
+# with jekyll-travis
+
+# Settings for deploy rake task
+# Username and repo of Github repo, e.g.
+# https://github.com/USERNAME/REPO.git
+# username defaults to ENV['GIT_NAME'] used by Travis
+# repo defaults to USERNAME.github.io
+# Branch defaults to "source" for USERNAME.github.io or "master" otherwise
+#safe: false
+#lsi: false
+#username: incyverse
+#repo: incyverse
+#branch: main
+#relative_source: ../incyverse/
+#destination: ../incyverse-pages/
+#production_url: https://jekyllt.github.io/incyverse/
+#source_url: https://github.com/jekyllt/incyverse/
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to the internal "default list".
 #
 # Excluded items can be processed by explicitly listing the directories or their entries' file path in the `include:` list.
 
-#exclude:
+exclude:
+  - assets/css
+  - node_modules
+  - vendor
+  - .travis.yml
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - LICENSE
+  - package.json
+  - package-lock.json
+  - Rakefile
+  - README.md
+  - script.py
+  - changelog.md
+  - .git*
 #  - .sass-cache/
 #  - .jekyll-cache/
 #  - gemfiles/
-#  - Gemfile
-#  - Gemfile.lock
-#  - node_modules/
 #  - vendor/bundle/
 #  - vendor/cache/
 #  - vendor/gems/
