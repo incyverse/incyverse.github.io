@@ -11,7 +11,17 @@
 
 <body>
 <div class="site-wrapper">
+    <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
     {{ content }}
+
+    <!-- previous/next links - displayed on every page -->
+    {% if paginator.total_posts > site.paginate %}
+    {% endif %}
+
+    <!-- The footer at the very bottom of the screen -->
+    <footer>
+        footer
+    </footer>
 </div>
 </body>
 </html>
