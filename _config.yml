@@ -1,0 +1,95 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values which you are expected to set up once and
+# rarely edit after that. If you find yourself editing this file very often, consider using Jekyll's data files feature
+# for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use `bundle exec jekyll serve`. If you
+# change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+
+# SITE SETTINGS
+# These are used to personalize your new site. If you look in the HTML files, you will see them accessed via
+# {{ site.title }}, {{ site.email }}, and so on. You can create any custom variable you would like, and they will be
+# accessible in the templates via {{ site.myvariable }}.
+title: InCyVerse
+email: incyverse@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+baseurl: '' # the subpath of your site, e.g. /blog
+url: '' # the base hostanme & protocol for your site, e.g. http://example.com
+cover: assets/images/cover.jpg
+logo: assets/images/icon.png
+logo_dark: assets/images/favicon.png
+favicon: assets/images/favicon.png
+CNAME: # add cname for website to be created
+
+# SOCIAL
+navigation: true # show the navbar links
+subscribers: true # you need to connect an external service fot this to work
+disqus: false
+disqus_shortname: jekyllt # replace with your disqus username
+# if 'true' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
+twitter: incyverse
+github: incyverse
+
+# ANALYTICS
+google_analytics: UA-69281367-1 # replace with your GA tracking identifier
+
+# BUILD SETTINGS
+theme: minima
+markdown: kramdown
+highlighter: rouge
+paginate: 100 # it will paginate after this number
+language: 'en-uk'
+words_per_minute: 200
+permalink: /:title
+# Authors info in `_data/authors.yml`
+#permalink: /author/:author
+# Tags info in `_data/tags_info.yml`
+#permalink: /tag/:tag
+sass:
+  style: compressed
+  sass_dir: _sass
+
+# gems and other configs
+plugins_dir: [_plugins]
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+
+feed:
+  path: feed.xml
+
+# DEPLOY SETTINGS
+# Username and repo of github repo, e.g. https://github.com/USERNAME/REPO.git
+# username defaults to ENV['GIT_NAME'] used by Travis repo defaults to USERNAME.github.io
+# Branch defaults to 'source' for USERNAME.github.io or 'main' otherwise
+#safe: false
+#lsi: false
+#username: jekyllt
+#repo: incyverse
+#branch: main
+#relative_source: ../incyverse/
+#destination: ../incyverse-pages/
+#production_url: https://jekyllt.github.io/incyverse/
+#source_url: https://github.com/jekyllt/incyverse/
+
+# EXCLUDE FROM PROCESSING
+# The following items will not be processed, by default. Any item listed under the `exclude:` key here will be
+# automatically added to the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or their entries file path in the `include:` list.
+#exclude:
+#  - .sass-cache/
+#  - .jekyll-cache/
+#  - gemfiles/
+#  - Gemfile
+#  - Gemfile.lock
+#  - node_modules/
+#  - vendor/bundle/
+#  - vendor/cache/
+#  - vendor/gems/
+#  - vendor/ruby/
