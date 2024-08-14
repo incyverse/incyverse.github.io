@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ site.language }}">
 <head>
-    <!-- Document Settings -->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% include head.html %}
 
-    <!-- Base Meta -->
-    <title>incyverse</title>
+    {% if title %}
+        {% assign title = title | append: ' - ' | append: site.title %}
+    {% endif %}
+    <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 </head>
 
 <body>
@@ -16,12 +16,76 @@
 
     <!-- previous/next links - displayed on every page -->
     {% if paginator.total_posts > site.paginate %}
+        {% if page.class == 'author-template' %}
+            {% include author-pagination.html %}
+        {% elsif page.class == 'tag-template' %}
+            {% include tag-pagination.html %}
+        {% else %}
+            {% include post-pagination.html %}
+        {% endif %}
     {% endif %}
 
     <!-- The footer at the very bottom of the screen -->
-    <footer>
+    <footer class="site-footer outer">
+        <div class="site-footer-content inner">
+            <section class="copyright">
+                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+            </section>
+            <section class="powered-by">
+                Proudly published with <a href="">Incyverse</a>
+                & <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a>
+                using <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a>
+            </section>
+            <nav class="site-footer-nav">
+                <a href="{{ site.baseurl }}">Latest Posts</a>
+                {% if site.facebook %}
+                    <a href="https:/facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>
+                {% endif %}
+            </nav>
+        </div>
         footer
     </footer>
 </div>
+
+<!-- The big email subscribe modal content -->
+{% if site.subscribers %}
+<div id="subscribe" class="subscribe-overlay">
+    <a class="subscribe-overlay-close"></a>
+    <div class="subscribe-overlay-content">
+        {% if site.logo %}
+            <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
+        {% endif %}
+        <h1 class="subscribe-overlay-title">Subscribe to {{ site.title }}</h1>
+        <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your index</p>
+
+        {% include subscribe-form.html placeholder="incyverse@gmail.com" %}
+    </div>
+</div>
+{% endif %}
+
+<!-- highlight.js -->
+
+<!-- Fitvids, which makes all video embeds responsive -->
+
+<!-- Paginator increased to 'infinit' in _config.yml -->
+{% if paginator.total_pages > site.paginate %}
+<script>
+    const maxPages = parseInt('{{ paginator.total_pages }}');
+</script>
+<script src="{{ site.baseurl }}assets/js/infinitescroll.js"></script>
+{% endif %}
+
+<!-- Add Analytics -->
+{% include analytics.html %}
+
+<!--
+The #block helper will pull in data from the #contentFor other template files. In this case, there's some
+JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded.
+-->
+{% if page.class == "post-template" %}
+    {% include post-scripts.html %}
+{% elsif page.class == "page-template" %}
+    {% include page-scripts.html %}
+{% endif %}
 </body>
 </html>
