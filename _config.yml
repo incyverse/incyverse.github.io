@@ -1,0 +1,65 @@
+# Welcome to Jekyll!!
+#
+# This config file is meant for settings that affect your whole blog, values which you are expected to set up once and
+# rarely edit after that. If you find yourself editing this file very often, consider using Jekyll's data files feature
+# for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use `bundle exec jekyll serve`. If you
+# change this file. Please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick reference for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# SITE SETTINGS:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# There are used to personalize your new site. If you look in the HTML files, you will see time accessed via
+# {{ site.title }}, {{ site.email }}, and so on. You can create any custom variable you would like, and they will be
+# accessible in the templates via {{ site.myvariable }}
+
+version: v2.0.0
+language: en
+timezone: Asia/Seoul
+
+title: Incyverse
+name:
+email: incyverse@gmail.com
+# This means to ignore newlines until "baseurl:"
+description: >-
+  10,000 Hours ...
+
+# The subpath of your site, e.g. /blog
+# Edit baseurl to simply '/' if using as your personal page (instead of a project page)
+baseurl: "/"
+# The base hostname & protocol for your site, e.g. http://example.com
+url:
+# Add CNAME for website to be created
+#CNAME:
+
+# Blog logo image URL, recommended size cannot exceed 300px * 300 px
+#logo: assets/images/logo.png
+#logo_dark: assets/images/logo-dark.png
+
+# Favicon (appears in browser tab) image URL, preferably smaller 64px * 64px
+#favicon: assets/images/favicon.png
+
+#cover: assets/images/cover.jpg
+
+socials:
+  behance: # https://www.behance.net/USERNAME
+  facebook:
+    name: facebook
+    username: incyverse
+    url: https://www.facebook.com/incyverse
+    icon: social-facebook
+  github:
+    name: github
+    username: incyverse
+    url: https://github.com/incyverse
+    icon: social-github
+  twitter:
+    name: twitter
+    username: incyverse
+    url: https://www.twitter.com/incyverse
+    icon: social-twitter
