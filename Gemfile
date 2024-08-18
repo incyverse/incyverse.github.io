@@ -15,7 +15,7 @@ gem "jekyll", "~> 4.3.3"
 # gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.17.0"
+  gem "jekyll-feed", "~> 0.12.0"
   # gem "jekyll-paginate", "~> 1.1.0"
   # gem "jekyll-sitemap", "~> 1.4.0"
   # gem "jekyll-compose", "~> 0.12.0"
@@ -35,5 +35,5 @@ end
 # do not have a Java counterpart.
 # gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-# gem "csv"
-# gem "base64"
+gem "csv"
+gem "base64"
