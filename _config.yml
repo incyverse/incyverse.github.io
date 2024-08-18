@@ -87,9 +87,56 @@ subscribe: true
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+feed:
+  path: feed.xml
+
+# Gem and other configs
+plugins_dir: [_plugins]
+# Use the following plug-ins
+plugins:
+  - jekyll-feed # Create a Atom using the official Jekyll feed gem
+#  - jekyll-paginate
+#  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+
+#defaults:
+#  -
+#    scope:
+#      path: ""
+#      type: "posts"
+
+navigation: true
+highlighter: rouge
+markdown: kramdown
+paginate: 100
+paginate_path: /page:num
+words_per_minute: 200
+excerpt_separator: ---
+
+permalink: /:title
+# Author's info in `_data/authors.yml`
+#permalink: /author/:author
+# Tag's info in `_data/tags.yml`
+#permalink: /tag/:tag
+
 sass:
   sass_dir: _sass
   style: :expanded # You might prefer to minify using :compressed
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# JEKYLL CONFIGURATION:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#jekyll_compose:
+#  default_front_matter:
+#    posts:
+#      description:
+#      categories:
+#      tags:
+#      image:
+#        path:
+#        alt:
+#      pin: false
+#      math: true
+#      mermaid: true
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # DEPLOY SETTINGS:
