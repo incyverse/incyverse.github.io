@@ -21,6 +21,14 @@
 </head>
 
 <body class="{{ page.class }}">
-{{ content }}
+<div class="site-wrapper">
+    <header class="site-header outer"></header>
+
+    <main id="site-main" class="site-main outer" role="main">
+        <div class="inner">
+            {{ content }}
+        </div>
+    </main>
+</div>
 </body>
 </html>
