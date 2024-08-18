@@ -22,13 +22,28 @@
 
 <body class="{{ page.class }}">
 <div class="site-wrapper">
-    <header class="site-header outer"></header>
+    <header class="site-header outer{% if page.cover %}" style="background-image: url({{ site.baseurl }}{{ page.cover }}){% else %} no-cover{% endif %}">
+        <div class="inner">
+            <nav class="site-nav-center">
+                <a href="{{ site.baseurl }}">{% if site.logo %}<img src="{{ site.baseurl }}{{ site.logo }}" alt="{{ site.title }}">{% else %}{{ site.title }}{% endif %}</a>
+            </nav>
+        </div>
+    </header>
 
     <main id="site-main" class="site-main outer" role="main">
         <div class="inner">
             {{ content }}
         </div>
     </main>
+
+    <!-- get "posts" limit="3" -->
+    <aside class="outer">
+        <div class="inner">
+            <div class="post-feed">
+                <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
+            </div>
+        </div>
+    </aside>
 </div>
 </body>
 </html>
