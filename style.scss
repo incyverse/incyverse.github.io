@@ -27,16 +27,16 @@
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  * 0. Variable & Mixin
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-@import "_sass/open-color";
-@import "_sass/variables";
-@import "_sass/functions";
-@import "_sass/mixins";
-@import "_sass/highlights";
+@import "open-color";
+@import "variables";
+@import "functions";
+@import "mixins";
+@import "highlights";
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  * 1. Global: Set up the things
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-@import "_sass/reset";
+@import "reset";
 
 html {
   box-sizing: border-box;
