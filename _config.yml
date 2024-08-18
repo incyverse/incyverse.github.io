@@ -48,18 +48,98 @@ url:
 
 socials:
   behance: # https://www.behance.net/USERNAME
+  dribbble: # https://dribbble.com/USERNAME
   facebook:
     name: facebook
     username: incyverse
     url: https://www.facebook.com/incyverse
     icon: social-facebook
+  flickr: # https://www.flickr.com/USERNAME
   github:
     name: github
     username: incyverse
     url: https://github.com/incyverse
     icon: social-github
+  instagram: # https://instagram.com/USERNAME
+  linkedin: # https://www.linkedin.com/in/USERNAME
+  pinterest: # https://www.pinterest.com/USERNAME
+  rss:
+  stackoverflow: # https://stackoverflow.com/USERNAME
+  tumblr: # https://USERNAME.tumblr.com
   twitter:
     name: twitter
     username: incyverse
     url: https://www.twitter.com/incyverse
     icon: social-twitter
+  weibo: # https://www.weibo.com/USERNAME
+  youtube: # channel/<YOUR LONG STRING> or user/USERNAME
+
+# Replace with your GA tracking identifier `UA-69281367-1`
+google_analytics:
+
+disqus: false
+disqus_shortname:
+
+# If 'true' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
+# You need to connect an external service for this to work.
+subscribe: true
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# BUILD SETTINGS:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+sass:
+  sass_dir: _sass
+  style: :expanded # You might prefer to minify using :compressed
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# DEPLOY SETTINGS:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Username and repo of github repo, e.g. https://github.com/USERNAME/REPO.git
+# username defaults to ENV['GIT_NAME'] used by Travis repo defaults to USERNAME.github.io
+# Branch defaults to 'source' for USERNAME.github.io or 'main' otherwise
+#safe: false
+#lsi: false
+#username: jekyllt
+#repo: incyverse
+#branch: main
+#relative_source: ../incyverse/
+#destination: ../incyverse-pages/
+#production_url: https://jekyllt.github.io/incyverse/
+#source_url: https://github.com/jekyllt/incyverse/
+
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# EXCLUDE FROM PROCESSING:
+#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# The following items will not be processed. By default.
+# Any item listed under the `exclude:` key here will be automatically added to the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or their entries file path in the `included:`
+# list.
+exclude:
+  - .jekyll-cache
+  - .sass-cache
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+#  - assets/css
+#  - .travis.yml
+#  - Gemfile
+#  - Gemfile.lock
+#  - gulpfile.js
+#  - LICENSE
+#  - package.json
+#  - package-lock.json
+#  - Rakefile
+#  - README.md
+#  - script.py
+#  - changelog.md
+#  - "*.Rmd"
+#  - .git*
+
+#  - gemfiles/
+#  - vendor/bundle/
+#  - vendor/cache/
+#  - vendor/gems/
+#  - vendor/ruby/
