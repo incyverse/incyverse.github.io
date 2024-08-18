@@ -1,0 +1,11 @@
+anthony:
+  username: anthony
+  name: Anthony De Oh
+  location: Seoul, Korea
+  url_full: false
+  url: false
+  bio: An Korean
+  picture: assets/images/anthony.png
+  cover: false
+  github: false
+  facebook: false

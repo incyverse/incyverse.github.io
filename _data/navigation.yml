@@ -1,0 +1,15 @@
+home:
+  name: Home
+  url: /
+about:
+  name: About
+  url: /about
+archive:
+  name: Archive
+  url: /archive
+category:
+  name: Category
+  url: /category
+tag:
+  name: Tag
+  url: /tag

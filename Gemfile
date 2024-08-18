@@ -35,5 +35,5 @@ end
 # do not have a Java counterpart.
 # gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 
-gem "csv"
-gem "base64"
+# gem "csv"
+# gem "base64"
