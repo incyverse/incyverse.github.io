@@ -119,7 +119,6 @@ permalink: /:title
 #permalink: /tag/:tag
 
 sass:
-  sass_dir: _sass
   style: :expanded # You might prefer to minify using :compressed
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
