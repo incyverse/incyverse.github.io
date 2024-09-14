@@ -32,7 +32,7 @@ description: >-
 
 # The subpath of your site, e.g. /blog
 # Edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: ""
+baseurl: "/"
 # The base hostname & protocol for your site, e.g. http://example.com
 url:
 # Add CNAME for website to be created
