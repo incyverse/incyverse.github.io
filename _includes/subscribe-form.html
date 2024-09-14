@@ -1,3 +1,12 @@
-<form>
-    subscribe form
+<form method="post" action="/subscribe/">
+    <input type="hidden" name="confirm" class="confirm">
+    <input type="hidden" name="location" class="location">
+    <input type="hidden" name="referrer" class="referrer">
+
+    <div class="form-group">
+        <label>
+            <input type="email" name="email" class="subscribe-email" placeholder="id@domain.com">
+        </label>
+    </div>
+    <button type="submit" {% unless site.subscribe %}disabled{% endunless %}><span>Subscribe</span></button>
 </form>

@@ -1,0 +1,4 @@
+{% assign count = 0 %}
+{% for post in site.posts %}
+    {% assign count = count | plus : 1 %}
+{% endfor %}

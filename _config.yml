@@ -19,7 +19,8 @@
 # accessible in the templates via {{ site.myvariable }}
 
 version: v2.0.0
-language: en
+lang: en
+language: en-US
 timezone: Asia/Seoul
 
 title: Incyverse
@@ -31,7 +32,7 @@ description: >-
 
 # The subpath of your site, e.g. /blog
 # Edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: ""
+baseurl: "/"
 # The base hostname & protocol for your site, e.g. http://example.com
 url:
 # Add CNAME for website to be created
@@ -45,6 +46,14 @@ url:
 #favicon: assets/images/favicon.png
 
 #cover: assets/images/cover.jpg
+
+navigation:
+  - name: Home
+    url: /
+  - name: About
+    url: /about
+  - name: Archive
+    url: archive
 
 socials:
   behance: # https://www.behance.net/USERNAME
@@ -77,6 +86,8 @@ socials:
 # Replace with your GA tracking identifier `UA-69281367-1`
 google_analytics:
 
+# Additional settings available on the front-matter site logo in the index.html. The same for page.html and tag.html
+# layouts. Post's page cover as per-post basis _posts/... Disqus comments as a per-post basis.
 disqus: false
 disqus_shortname:
 
@@ -87,16 +98,31 @@ subscribe: true
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-feed:
-  path: feed.xml
+markdown: kramdown
+highlighter: rouge
 
 # Gem and other configs
-plugins_dir: [_plugins]
+#plugins_dir: [_plugins]
+
 # Use the following plug-ins
 plugins:
   - jekyll-feed # Create a Atom using the official Jekyll feed gem
-#  - jekyll-paginate
-#  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-paginate
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+
+#feed:
+#  path: feed.xml
+
+paginate: 100 # It will paginate after this number
+paginate_path: /page:num
+permalink: /:title
+# Author's info in `_data/authors.yml`
+#permalink: /author/:author
+# Tag's info in `_data/tags.yml`
+#permalink: /tag/:tag
+
+words_per_minute: 200
+excerpt_separator: ---
 
 #defaults:
 #  -
@@ -104,21 +130,8 @@ plugins:
 #      path: ""
 #      type: "posts"
 
-navigation: true
-highlighter: rouge
-markdown: kramdown
-paginate: 100
-paginate_path: /page:num
-words_per_minute: 200
-excerpt_separator: ---
-
-permalink: /:title
-# Author's info in `_data/authors.yml`
-#permalink: /author/:author
-# Tag's info in `_data/tags.yml`
-#permalink: /tag/:tag
-
 sass:
+  sass_dir: _sass
   style: :expanded # You might prefer to minify using :compressed
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -140,6 +153,7 @@ sass:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # DEPLOY SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Settings for building main branch with travis-ci, jekyll-travis and deploy rake task
 # Username and repo of github repo, e.g. https://github.com/USERNAME/REPO.git
 # username defaults to ENV['GIT_NAME'] used by Travis repo defaults to USERNAME.github.io
 # Branch defaults to 'source' for USERNAME.github.io or 'main' otherwise
@@ -165,20 +179,21 @@ exclude:
   - .jekyll-cache
   - .sass-cache
   - CNAME
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - vendor
-#  - assets/css
+#  - Gemfile
+#  - Gemfile.lock
+#  - node_modules
+#  - vendor
+  - LICENSE
+  - README.md
+
 #  - .travis.yml
+#  - gemfiles
 #  - Gemfile
 #  - Gemfile.lock
 #  - gulpfile.js
-#  - LICENSE
 #  - package.json
 #  - package-lock.json
 #  - Rakefile
-#  - README.md
 #  - script.py
 #  - changelog.md
 #  - "*.Rmd"
