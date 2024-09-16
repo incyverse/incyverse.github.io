@@ -26,7 +26,7 @@
     <footer class="site-footer outer">
         <div class="site-footer-content inner">
             <section class="copyright">
-                <a href="{{ site.url }}{{ site.baseurl }}">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+                <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
             </section>
             <section class="powered-by">
                 Proudly published with <a href="">Incyverse</a>
@@ -34,7 +34,7 @@
                 using <a href="https://github.com/jekyllt/jasper2" target="_blank" rel="noopener">Jasper2</a>
             </section>
             <nav class="site-footer-nav">
-                <a href="{{ site.baseurl }}">Latest Posts</a>
+                <a href="{{ site.baseurl }}/">Latest Posts</a>
                 {% if site.facebook %}
                 <a href="https:/facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>
                 {% endif %}
@@ -49,7 +49,7 @@
     <a class="subscribe-overlay-close"></a>
     <div class="subscribe-overlay-content">
         {% if site.logo %}
-            <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
+            <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
         {% endif %}
         <h1 class="subscribe-overlay-title">Subscribe to {{ site.title }}</h1>
         <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
