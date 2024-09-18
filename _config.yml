@@ -93,7 +93,7 @@ disqus_shortname:
 
 # If 'true' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
 # You need to connect an external service for this to work.
-subscribe: true
+subscribe: false
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # BUILD SETTINGS:

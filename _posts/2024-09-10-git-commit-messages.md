@@ -1,6 +1,6 @@
 ---
 layout: post
-cover: assets/images/bear.jpg
+cover: assets/images/writing.jpg
 title: Git Commit Messages
 date: 2024-09-10 00:24:02 +0900
 description:
@@ -36,6 +36,8 @@ Don't write to the persisted query cache until execution will begin.
 Do not return list if there are too many crashes.
 ```
 
+![Alt text](/assets/images/advanced.jpg)
+
 ## 오타 수정은 Correct misspelled text가 아니다.
 
 그냥 **Fix typo**라고만 하면 된다.
@@ -59,7 +61,7 @@ Add ERR_INSPECTOR_COMMAND error.
 
 > B를 위해 A를 추가했다.
 
-```text
+```bash
 Add documentation for the defaultPort option.
 Add missing includes for vtune build.
 Add devDependencies support for templates.
