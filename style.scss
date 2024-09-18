@@ -1,0 +1,101 @@
+---
+---
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * TABLE OF CONTENTS
+ *
+ * This is a development SCSS file which is built to a minified production stylesheet in assets/built/screen.scss
+ *
+ * 0. Variable & Mixin
+ * 1. Global
+ * 2. Layout
+ * 3. Special Templates
+ * 4. Site Header
+ * 5. Site Navigation
+ * 6. Post Feed
+ * 7. Single Post
+ *   7.1. Subscribe Form
+ *   7.2. Post Footer
+ *   7.3. Comments
+ *   7.4. Related Posts
+ *   7.5. Floating Header
+ * 8. Author Template
+ * 9. Error Template
+ * 10. Subscribe Overlay
+ * 11. Site Footer
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 0. Variable & Mixin
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+@import "_sass/open-color";
+@import "_sass/variables";
+@import "_sass/functions";
+@import "_sass/mixins";
+@import "_sass/highlights";
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 1. Global: Set up the things
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+@import "_sass/reset";
+
+::-webkit-scrollbar-thumb {
+    background-color: $oc-gray-0;
+    background-clip: padding-box;
+    border: 0.375rem solid transparent;
+    border-radius: 1.5rem;
+    transition: background-color 0.16s ease;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 1em;
+    margin: 1em 0;
+}
+
+::selection {
+    //background-color: $purple;
+    color: $oc-gray-0;
+}
+
+.img {
+    background-position: center center;
+    background-size: cover;
+    border-radius: 100%;
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+.hidden {
+    position: absolute;
+    text-indent: -9999px;
+    visibility: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 2. Layout: Page building blocks
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.site-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-main {
+    flex-grow: 1;
+    z-index: 100;
+}
+
+/* Full width page blocks */
+.outer {
+    padding: 0 4vw;
+    position: relative;
+}
+
+/* Centered content container blocks */
+.inner {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+}
