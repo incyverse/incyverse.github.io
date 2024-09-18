@@ -73,9 +73,9 @@ html {
 }
 
 body {
-    background: $oc-white;
-    //background: $oc-gray-2;
-    color: adjust-color($midnight, $lightness: -25%);
+    background: adjust-color($raisin-black, $lightness: -15%);
+    //background: $raisin-black;
+    color: adjust-color($lavender-indigo, $lightness: -25%);
     font-family: $base-font;
     font-size: 1.5rem;
     font-weight: 400;
@@ -90,7 +90,7 @@ body {
 
 a {
     background-color: transparent;
-    color: adjust-color($blue, $lightness: -5%);
+    color: adjust-color($electric-cyan, $lightness: -5%);
     text-decoration: none;
 
     &:active, &:hover {
@@ -118,7 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 4.6rem;
     //margin: 0.67em 0;
     margin: 0 0 0.5em 0;
 
@@ -295,7 +295,7 @@ dd {
 }
 
 dt {
-    color: $darkgray;
+    color: $raisin-black;
     float: left;
     font-weight: 500;
     margin: 0 20px 0 0;
@@ -319,7 +319,7 @@ li {
 
 hr {
     border: 0;
-    border-top: 1px solid adjust-color($lightgray, $lightness: 10%);
+    border-top: 1px solid adjust-color($pale-silver, $lightness: 10%);
     display: block;
     height: 1px;
     margin: 2.5em 0 3.5em;
@@ -339,7 +339,7 @@ audio, canvas, iframe, img, svg, video {
 }
 
 blockquote {
-    border-left: $whitegray 0.5em solid;
+    border-left: $pale-silver 0.5em solid;
     margin: 1.5em 0;
     padding: 0 1.6em 0 1.6em;
 
@@ -370,8 +370,8 @@ blockquote {
 }
 
 ::selection {
-    background: adjust-color($blue, $lightness: 30%);
-    background: $blue;
+    background: $electric-cyan;
+    color: $raisin-black;
     text-shadow: none;
 }
 
