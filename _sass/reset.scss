@@ -1,4 +1,3 @@
-
 /***************/
 /* MEYER RESET */
 /***************/
@@ -53,17 +52,15 @@ table {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+//*, *:before, *:after {
+//    box-sizing: inherit;
+//}
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  * Base Styles: opinionated defaults
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 html {
     box-sizing: border-box;
-    font-family: sans-serif;
     font-size: $base-font-size;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -73,12 +70,11 @@ html {
 }
 
 body {
-    background: adjust-color($raisin-black, $lightness: -15%);
-    //background: $raisin-black;
+    background-color: $neon-yellow;
     color: adjust-color($lavender-indigo, $lightness: -25%);
     font-family: $base-font;
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: $base-font-weight;
     letter-spacing: 0;
     line-height: 1.6em;
     overflow-x: hidden;
@@ -89,38 +85,34 @@ body {
 }
 
 a {
-    background-color: transparent;
     color: adjust-color($electric-cyan, $lightness: -5%);
     text-decoration: none;
 
-    &:active, &:hover {
-        outline: 0;
+    &:link, &:visited {
+        color: adjust-color($electric-cyan, $lightness: -10%);
     }
 
-    &:hover {
-        text-decoration: underline;
+    &:active, &:hover {
+        color: $electric-cyan;
+        outline: 0;
     }
 }
 
 b, strong {
-    font-weight: bold;
-}
-
-i, em, dfn {
-    font-style: italic;
+    font-weight: 700;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.15;
-    margin-top: 0;
+    margin: 1.5em 0 0.5em 0;
     text-rendering: optimizeLegibility;
 }
 
 h1 {
     font-size: 4.6rem;
-    //margin: 0.67em 0;
-    margin: 0 0 0.5em 0;
+    font-weight: 700;
+    margin-top: 0;
 
     @include mobile {
         font-size: 2.2rem;
@@ -129,7 +121,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    margin: 1.5em 0 0.5em 0;
+    font-weight: 700;
 
     @include mobile {
         font-size: 1.8rem;
@@ -138,30 +130,22 @@ h2 {
 
 h3 {
     font-size: 1.8rem;
-    font-weight: 500;
-    margin: 1.5em 0 0.5em 0;
 
     @include mobile {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
 }
 
 h4 {
     font-size: 1.6rem;
-    font-weight: 500;
-    margin: 1.5em 0 0.5em 0;
 }
 
 h5 {
     font-size: 1.4rem;
-    font-weight: 500;
-    margin: 1.5rem 0 0.5em 0;
 }
 
 h6 {
-    font-size: 1.4rem;
-    font-weight: 500;
-    margin: 1.5em 0 0.5em 0;
+    font-size: 1.2rem;
 }
 
 small {
@@ -175,12 +159,12 @@ sub, sup {
     vertical-align: baseline;
 }
 
-sup {
-    top: -0.5em;
-}
-
 sub {
     bottom: -0.25em;
+}
+
+sup {
+    top: -0.5em;
 }
 
 img {
@@ -194,23 +178,20 @@ svg:not(:root) {
 
 mark {
     background-color: #fdffb6;
-    //background-color: $oc-gray-1;
 }
 
 code, kbd, pre, samp {
-    font-family: monospace, monospace;
+    font-family: $code-font;
+    font-optical-sizing: auto;
     font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
 }
 
 button, input, optgroup, select, textarea {
     color: inherit;
     font: inherit;
     margin: 0;
-}
-
-button {
-    border: none;
-    overflow: visible;
 }
 
 button, select {
@@ -231,6 +212,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     padding: 0;
 }
 
+button {
+    border: none;
+    overflow: visible;
+}
+
 input {
     line-height: normal;
 
@@ -242,10 +228,6 @@ input {
 input[type="checkbox"], input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
 }
 
 input[type="search"] {
@@ -276,31 +258,17 @@ td, th {
     padding: 0;
 }
 
-p, ul, ol, dl, blockquote {
+p, ul:not(.nav), ol, dl, blockquote {
     margin: 0 0 1.5em 0;
 }
 
-ol, ul {
+ol, ul:not(.nav) {
     padding-left: 1.3em;
     padding-right: 1.5em;
 }
 
 ol ol, ol ul, ul ul, ul ol {
     margin: 0.5em 0 1em;
-}
-
-dd {
-    margin: 0 0 5px 0;
-    text-align: left;
-}
-
-dt {
-    color: $raisin-black;
-    float: left;
-    font-weight: 500;
-    margin: 0 20px 0 0;
-    text-align: right;
-    width: 120px;
 }
 
 ol {
@@ -317,9 +285,22 @@ li {
     padding-left: 0.3em;
 }
 
+dd {
+    margin: 0 0 5px 0;
+    text-align: left;
+}
+
+dt {
+    float: left;
+    font-weight: 500;
+    margin: 0 20px 0 0;
+    text-align: right;
+    width: 120px;
+}
+
 hr {
     border: 0;
-    border-top: 1px solid adjust-color($pale-silver, $lightness: 10%);
+    border-top: 1px solid adjust-color($raisin-black, $lightness: 10%);
     display: block;
     height: 1px;
     margin: 2.5em 0 3.5em;
@@ -339,9 +320,30 @@ audio, canvas, iframe, img, svg, video {
 }
 
 blockquote {
-    border-left: $pale-silver 0.5em solid;
+    border-left: $raisin-black 1px solid;
+    display: block;
     margin: 1.5em 0;
     padding: 0 1.6em 0 1.6em;
+    position: relative;
+
+    &:before {
+        border-right: 4px solid transparent;
+        border-top: 4px solid $raisin-black;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: 1px;
+    }
+
+    &:after {
+        background-color: $raisin-black;
+        content: "";
+        height: 1px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 4px;
+    }
 
     cite {
         font-weight: bold;
@@ -364,14 +366,14 @@ blockquote {
         opacity: 0.9;
 
         &:before {
-            content: "\2014 \00A0"
+            content: "\2014 \00A0";
         }
     }
 }
 
 ::selection {
-    background: $electric-cyan;
-    color: $raisin-black;
+    background-color: $lavender-indigo;
+    color: $neon-yellow;
     text-shadow: none;
 }
 

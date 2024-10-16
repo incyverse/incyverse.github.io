@@ -6,51 +6,73 @@
  *
  * This is a development SCSS file which is built to a minified production stylesheet in assets/built/screen.scss
  *
- * 0. Variable & Mixin
+ * 0. Import
  * 1. Global
  * 2. Layout
- * 3. Special Templates
+ * 3. Templates
  * 4. Site Header
  * 5. Site Navigation
- * 6. Post Feed
- * 7. Single Post
- *   7.1. Subscribe Form
- *   7.2. Post Footer
- *   7.3. Comments
- *   7.4. Related Posts
- *   7.5. Floating Header
- * 8. Author Template
- * 9. Error Template
+ * 6. Site Main
+ * 7. Site Footer
+ * 8. Post Feed
+ * 9. Single Post
+ *  9.1. Header
+ *  9.2. Contents
+ *  9.3. Subscribe Form
+ *  9.4. Footer
+ *  9.5. Comments
+ *  9.6. Related Posts
+ *  9.7. Floating Header
  * 10. Subscribe Overlay
- * 11. Site Footer
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 0. Variable & Mixin
+ * 0. Import
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+//&family=Estonia
+//&family=Fira+Code:wght@300..700
+//&family=Henny+Penny
+//&family=Italianno
+//&family=Josefin+Sans:ital,wght@0,100..700;1,100..700
+//&family=Libre+Barcode+39+Text
+//&family=Metal+Mania
+//&family=Noto+Sans+KR:wght@100..900
+//&family=Nanum+Gothic:wght@400;700;800
+//&family=Rubik+Glitch
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Rubik+Glitch&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://db.onlinewebfonts.com/c/335787aa6f57d71cabe8eb5dc89c6d6b?family=Blender+Pro+Book");
+
 @import "open-color";
 @import "variables";
 @import "functions";
 @import "mixins";
 @import "highlights";
+@import "reset";
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  * 1. Global: Set up the things
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-@import "reset";
+a.underline {
+    position: relative;
 
-::-webkit-scrollbar-thumb {
-    background-color: $pale-silver;
-    background-clip: padding-box;
-    border: 0.375rem solid transparent;
-    border-radius: 1.5rem;
-    transition: background-color 0.16s ease;
-}
+    &:after {
+        background-image: linear-gradient(45deg, transparentize($lavender-indigo, 0.85), $electric-cyan, transparentize($lavender-indigo, 0.85));
+        background-position: center;
+        background-repeat: no-repeat;
+        bottom: -2px;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+        width: 100%;
+    }
 
-::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 1em;
-    margin: 1em 0;
+    &:hover:after {
+        transform: scaleX(1);
+    }
 }
 
 .img {
@@ -68,501 +90,92 @@
     visibility: hidden;
 }
 
+::-webkit-scrollbar-thumb {
+    background-color: $pale-silver;
+    background-clip: padding-box;
+    border: 0.375rem solid transparent;
+    border-radius: 1.5rem;
+    transition: background-color 0.16s ease;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 1em;
+    margin: 1em 0;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 2. Layout: Page building blocks
+ * 2. Layout
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .site-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    //display: flex;
+    //flex-direction: column;
+    //min-height: 100vh;
 }
 
 .site-main {
-    background-color: $neon-yellow;
+    //background-color: $neon-yellow;
     flex-grow: 1;
     z-index: 100;
 }
 
-/* Full width page blocks */
 .outer {
     padding: 0 4vw;
     position: relative;
 }
 
-/* Centered content container blocks */
 .inner {
+    height: 100%;
     margin: 0 auto;
     max-width: 1200px;
     width: 100%;
 }
 
+.date-divider {
+    background: $pale-silver;
+    display: inline-block;
+    margin: 0 6px 1px;
+
+    &:after {
+        content: "";
+        display: flex;
+        height: 1px;
+        margin: 0 0.6rem;
+        position: relative;
+        width: 12px;
+    }
+}
+
+.author-profile-image {
+    border-radius: 100%;
+    height: 25px;
+    margin-right: 5px;
+    object-fit: cover;
+    width: 25px;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 3. Special Template:
+ * 3. Templates
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .home-template {
     .site-header {
-        &:after {
-            display: none;
+        height: 100vh;
+    }
+
+    .site-nav-left {
+        li:first-child {
+            margin-left: 0;
+            padding-left: 0;
         }
     }
 }
 
-@media (min-width: $breakpoint-mobile) {
-    .home-template .post-feed,
-    .tag-template .post-feed,
-    .author-template .post-feed {
-        margin-top: -70px;
-        padding-top: 0;
-    }
-
-    .home-template .site-nav {
-        position: relative;
-        top: -70px;
-    }
-}
-
-/*
- Special Styling for home page grid (below):
- The first (most recent) post in the list is styled to be bigger than the others and take over the full width of the grid
- to give it more emphasis. Wrapped in a media query to make sure this only happens on large viewports / desktop-ish devices.
- */
-@media (min-width: $breakpoint-tablet) {
-    .home-template .post-feed .post-card:nth-child(6n+1) {
-        &:not(.no-image) {
-            background: adjust-color($raisin-black, $lightness: -15%);
-            color: $pale-silver;
-            flex: 1 1 100%;
-            flex-direction: row;
-
-            .post-card-image-link {
-                border-radius: 5px 0 0 5px;
-                flex: 1 1 auto;
-                position: relative;
-            }
-
-            .post-card-image {
-                height: 100%;
-                position: absolute;
-                width: 100%;
-            }
-
-            .post-card-content {
-                flex: 0 1 357px;
-            }
-
-            h2 {
-                font-size: 2.6rem;
-            }
-
-            p {
-                font-size: 1.8rem;
-                line-height: 1.55em;
-            }
-
-            .post-card-content-link {
-                color: $pale-silver;
-                padding: 30px 40px 0;
-            }
-
-            .post-card-meta {
-                padding: 0 40px 30px;
-            }
-        }
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 4. Site Header: Page building blocks
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.site-header {
-    background: adjust-color($raisin-black, $lightness: -5%) no-repeat center center;
-    background-size: cover;
-    color: $pale-silver;
-    padding-bottom: 12px;
-    padding-top: 12px;
-    position: relative;
-    width: 100%;
-
-    &:before {
-        background: rgba(0, 0, 0, 0.18);
-        bottom: 0;
-        content: "";
-        display: block;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 10;
-    }
-
-    &:after {
-        background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, 0));
-        bottom: auto;
-        content: "";
-        display: block;
-        height: 80px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        z-index: 10;
-    }
-
-    //&.no-cover:hover,
-    //&.no-cover:after {
-    //  display: none;
-    //}
-
-    .site-header-content {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-height: 450px;
-        min-height: 200px;
-        padding: 10vw 4vw;
-        text-align: center;
-
-        .author-bio {
-            @include mobile-max {
-                font-size: 1.8rem;
-                line-height: 1.15em;
-                letter-spacing: 0;
-            }
-        }
-
-        .site-title {
-            font-size: 3.8rem;
-            font-weight: 700;
-            margin: 0;
-            padding: 0;
-            z-index: 10;
-
-            @include mobile-max {
-                font-size: 3rem;
-            }
-        }
-
-        .site-description {
-            font-size: 2.2rem;
-            font-weight: 300;
-            letter-spacing: .5px;
-            margin: 0;
-            opacity: .8;
-            padding: 5px 0;
-            z-index: 10;
-
-            @include mobile-max {
-                font-size: 1.8rem;
-            }
-        }
-    }
-
-    @include tablet-max {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
-
-.site-logo {
-    max-height: 45px;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 5. Site Navigation
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.site-nav {
-    align-items: flex-start;
-    display: flex;
-    font-size: 1.2rem;
-    font-weight: 700;
-    height: 40px;
-    justify-content: space-between;
-    overflow-y: hidden;
-    position: relative;
-    text-transform: uppercase;
-    z-index: 300;
-}
-
-/*
- * Site Nav Hack Explanation (above):
- *
- * What's happening above it .site-nav-left is set to overflow-x and allow sideways scrolling, so that when there isn't
- * enough space for all nav items (either due to lots of nav items, or a small viewport), you can still scroll
- * side-to-side to reach them.
- * The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px of padding-bottom and a 40px fixed
- * height parent (.site-nav) hides that entirely. Slightly hacky code. But nice clean end-result.
- */
-
-.site-nav-logo {
-    flex-shrink: 0;
-    display: block;
-    margin-right: 24px;
-    padding: 11px 0;
-    color: $pale-silver;
-    font-size: 1.7rem;
-    line-height: 1em;
-    font-weight: bold;
-    letter-spacing: -0.5px;
-
-    &:hover {
-        text-decoration: none;
-    }
-
-    img {
-        display: block;
-        height: 21px;
-        width: auto;
-    }
-}
-
-.site-nav-left {
-    align-items: center;
-    display: flex;
-    letter-spacing: .4px;
-    margin-right: 10px;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding-bottom: 80px;
-    white-space: nowrap;
-
-    .nav {
-        display: flex;
-        list-style: none;
-        margin: 0 0 0 -12px;
-        padding: 0;
-
-        li {
-            display: block;
-            margin: 0;
-            padding: 0;
-            text-transform: uppercase;
-
-            a {
-                color: $pale-silver;
-                display: block;
-                margin: 0;
-                padding: 10px 12px;
-                opacity: 0.8;
-
-                &:hover {
-                    color: $electric-cyan;
-                    opacity: 1;
-                    text-decoration: none;
-                }
-            }
-        }
-    }
-
-    @include tablet-max {
-        margin-right: 0;
-        padding-left: 4vm;
-    }
-}
-
-.site-nav-right {
-    align-items: center;
-    display: flex;
-    flex-shrink: 0;
-    height: 40px;
-
-    @include tablet-max {
-        display: none;
-    }
-}
-
-.social-links {
-    align-items: center;
-    display: flex;
-    flex-shrink: 0;
-
-    a:last-of-type {
-        padding-right: 20px;
-    }
-}
-
-.social-link {
-    align-items: center;
-    color: $pale-silver;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    opacity: 0.8;
-    padding: 10px;
-
-    &:hover {
-        color: $electric-cyan;
-        opacity: 1;
-    }
-
-    svg {
-        fill: $pale-silver;
-        height: 1.8rem;
-    }
-}
-
-.subscribe-button {
-    border: $pale-silver 1px solid;
-    border-radius: 10px;
-    color: $pale-silver;
-    display: block;
-    font-size: 1.2rem;
-    line-height: 1em;
-    opacity: 0.8;
-    padding: 4px 10px;
-
-    &:hover {
-        opacity: 1;
-        text-decoration: none;
-    }
-}
-
-.rss-button {
-    opacity: 0.8;
-
-    &:hover {
-        opacity: 1;
-    }
-
-    svg {
-        fill: $pale-silver;
-        height: 2.1rem;
-        margin-bottom: 1px;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 6. Post Feed
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.post-feed {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -20px;
-    padding: 40px 0 0 0;
-    position: relative;
-
-    @include mobile-max {
-        padding-top: 5vw;
-    }
-}
-
-.post-card {
-    background: $neon-yellow center center;
-    background-size: cover;
-    border-radius: 5px;
-    //box-shadow: 8px 14px 38px rgba(39, 41, 50, 0.06), 1px 3px 8px rgba(39, 41, 50, 0.03);
-    display: flex;
-    flex: 1 1 300px;
-    flex-direction: column;
-    margin: 0 20px 40px;
-    min-height: 300px;
-    overflow: hidden;
-    transition: all 0.5s ease;
-
-    &:hover {
-        box-shadow: 0 0 1px rgba(39, 41, 50, 0.1), 0 3px 16px rgba(39, 41, 50, 0.27);
-        transition: all 0.3s ease;
-        transform: translate3d(0, -2px, 0);
-    }
-
-    .post-card-image-link {
-        border-radius: 5px 5px 0 0;
-        display: block;
-        overflow: hidden;
-        position: relative;
-
-        .post-card-image {
-            background: $neon-yellow no-repeat center center;
-            background-size: cover;
-            height: 200px;
-            width: auto;
-        }
-    }
-
-    .post-card-content {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        justify-content: space-between;
-
-        .post-card-content-link {
-            color: adjust-color($raisin-black, $lightness: -15%);
-            display: block;
-            padding: 25px 25px 0;
-            position: relative;
-
-            &:hover {
-                text-decoration: none;
-            }
-
-            .post-card-tags {
-                color: $lavender-indigo;
-                display: block;
-                font-size: 1.2rem;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                line-height: 1.15em;
-                margin-bottom: 4px;
-                text-transform: uppercase;
-            }
-
-            .post-card-title {
-                margin-top: 0;
-            }
-
-            .post-card-excerpt {
-                font-family: "Nanum Gothic", sans-serif;
-            }
-        }
-
-        .post-card-meta {
-            padding: 0 25px 25px;
-
-            .author-profile-image {
-                border-radius: 100%;
-                height: 25px;
-                margin-right: 5px;
-                object-fit: cover;
-                width: 25px;
-            }
-
-            .post-card-author {
-                font-size: 1.3rem;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                text-transform: uppercase;
-            }
-
-            .reading-time {
-                color: $lavender-indigo;
-                flex-shrink: 0;
-                float: right;
-                font-size: 1.2rem;
-                font-weight: 500;
-                letter-spacing: 0.5px;
-                line-height: 33px;
-                margin-left: 20px;
-                margin-top: -4px;
-                text-transform: uppercase;
-            }
-        }
-    }
-
-    @include mobile-max {
-        margin: 0 20px 5vw;
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 7. Single Post
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.post-template, .page-template {
+.post-template,
+.page-template {
     .site-header {
-        position: absolute;
-
-        .site-nav-left a, .site-nav-right a {
-            color: $neon-yellow;
-        }
+        height: 100vh;
+        //position: absolute;
+        //width: 100%;
     }
 
     .site-main {
@@ -570,527 +183,44 @@
     }
 }
 
-.post-full {
-    position: relative;
-    z-index: 50;
-
-    .post-full-image {
-        background: $pale-silver fixed center center;
-        background-size: cover;
-        height: 80vh;
-        margin: 0 -4vw -165px;
-
-        @include tablet-max {
-            height: 400px;
-        }
-
-        @include laptop-max {
-            height: 600px;
-            margin: 0 -4vw -100px;
-        }
-    }
-
-    .post-full-header {
-        bottom: 6vw;
-        margin: 0 auto;
-        //padding: 6vw 3vw 3vw;
-        max-width: 1200px;
-        position: relative;
-
-        @include mobile-max {
-            padding: 14vw 3vw 10vw;
-        }
-    }
-
-    .post-full-meta {
-        align-items: center;
-        color: $lavender-indigo;
-        display: flex;
-        font-size: 1.4rem;
-        font-weight: 600;
-        //text-shadow: 0 0 8px rgba(39, 41, 50, 0.07);
-        text-transform: uppercase;
-
-        .post-full-meta-data {
-            color: $electric-cyan;
-        }
-
-        .date-divider {
-            display: inline-block;
-            margin: 0 6px 1px;
-
-            &:after {
-                background: $electric-cyan;
-                bottom: 0.3rem;
-                content: "";
-                display: inline-block;
-                height: 1px;
-                margin: 0 0.6rem;
-                position: relative;
-                width: 12px;
-            }
-        }
-    }
-
-    .post-full-title {
-        color: adjust-color($neon-yellow, $lightness: -5%);
-        margin: 0;
-    }
-
-    &.no-image .post-full-content {
-        padding-top: 0;
-
-        &:before, &:after {
-            display: none;
-        }
-    }
-
-    .post-full-content {
-        background: $raisin-black;
-        color: $pale-silver;
-        font-family: "Nanum Gothic", sans-serif;
-        //font-size: 2.2rem;
-        line-height: 1.6em;
-        margin: 0 auto;
-        min-height: 230px;
-        padding: 70px 100px 0;
-        position: relative;
+.post-template {
+    hr {
+        height: 5px;
 
         &:before {
-            background: rgba(39, 41, 50, 0.8);
+            border-right: 4px solid transparent;
+            border-top: 4px solid $raisin-black;
             content: "";
-            display: block;
-            filter: blur(5px);
-            height: 200px;
-            left: -5px;
+            height: 4px;
+            left: 40px;
             position: absolute;
-            top: 15px;
-            transform: rotate(-5deg);
-            width: 20px;
-            z-index: -1;
+            top: 0;
+            width: 4px;
         }
 
         &:after {
-            background: rgba(39, 41, 50, 0.8);
+            background-color: $raisin-black;
             content: "";
-            display: block;
-            filter: blur(5px);
-            height: 200px;
+            height: 4px;
+            left: 0;
             position: absolute;
-            right: -5px;
-            top: 15px;
-            transform: rotate(5deg);
-            width: 20px;
-            z-index: -1;
-        }
-
-        .post-full-comments, .footnotes {
-            min-width: 100%;
-        }
-
-        h1, h2, h3, h4, h5, h6, p, ul, ol, dl, pre, blockquote {
-            min-width: 100%;
-        }
-
-        li {
-            word-break: break-word;
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-            p {
-                margin: 0;
-            }
-        }
-
-        a {
-            box-shadow: $electric-cyan 0 -1px 0 inset;
-            color: $raisin-black;
-
-            &:hover {
-                color: $electric-cyan;
-                text-decoration: none;
-            }
-        }
-
-        strong, em {
-            color: adjust-color($electric-cyan, $lightness: -5%);
-        }
-
-        small {
-            display: inline-block;
-            line-height: 1.6em;
-        }
-
-        img, video {
-            display: block;
-            margin: 1.5em auto;
-            max-width: 1200px;
-
-            @include laptop-max {
-                width: 100%;
-            }
-        }
-
-        img[src$="#full"] {
-            max-width: none;
-            width: 100vw;
-        }
-
-        img + br + small {
-            display: block;
-            margin-bottom: 1.5em;
-            margin-top: -3em;
-        }
-
-        iframe {
-            margin: 0 auto;
-        }
-
-        blockquote {
-            margin: 0 0 1.5em;
-            padding: 0 1.5em;
-            border-left: $electric-cyan 3px solid;
-
-            p {
-                color: inherit;
-                font-size: inherit;
-                font-style: italic;
-                line-height: inherit;
-                margin: 0 0 1em 0;
-
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        code {
-            font-weight: 400 !important;
-            line-height: 1em;
-        }
-
-        pre {
-            background: adjust-color($raisin-black, $lightness: -3%);
-            border: adjust-color($raisin-black, $lightness: -10%) 1px solid;
-            border-radius: 5px;
-            color: $pale-silver;
-            font-size: 1.4rem;
-            line-height: 1.5em;
-            margin: 1.5em 0 3em;
-            max-width: 100%;
-            overflow-x: auto;
-            padding: 20px;
-
-            code {
-                background: transparent;
-                font-size: inherit;
-                line-height: inherit;
-                padding: 0;
-
-                * {
-                    color: inherit;
-                }
-            }
-        }
-
-        hr {
-            margin: 4vw 0;
-
-            &:after {
-                background: adjust-color($pale-silver, $lightness: 10%);
-                box-shadow: $pale-silver 0 0 0 5px;
-                content: "";
-                display: block;
-                height: 30px;
-                left: 50%;
-                margin-left: -10px;
-                position: absolute;
-                top: -15px;
-                transform: rotate(45deg);
-                width: 1px;
-            }
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            color: $neon-yellow;
-            font-family: "Nanum Gothic", sans-serif;
-            font-weight: 700;
-            margin: 0.5em 0 0.2em 0;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-        }
-
-        h2 {
-            font-size: 2.6rem;
-        }
-
-        h3, h4 {
-            font-size: 2.2rem;
-        }
-
-        h5 {
-            border: 0;
-            color: $electric-cyan;
-            display: block;
-            line-height: 1.35em;
-            margin: 0.5em 0;
-            padding: 1em 0 1.5em;
-            text-align: center;
-
-            @include laptop-min {
-                max-width: 1060px;
-                width: 100vw;
-            }
-
-            @include mobile-max {
-                font-size: 2.2rem;
-                padding: 0 0 0.5em;
-            }
-        }
-
-        h6 {
-            font-size: 2rem;
-        }
-
-        .fluid-width-video-wrapper {
-            margin: 1.5em 0 3em;
-        }
-
-        .footnotes-sep {
-            margin-bottom: 30px;
-        }
-
-        .footnotes {
-            font-size: 1.5rem;
-
-            p {
-                margin: 0;
-            }
-        }
-
-        .footnotes-backref {
-            box-shadow: none !important;
-            color: $electric-cyan !important;
-            font-size: 1.2rem;
-            font-weight: bold;
-            text-decoration: none !important;
-        }
-
-        @include tablet-max {
-            font-size: 1.9rem;
-        }
-
-        @include laptop-max {
-            padding: 5vw 7vw 0;
-        }
-    }
-
-    .kg-card-markdown {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        max-width: 1200px;
-    }
-}
-
-.post-template {
-    .kg-card-markdown {
-        > p:first-child {
-            font-size: 1.25em;
-            line-height: 1.5em;
+            top: 0;
+            width: 40px;
         }
     }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 7.1. Subscribe Form
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.subscribe-form {
-    background: adjust-color($pale-silver, $lightness: 4%);
-    border: adjust-color($pale-silver, $lightness: 2%) 1px solid;
-    border-radius: 7px;
-    margin: 1.5em 0;
-    padding: 6.5vw 7vw 7vw;
-    text-align: center;
-
-    .subscribe-form-title {
-        color: $lavender-indigo;
-        font-size: 3.5rem;
-        font-weight: 700;
-        line-height: 1;
-        margin: 0 0 3px 0;
-        padding: 0;
-    }
-
-    p {
-        color: $lavender-indigo;
-        font-size: 2.2rem;
-        letter-spacing: 0.2px;
-        line-height: 1.55em;
-        margin-bottom: 1em;
-    }
-
-    form {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        margin: 0 auto;
-        max-width: 420px;
-
-        .form-group {
-            flex-grow: 1;
-        }
-
-        .subscribe-email {
-            border: adjust-color($pale-silver, $lightness: 7%) 1px solid;
-            border-radius: 5px;
-            color: $lavender-indigo;
-            display: block;
-            font-size: 1.8rem;
-            font-weight: normal;
-            line-height: 1em;
-            padding: 10px;
-            transition: border-color 0.15s linear;
-            user-select: text;
-            -webkit-appearance: none;
-            width: 100%;
-
-            &:focus {
-                border-color: adjust-color($pale-silver, $lightness: -2%);
-                outline: 0;
-            }
-        }
-    }
-
-    button {
-        background: linear-gradient(
-                        lighten($electric-cyan, 7%),
-                        adjust-color($electric-cyan, $lightness: -7%, $saturation: -10%) 60%,
-                        adjust-color($electric-cyan, $lightness: -7%, $saturation: -10%) 90%,
-                        adjust-color($electric-cyan, $lightness: -4%, $saturation: -10%)
-        );
-        border-radius: 5px;
-        box-shadow: 0 0 0 1px inset rgba(0, 0, 0, 0.14);
-        color: $pale-silver;
-        display: inline-block;
-        font-size: 1.5rem;
-        font-weight: 400;
-        height: 41px;
-        line-height: 37px;
-        margin: 0 0 0 10px;
-        outline: none;
-        padding: 0 20px;
-        text-align: center;
-        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-        -webkit-font-smoothing: subpixel-antialiased;
-
-        &:active, &:focus {
-            background: adjust-color($electric-cyan, $lightness: -9%, $saturation: -10%);
-        }
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 7.2. Post Footer
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.post-full-footer {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: 0 auto;
-    max-width: 840px;
-    padding: 3vw 0 6vw 0;
-
-    .author-card {
-        align-items: center;
-        display: flex;
-
-        .author-profile-image {
-            height: 60px;
-            margin-right: 15px;
-            width: 60px;
-        }
-
-        .author-card-name {
-            font-size: 2rem;
-            margin: 0 0 2px 0;
-            padding: 0;
-
-            a {
-                color: $raisin-black;
-                font-weight: 700;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .author-card-content {
-            p {
-                margin: 0;
-                color: $lavender-indigo;
-                line-height: 1.3em;
-            }
-        }
-
-        .post-full-footer-right {
-            flex-shrink: 0;
-            margin-left: 20px;
-        }
-
-        .author-card-button {
-            border: adjust-color($lavender-indigo, $lightness: 20%) 1px solid;
-            border-radius: 20px;
-            color: $lavender-indigo;
-            display: block;
-            font-size: 1.2rem;
-            font-weight: 500;
-            line-height: 1;
-            padding: 9px 16px;
-            transition: all ease 0.2s;
-
-            &:hover {
-                border-color: $electric-cyan;
-                color: $electric-cyan;
-                text-decoration: none;
-            }
-        }
-    }
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 7.3. Comments
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.post-full-comments {
-    margin: 0 auto;
-    max-width: 840px;
-}
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 7.4. Related posts
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.read-next-feed {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -20px;
-    padding: 40px 0 0 0;
-}
-
-
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 9. Error Template
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .error-template {
     .site-nav-center {
         align-items: center;
         display: flex;
+        font-weight: 700;
+        height: 40px;
         justify-content: center;
+        position: relative;
         text-align: center;
+        text-transform: uppercase;
+        z-index: 300;
 
         .site-nav-logo {
             margin-right: 0;
@@ -1098,6 +228,7 @@
     }
 
     .site-main {
+        background-color: $oc-white;
         padding: 7vw 4vw;
 
         .error-image {
@@ -1146,167 +277,264 @@
     }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 10. Subscribe Overlay
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
-.subscribe-overlay {
-    align-items: center;
-    backdrop-filter: blur(3px);
-    background: rgba(0, 25, 40, 0.97);
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    position: fixed;
-    right: 0;
-    transition: opacity 200ms ease-in;
-    top: 0;
-    z-index: 9000;
-
-    &:target {
-        opacity: 1;
-        pointer-events: auto;
+@media (min-width: $breakpoint-mobile) {
+    .home-template .post-feed {
+        margin-top: -10vh;
+        padding-top: 0;
     }
 
-    .subscribe-overlay-content {
-        color: $pale-silver;
-        margin: 0 0 5vw 0;
-        padding: 4vw;
+    .home-template .site-nav {
         position: relative;
-        text-align: center;
-        z-index: 9999;
-
-        .subscribe-overlay-logo {
-            height: 30px;
-            left: 30px;
-            position: fixed;
-            top: 23px;
-        }
-
-        .subscribe-overlay-title {
-            display: inline-block;
-            margin: 0 0 10px 0;
-        }
-
-        .subscribe-overlay-description {
-            font-family: "Nanum Gothic", sans-serif;
-            font-size: 3rem;
-            font-weight: 300;
-            line-height: 1.3em;
-            margin: 0 auto 50px;
-            max-width: 650px;
-            opacity: 0.8;
-        }
-
-        form {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-            margin: 0 auto;
-            max-width: 500px;
-
-            .form-group {
-                flex-grow: 1;
-
-                .subscribe-email {
-                    border: none;
-                    border-radius: 8px;
-                    color: $lavender-indigo;
-                    display: block;
-                    font-size: 2rem;
-                    font-weight: normal;
-                    letter-spacing: 0.5px;
-                    line-height: 1em;
-                    padding: 14px 20px;
-                    user-select: text;
-                    transition: border-color 0.15s linear;
-                    width: 100%;
-                    -webkit-appearance: none;
-
-                    &:focus {
-                        outline: 0;
-                        border-color: adjust-color($pale-silver, $lightness: -2%)
-                    }
-                }
-            }
-
-            button {
-                background: linear-gradient(
-                                lighten($electric-cyan, 7%),
-                                adjust-color($electric-cyan, $lightness: -7%, $saturation: -10%) 60%,
-                                adjust-color($electric-cyan, $lightness: -7%, $saturation: -10%) 90%,
-                                adjust-color($electric-cyan, $lightness: -4%, $saturation: -10%)
-                );
-                border-radius: 8px;
-                box-shadow: 0 0 0 1px inset rgba(0, 0, 0, 0.14);
-                color: $pale-silver;
-                display: inline-block;
-                font-size: 1.7rem;
-                font-weight: 400;
-                height: 52px;
-                line-height: 37px;
-                margin: 0 0 0 15px;
-                outline: none;
-                padding: 0 25px;
-                text-align: center;
-                text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
-                -webkit-font-smoothing: subpixel-antialiased;
-
-                &:active, &:focus {
-                    background: adjust-color($electric-cyan, $lightness: -9%, $saturation: -10%)
-                }
-            }
-        }
-    }
-
-    .subscribe-overlay-close {
-        bottom: 0;
-        display: block;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-
-        &:before {
-            background: $pale-silver;
-            content: "";
-            display: block;
-            height: 2px;
-            opacity: 0.8;
-            position: absolute;
-            right: 25px;
-            top: 40px;
-            transform: rotate(45deg);
-            width: 30px;
-        }
-
-        &:after {
-            background: $pale-silver;
-            content: "";
-            display: block;
-            height: 2px;
-            position: absolute;
-            right: 25px;
-            top: 40px;
-            width: 30px;
-            transform: rotate(-45deg);
-        }
-
-        &:hover {
-            cursor: default;
-        }
+        top: -5vh;
     }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 11. Site Footer
+ * 4. Site Header
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.site-header {
+    background: $raisin-black fixed no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    //padding: 12px 0;
+    position: relative;
+    //width: 100%;
+
+    &:before {
+        background: rgba(39, 41, 50, 0.18);
+        backdrop-filter: blur(10px);
+        mask-image: linear-gradient(to bottom, rgba(39, 41, 50, 0.8) 10%, transparent 80%);
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+    }
+
+    &:after {
+        background: linear-gradient(0deg, rgba(39, 41, 50, 0.3) 0, rgba(39, 41, 50, 0.5) 10%, rgba(39, 41, 50, 0.4) 50%, rgba(39, 41, 50, 0.2));
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 10;
+    }
+
+    &.no-cover:hover, &.no-cover:after {
+        //display: none;
+    }
+
+    .site-header-content {
+        align-items: center;
+        color: $electric-cyan;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //max-height: 90vh;
+        min-height: 90vh;
+        padding: 10vw 0;
+        margin: 0 20px;
+    }
+
+    .site-title {
+        -webkit-animation: fade-in-down 0.6s;
+        animation: fade-in-down 0.6s both;
+        -webkit-animation-delay: 0.2s;
+        animation-delay: 0.2s;
+        font-family: "Rubik Glitch", system-ui;
+        font-weight: 400;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        z-index: 10;
+
+        .site-logo {
+            max-height: 45px;
+        }
+
+        @include mobile-max {
+            font-size: 3rem;
+        }
+    }
+
+    .site-description {
+        font-size: 2.2rem;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        margin: 0;
+        opacity: 0.8;
+        padding: 5px 0;
+        position: relative;
+        z-index: 10;
+
+        @include mobile-max {
+            font-size: 1.8rem;
+        }
+    }
+
+    .author-bio {
+        @include mobile-max {
+            font-size: 1.8rem;
+            line-height: 1.15em;
+            letter-spacing: 0;
+        }
+    }
+
+    @include tablet-max {
+        //padding-left: 0;
+        //padding-right: 0;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 5. Site Navigation
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.site-nav-logo {
+    align-items: center;
+    color: adjust-color($pale-silver, $lightness: -5%);
+    display: flex;
+    flex-shrink: 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1em;
+    margin-right: 24px;
+    //padding: 11px 0;
+
+    &:hover {
+        color: $electric-cyan;
+        text-decoration: none;
+    }
+
+    img {
+        display: block;
+        height: 21px;
+        width: auto;
+    }
+}
+
+.subscribe-button {
+    align-items: center;
+    border: 1px solid adjust-color($electric-cyan, $lightness: -5%);;
+    display: flex;
+    padding: 4px 10px;
+    line-height: 1em;
+    border-radius: 20px;
+
+    &:hover {
+        border-color: $electric-cyan;
+    }
+}
+
+/*
+ * Site Nav Hack Explanation (above):
+ *
+ * What's happening above it .site-nav-left is set to overflow-x and allow sideways scrolling, so that when there isn't
+ * enough space for all nav items (either due to lots of nav items, or a small viewport), you can still scroll
+ * side-to-side to reach them.
+ * The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px of padding-bottom and a 40px fixed
+ * height parent (.site-nav) hides that entirely. Slightly hacky code. But nice clean end-result.
+ */
+.site-nav {
+    //align-items: flex-start;
+    display: flex;
+    font-size: 1.2rem;
+    font-weight: 700;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0 20px;
+    position: relative;
+    text-transform: uppercase;
+    z-index: 300;
+
+    .site-nav-left {
+        //align-items: center;
+        display: flex;
+        letter-spacing: 0.4px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        //padding-bottom: 80px;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .site-nav-right {
+        //align-items: center;
+        display: flex;
+        //flex-shrink: 0;
+
+        @include mobile-max {
+            display: none;
+        }
+    }
+
+    .nav {
+        display: flex;
+        list-style: none;
+        //margin: 0 0 0 -12px;
+        //padding: 0;
+
+        li {
+            //display: block;
+            margin: 10px 6px;
+            //margin: 0;
+            //padding: 0;
+            //text-transform: uppercase;
+        }
+
+        li:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .social-links {
+        .social-link {
+            //align-items: center;
+            //display: flex;
+            //justify-content: center;
+            //margin: 0;
+            //opacity: 0.8;
+            //padding: 10px;
+
+            svg {
+                fill: $pale-silver;
+                height: 1.8rem;
+            }
+
+            .social-link-fb {
+                svg {
+                    height: 1.5rem;
+                }
+            }
+
+            .social-link-wb {
+                svg {
+                    height: 1.6rem;
+
+                    path {
+                        stroke: $pale-silver;
+                    }
+                }
+            }
+        }
+    }
+
+    @include tablet-max {
+        margin-right: 0;
+        padding-left: 4vw;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 7. Site Footer
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .site-footer {
-    background: adjust-color($raisin-black, $lightness: -15%);
-    //background: $raisin-black;
-    color: $pale-silver;
+    background-color: $raisin-black;
+    color: adjust-color($pale-silver, $lightness: -7%);
     padding-bottom: 60px;
     padding-top: 20px;
     position: relative;
@@ -1314,41 +542,31 @@
 
     .site-footer-content {
         align-items: center;
-        color: adjust-color($pale-silver, $lightness: -7%);
         display: flex;
         flex-wrap: wrap;
         font-size: 1.3rem;
         justify-content: space-between;
-
-        a {
-            color: $electric-cyan;
-
-            &:hover {
-                background-color: $electric-cyan;
-                color: $raisin-black;
-                text-decoration: none;
-            }
-        }
+        margin: 0 20px;
 
         .site-footer-nav {
-            display: flex;
+            //display: flex;
 
             a {
-                margin-left: 20px;
-                position: relative;
-
-                &:before {
-                    background: $pale-silver;
-                    border-radius: 100%;
-                    content: "";
-                    display: block;
-                    height: 2px;
-                    left: -11px;
-                    position: absolute;
-                    top: 11px;
-                    width: 2px;
-                }
-
+                //    margin-left: 20px;
+                //    position: relative;
+                //
+                //    &:before {
+                //        background: $pale-silver;
+                //        border-radius: 100%;
+                //        content: "";
+                //        display: block;
+                //        height: 2px;
+                //        left: -11px;
+                //        position: absolute;
+                //        top: 11px;
+                //        width: 2px;
+                //    }
+                //
                 &:first-child {
                     @include mobile-max {
                         margin-left: 0;
@@ -1365,6 +583,535 @@
 
         @include mobile-max {
             flex-direction: column;
+        }
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 8. Post Feed
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.post-feed {
+    display: flex;
+    flex-wrap: wrap;
+    //margin: 0 -20px;
+    padding: 40px 0 0;
+    position: relative;
+
+    @include mobile-max {
+        padding-top: 5vw;
+    }
+}
+
+.post-card {
+    //background: center center;
+    //background-size: cover;
+    border-radius: 5px;
+    //box-shadow: 8px 14px 38px rgba(39, 41, 50, 0.06), 1px 3px 8px rgba(39, 41, 50, 0.03);
+    display: flex;
+    flex: 1 1 300px;
+    flex-direction: column;
+    margin: 0 20px 40px;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.5s ease;
+    //background: linear-gradient(45deg, #0aefff 0%, #147df5 40%, #be0aff 100%);
+
+    &:hover {
+        //box-shadow: -1px -1px 0px rgba($electric-cyan, 0.25), 1px 1px 0px rgba($electric-cyan, 0.25), 0 0 10px rgba($raisin-black, 0.25);
+        //box-shadow: -1px -1px 0 rgba(255, 255, 255, 0.75), 0 0 0 rgba(39, 41, 50, 0.75), 0px 0px 12px rgba(39, 41, 50, 0.35);
+        box-shadow: 0 0 1px rgba($raisin-black, 0.1), 0 3px 16px rgba($raisin-black, 0.27);
+        //box-shadow: 4px 0 10px rgba(39, 41, 50, 0.3), -20px 10px 0 rgba(39, 41, 50, 1);
+        transition: all 0.3s ease;
+        transform: translate3d(0, -2px, 0);
+    }
+
+    //&:before {
+    //    animation: gradient 5s linear infinite;
+    //    background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+    //    background-size: 200vw;
+    //    border-radius: 5px;
+    //    content: '';
+    //    height: 100%;
+    //    left: 0;
+    //    opacity: 0;
+    //    position: absolute;
+    //    top: 0;
+    //    visibility: hidden;
+    //    width: 100%;
+    //    z-index: -1;
+    //}
+
+    //&:hover:before {
+    //    filter: blur(20px);
+    //    opacity: 1;
+    //    visibility: visible;
+    //}
+
+    .post-card-image-link {
+        border-radius: 5px 5px 0 0;
+        display: block;
+        overflow: hidden;
+        position: relative;
+
+        .post-card-image {
+            background-size: cover;
+            height: 200px;
+            width: auto;
+        }
+    }
+
+    .post-card-content {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+
+        .post-card-content-link {
+            color: adjust-color($raisin-black, $lightness: -15%);
+            display: block;
+            padding: 25px 25px 0;
+            position: relative;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        .post-card-header {
+            .post-card-tags {
+                color: $lavender-indigo;
+                display: block;
+                font-size: 1.2rem;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                line-height: 1.15em;
+                margin-bottom: 4px;
+                text-transform: uppercase;
+            }
+
+            .post-card-title {
+                margin-top: 0;
+            }
+        }
+
+        .post-card-excerpt {}
+    }
+
+    .post-card-meta {
+        padding: 0 25px 25px;
+
+        .post-card-author {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+
+            a {
+                color: $lavender-indigo;
+            }
+        }
+
+        .reading-time {
+            color: $lavender-indigo;
+            flex-shrink: 0;
+            float: right;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            line-height: 33px;
+            margin-left: 20px;
+            margin-top: -4px;
+            text-transform: uppercase;
+        }
+    }
+
+    @include mobile-max {
+        margin: 0 20px 5vw;
+    }
+}
+
+/*
+ Special Styling for home page grid (below).
+ The first (most recent) post in the list is styled to be bigger than the others and take over the full width of the grid
+ to give it more emphasis. Wrapped in a media query to make sure this only happens on large viewports / desktop-ish devices.
+ */
+@media (min-width: $breakpoint-tablet) {
+    .post-feed .post-card:nth-child(6n+1) {
+        &:not(.no-image) {
+            color: $pale-silver;
+            flex: 1 1 100%;
+            flex-direction: row;
+
+            .post-card-image-link {
+                border-radius: 5px 0 0 5px;
+                flex: 1 1 auto;
+                position: relative;
+            }
+
+            .post-card-image {
+                height: 100%;
+                position: absolute;
+                width: 100%;
+            }
+
+            .post-card-content {
+                background: adjust-color($raisin-black, $lightness: -15%);
+                flex: 0 1 357px;
+            }
+
+            h2 {
+                font-size: 2.6rem;
+            }
+
+            p {
+                font-size: 1.8rem;
+                line-height: 1.55em;
+            }
+
+            .post-card-content-link {
+                color: $pale-silver;
+                padding: 30px 40px 0;
+            }
+
+            .post-card-meta {
+                padding: 0 40px 30px;
+            }
+        }
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9. Single Post
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.post-single {
+    margin: 0 20px;
+    position: relative;
+    z-index: 50;
+
+    iframe {
+        border-radius: 12px;
+        height: 82vh;
+        width: 100%;
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9.1. Header
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+//.post-header-content {
+//    align-items: self-start;
+//    display: flex;
+//    flex-direction: column;
+//    justify-content: flex-end;
+//    min-height: 73vh;
+//    padding-bottom: 12px;
+//    position: relative;
+//    z-index: 12;
+//}
+
+.post-header {
+    background-color: $neon-yellow;
+    margin: -168px auto 0;
+    max-width: 1200px;
+    padding: 3vw 3vw 6vw;
+    position: relative;
+    //text-align: center;
+
+    &:before {
+        background: rgba(39, 41,50, 0.5);
+        content: "";
+        display: block;
+        filter: blur(5px);
+        height: 180px;
+        left: -8px;
+        position: absolute;
+        top: 12px;
+        transform: rotate(-5deg);
+        width: 20px;
+        z-index: -1;
+    }
+
+    &:after {
+        background: rgba(39, 41,50, 0.5);
+        content: "";
+        display: block;
+        filter: blur(5px);
+        height: 180px;
+        position: absolute;
+        right: -8px;
+        top: 12px;
+        transform: rotate(5deg);
+        width: 20px;
+        z-index: -1;
+    }
+
+    .post-header-meta {
+        align-items: center;
+        color: adjust-color($pale-silver, $lightness: -5%);
+        display: flex;
+        //justify-content: center;
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1.4em;
+        text-transform: uppercase;
+
+        @include mobile-max {
+            font-size: 1.2rem;
+            line-height: 1.2em;
+        }
+    }
+
+    .post-header-date {
+    }
+
+    .post-header-tag {
+    }
+
+    .post-header-title {
+        color: $lavender-indigo;
+        margin: 0;
+
+        @include mobile-max {
+            font-size: 2.9rem;
+        }
+    }
+
+    @include mobile-max {
+        padding: 14vw 3vw 10vw;
+    }
+}
+
+.post-content {
+    line-height: 1.6em;
+    margin: 0 auto;
+    min-height: 230px;
+    padding: 70px 100px 0;
+    position: relative;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9.4. Footer
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.post-footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 3vw 0 6vw;
+
+    .author-card {
+        align-items: center;
+        display: flex;
+
+        .author-profile-image {
+            height: 60px;
+            margin-right: 15px;
+            width: 60px;
+        }
+
+        .author-card-content {
+            p {
+                margin: 0;
+                color: $lavender-indigo;
+                line-height: 1.3em;
+            }
+        }
+
+        .author-card-name {
+            font-size: 2rem;
+            margin: 0 0 2px 0;
+            padding: 0;
+
+            a {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .post-footer-right {
+        flex-shrink: 0;
+        margin-left: 20px;
+
+        .author-card-button {
+            border: 1px solid adjust-color($electric-cyan, $lightness: -5%);
+            border-radius: 20px;
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1;
+            padding: 9px 16px;
+            transition: all 0.2s ease;
+
+            &:hover {
+                border-color: $electric-cyan;
+            }
+        }
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9.5. Comments
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.post-comments {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9.6. Related Posts
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 10. Subscribe Overlay
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.subscribe-overlay {
+    align-items: center;
+    backdrop-filter: blur(30px);
+    background: rgba(0, 25, 40, 0.7);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity 200ms ease-in;
+    z-index: 9000;
+
+    &:target {
+        opacity: 1;
+        pointer-events: auto;
+
+        .subscribe-overlay-content {
+            -webkit-animation: fade-in-down 0.6s;
+            animation: fade-in-down 0.6s ease-in both;
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+            color: $pale-silver;
+            margin: 0 0 5vw 0;
+            padding: 4vw;
+            position: relative;
+            text-align: center;
+        }
+    }
+
+    .subscribe-overlay-logo {
+        height: 30px;
+        left: 30px;
+        position: fixed;
+        top: 23px;
+    }
+
+    .subscribe-overlay-title {
+        display: inline-block;
+        font-size: 6rem;
+        line-height: 1.15em;
+        margin: 0 0 10px 0;
+    }
+
+    .subscribe-overlay-description {
+        font-size: 3rem;
+        font-weight: 300;
+        line-height: 1.3em;
+        margin: 0 auto 50px;
+        max-width: 650px;
+        opacity: 0.8;
+    }
+
+    form {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 500px;
+
+        .form-group {
+            flex-grow: 1;
+        }
+
+        .subscribe-email {
+            background: none;
+            border: none;
+            border-bottom: 2px solid adjust-color($pale-silver, $lightness: -5%);
+            flex: 1 1 auto;
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            line-height: 1em;
+            outline: none;
+            padding: 5px 2px;
+            transition: border-color 0.15s linear;
+            user-select: text;
+            width: 100%;
+            -webkit-appearance: none;
+
+            &:focus {
+                border-color: $pale-silver;
+                outline: 0;
+            }
+        }
+
+        button {
+            background: none;
+            box-shadow: 0 0 0 1px inset rgba(0, 0, 0, 0.14);
+            border: 2px solid adjust-color($pale-silver, $lightness: -5%);
+            color: #fff;
+            display: inline-block;
+            font-size: 1.7rem;
+            font-weight: 400;
+            height: 52px;
+            line-height: 37px;
+            margin: 0 0 0 15px;
+            outline: none;
+            padding: 0 25px;
+            text-align: center;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+    }
+
+    .subscribe-overlay-close {
+        bottom: 0;
+        cursor: default;
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        &:before {
+            background: adjust-color($electric-cyan, $lightness: -5%);
+            display: block;
+            content: "";
+            height: 2px;
+            opacity: 0.8;
+            position: absolute;
+            right: 25px;
+            top: 40px;
+            transform: rotate(45deg);
+            width: 30px;
+        }
+
+        &:after {
+            background: adjust-color($electric-cyan, $lightness: -5%);
+            content: "";
+            display: block;
+            height: 2px;
+            opacity: 0.8;
+            position: absolute;
+            right: 25px;
+            top: 40px;
+            transform: rotate(-45deg);
+            width: 30px;
+        }
+
+        &:hover {
+            opacity: 1;
+            cursor: pointer;
         }
     }
 }

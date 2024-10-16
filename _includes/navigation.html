@@ -7,7 +7,7 @@
         {% if page.navigation %}
             <ul class="nav" role="menu">
                 {% for nav in site.navigation %}
-                <li class="nav-{{ nav[1].name | downcase }}" role="menuitem"><a href="{{ nav.url }}">{{ nav.name | upcase }}</a></li>
+                <li class="nav-{{ nav.name | downcase }}" role="menuitem"><a href="{{ nav.url }}" class="underline">{{ nav.name | upcase }}</a></li>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -15,13 +15,13 @@
 
     <div class="site-nav-right">
         {% if page.current != 'home' %}
-            <div class="social-links">
+            <ul class="nav social-links" role="menu">
                 {% for socials in site.socials %}
                     {% if socials[1].url %}
-                        <a href="{{ socials[1].url }}" class="social-link {{ socials[1].icon }}" target="_blank" rel="noopener">{{ socials[0] }}</a>
+                        <li class="social-link"><a href="{{ socials[1].url }}" class="underline {{ socials[1].icon }}" target="_blank" rel="noopener">{{ socials[0] }}</a></li>
                     {% endif %}
                 {% endfor %}
-            </div>
+            </ul>
         {% endif %}
 
         {% if site.subscribe %}

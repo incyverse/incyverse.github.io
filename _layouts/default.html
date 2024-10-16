@@ -8,8 +8,33 @@
 
 <body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
 <div class="site-wrapper">
+    <header class="site-header outer{% if page.cover or site.cover %}" style="background-image: url({{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}){% else %} no-cover{% endif %}">
+        <div class="inner">
+            {% if page.class == "home-template" %}
+                <section class="site-header-content">
+                    <h1 class="site-title">
+                        {% if site.logo %}
+<!--                            <img src="{{ site.baseurl }}/{{ site.logo }}" class="site-logo" alt="{{ site.title }}">-->
+                            {{ site.title }}
+                        {% else %}
+                            {{ site.title }}
+                        {% endif %}
+                    </h1>
+                    <h2 class="site-description">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</h2>
+                </section>
+            {% endif %}
+
+            {% include navigation.html %}
+        </div>
+    </header>
+
     <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-    {{ content }}
+<!--    <figure class="post-full-image" style="background-image: url({{ site.baseurl }}/{{ site.cover }}"></figure>-->
+    <main id="site-main" class="site-main outer" role="main">
+        <div class="inner">
+            {{ content }}
+        </div>
+    </main>
 
     <!-- previous/next links - displayed on every page -->
     {% if paginator.total_posts > site.paginate %}
@@ -24,19 +49,21 @@
 
     <!-- The footer at the very bottom of the screen -->
     <footer class="site-footer outer">
-        <div class="site-footer-content inner">
-            <section class="copyright">
-                <a href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+        <div class="inner">
+            <section class="site-footer-content">
+                <article class="copyright">
+                    <a href="{{ site.url }}{{ site.baseurl }}/" class="underline">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
+                </article>
+                <article class="powered-by">
+                    <!-- Proudly published with <a href="">Incyverse</a> -->
+                </article>
+                <nav class="site-footer-nav">
+                    <a href="{{ site.baseurl }}/" class="underline">Latest Posts</a>
+                    {% if site.facebook %}
+                    <a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>
+                    {% endif %}
+                </nav>
             </section>
-            <section class="powered-by">
-                <!-- Proudly published with <a href="">Incyverse</a> -->
-            </section>
-            <nav class="site-footer-nav">
-                <a href="{{ site.baseurl }}/">Latest Posts</a>
-                {% if site.facebook %}
-                <a href="https:/facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>
-                {% endif %}
-            </nav>
         </div>
     </footer>
 </div>
@@ -44,19 +71,17 @@
 <!-- The big email subscribe modal content -->
 {% if site.subscribe %}
 <div id="subscribe" class="subscribe-overlay">
+    {% if site.logo %}
+        <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
+    {% endif %}
     <a href="" class="subscribe-overlay-close"></a>
     <div class="subscribe-overlay-content">
-        {% if site.logo %}
-            <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
-        {% endif %}
         <h1 class="subscribe-overlay-title">Subscribe to {{ site.title }}</h1>
         <p class="subscribe-overlay-description">Stay up to date! Get all the latest &amp; greatest posts delivered straight to your inbox</p>
 
-        {% include subscribe-form.html placeholder="incyverse@gmail.com" %}
+        {% include subscribe-form.html placeholder="" %}
     </div>
 </div>
 {% endif %}
-
-{% include site-scripts.html %}
 </body>
 </html>
