@@ -58,6 +58,20 @@
 <meta property="article:tag" content="{{ page.tags | first | capitalize }}">
 {% endif %}
 
+<!--<meta name="twitter:card" content="summary_large_image">-->
+<!--<meta name="twitter:title" content="{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">-->
+<!--<meta name="twitter:description" content="{% if excerpt %}{{ excerpt }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">-->
+<!--<meta name="twitter:url" content="{{ site.url }}{{ site.baseurl }}/">-->
+<!--<meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}">-->
+<!--<meta name="twitter:label1" content="Written by">-->
+<!--<meta name="twitter:data1" content="{{ site.title }}">-->
+<!--{% if page.tags.size > 0 %}-->
+<!--<meta name="twitter:label2" content="Filed under">-->
+<!--<meta name="twitter:data2" content="{{ page.tags | first | capitalzeall }}">-->
+<!--{% endif %}-->
+<!--<meta name="twitter:site" content="@{{ site.social-links.twitter }}">-->
+<!--<meta name="twitter:creator" content="@{{ site.social-links.twitter }}">-->
+
 <link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}">
 <link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}/{{ site.favicon }}">
