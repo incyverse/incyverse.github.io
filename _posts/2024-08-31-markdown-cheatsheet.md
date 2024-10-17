@@ -1,7 +1,7 @@
 ---
 layout: post
-cover: assets/images/bear.jpg
-title: Markdown
+cover: assets/images/post/markdown.jpg
+title: Markdown Cheatsheet
 date: 2024-08-31 21:45:56
 description:
 author: anthony
@@ -13,17 +13,18 @@ categories: []
 tags: [markdown]
 ---
 
-本中文版Markdown语法简介来自博客 <https://blog.shengbin.me/posts/markdown-syntax>
+Markdown 구문에 대한 전체 소개는 <https://www.markdownguide.org/>에 있습니다. 블로그를 작성할 때 쉽게 참고할 있도록 아래에 정리했습니다.
 
-Markdown语法的完整介绍在这里：<http://daringfireball.net/projects/markdown/syntax>。下面整理的这些为了方便写博客时参考。
+### 세그먼트 및 분기
 
-### 分段与分行
+단락을 구분하려면 하나 이상의 빈 줄을 사용하고, 단락 내의 줄을 나누려면 두 개의 이상의 공백을 사용하십시오.
 
-以一个或多个空行来隔开段落；以两个或多个空格来段内换行。
 
-### 标题
 
-```
+
+### Headings
+
+```markdown
 This is an H1
 =============
 
@@ -35,7 +36,6 @@ This is an H2
 ##  This is an H2
 
 ######  This is an H6
-
 ```
 
 ### 引用

@@ -21,8 +21,9 @@
  *  9.3. Subscribe Form
  *  9.4. Footer
  *  9.5. Comments
- *  9.6. Related Posts
- *  9.7. Floating Header
+ *  9.6. Navigation
+ *  9.7. Related Posts
+ *  9.8. Floating Header
  * 10. Subscribe Overlay
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 
@@ -39,8 +40,10 @@
 //&family=Noto+Sans+KR:wght@100..900
 //&family=Nanum+Gothic:wght@400;700;800
 //&family=Rubik+Glitch
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Rubik+Glitch&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Rubik+Glitch&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Nanum+Gothic:wght@400;700;800&family=Fira+Code:wght@300..700&display=swap");
 @import url("https://db.onlinewebfonts.com/c/335787aa6f57d71cabe8eb5dc89c6d6b?family=Blender+Pro+Book");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 
 @import "open-color";
 @import "variables";
@@ -207,6 +210,11 @@ a.underline {
             top: 0;
             width: 40px;
         }
+    }
+
+    .kg-card-markdown > p:first-child {
+        //font-size: 1.25rem;
+        //line-height: 1.5em;
     }
 }
 
@@ -853,7 +861,7 @@ a.underline {
         //justify-content: center;
         font-size: 1.4rem;
         font-weight: 700;
-        margin-bottom: 1.4em;
+        //margin-bottom: 1.4em;
         text-transform: uppercase;
 
         @include mobile-max {
@@ -882,12 +890,58 @@ a.underline {
     }
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * 9.2. Contents
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .post-content {
+    font-family: "Nanum Gothic", sans-serif;
+    //font-size: 2.2rem;
     line-height: 1.6em;
     margin: 0 auto;
-    min-height: 230px;
-    padding: 70px 100px 0;
+    //padding: 70px 100px 0;
+    padding: 0 2em;
     position: relative;
+    min-height: 230px;
+
+    h1, h2, h3, h4, h5, h6 {
+        min-width: 100%;
+    }
+
+    li {
+        word-break: break-word;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    a {
+        color: $raisin-black;
+        box-shadow: $raisin-black 0 -1px 0 inset;
+
+        &:hover {
+            //color: $electric-cyan;
+        }
+    }
+
+    strong, em {
+        color: adjust-color($raisin-black, $lightness: -5%);
+    }
+
+    @include tablet-max {
+        padding: 5vw 7vw 0;
+    }
+
+    @include mobile-max {
+        font-size: 1.9rem;
+    }
+}
+
+.kg-card-markdown {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
@@ -960,8 +1014,59 @@ a.underline {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * 9.6. Related Posts
+ * 9.6. Navigation
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+.post-navigation {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    .post-prev, .post-next {
+        height: 250px;
+        width: 50%;
+    }
+}
+//.post-navigation {
+//    align-items: baseline;
+//    display: flex;
+//    margin-bottom: 70px;
+//
+//    .post-prev, .post-next {
+//        background-position: center;
+//        background-repeat: no-repeat;
+//        background-size: cover;
+//        width: 50%;
+//
+//        &:before {
+//            content: "";
+//            filter: grayscale(100%);
+//            position: relative;
+//            height: 100%;
+//            width: 100%;
+//        }
+//
+//        &:hover {
+//            filter: grayscale(0%);
+//        }
+//
+//        .post-nav-link {
+//            color: adjust-color($pale-silver, $lightness: -5%);
+//        }
+//
+//        .post-nav-title {
+//            display: flex;
+//            justify-content: flex-end;
+//            letter-spacing: 2px;
+//            margin-bottom: 5px;
+//            text-transform: uppercase;
+//        }
+//    }
+//
+//    .post-next {
+//        margin-left: auto;
+//        text-align: right;
+//    }
+//}
 
 /* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
  * 10. Subscribe Overlay

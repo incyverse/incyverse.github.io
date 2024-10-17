@@ -99,7 +99,7 @@ subscribe: false
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 markdown: kramdown
-highlighter: rouge
+#highlighter: rouge
 
 # Gem and other configs
 #plugins_dir: [_plugins]

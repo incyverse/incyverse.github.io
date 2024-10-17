@@ -4,7 +4,7 @@ cover: assets/images/music/empty-world.webp
 title: 這世界那麼多人 Empty World
 date: 2024-09-24 22:25:04 +0900
 description:
-author: Anthony
+author: anthony
 current: post
 class: post-template
 subclass: post

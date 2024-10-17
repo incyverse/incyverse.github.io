@@ -12,16 +12,17 @@ $breakpoint-desktop: 1440px;
 // "Noto Serif", "PT Serif", source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC", "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSon, serif;
 // ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 .font-regular {
-    font-family: "Noto Sans KR", sans-serif, "Rubik Glitch", system-ui, "Source Code Pro", monospace;
+    font-family: "Nanum Gothic", sans-serif, "Noto Sans KR", sans-serif, "Rubik Glitch", system-ui, "Source Code Pro", monospace, "Fira Code", monospace;
     font-weight: 400;
     font-style: normal;
 }
 //$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygne, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-$base-font: -apple-system, "Blender Pro Book", "Noto Sans KR", sans-serif;
+//$base-font: -apple-system, "Blender Pro Book", "Noto Sans KR", sans-serif;
+$base-font: -apple-system, "Nanum Gothic", sans-serif;
 $base-font-size: 62.5%;
 $base-font-weight: 300;
 
-$code-font: "Source Code Pro", monospace;
+$code-font: "Fira Code", monospace;
 
 $small-font-size: 60%;
 

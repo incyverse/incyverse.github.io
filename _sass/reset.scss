@@ -103,7 +103,7 @@ b, strong {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 500;
+    font-weight: 700;
     line-height: 1.15;
     margin: 1.5em 0 0.5em 0;
     text-rendering: optimizeLegibility;
@@ -111,7 +111,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 4.6rem;
-    font-weight: 700;
     margin-top: 0;
 
     @include mobile {
@@ -121,7 +120,6 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    font-weight: 700;
 
     @include mobile {
         font-size: 1.8rem;

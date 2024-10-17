@@ -81,12 +81,11 @@ disqus: false
     {% endif %}
 
     <section class="post-navigation">
+        {% if page.previous %}
+            {% include post-card-prev.html %}
+        {% endif %}
         {% if page.next %}
             {% include post-card-next.html %}
-        {% endif %}
-
-        {% if page.previous %}
-            previous
         {% endif %}
     </section>
 </article>

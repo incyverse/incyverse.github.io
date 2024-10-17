@@ -1,74 +1,16 @@
-<!--<script type="application/ld+json">-->
-<!--  {-->
-<!--    "@context": "https://schema.org",-->
-<!--    "@type": "Website",-->
-<!--    "publisher": {-->
-<!--      "@type": "Organization",-->
-<!--      "name": "{{ site.title }}",-->
-<!--      "logo": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"-->
-<!--    },-->
-<!--    "url": "{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}",-->
-<!--    "image": {-->
-<!--      "@type": "ImageObject",-->
-<!--      "url": "{{ site.url }}{{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}",-->
-<!--      "width": 2000,-->
-<!--      "height": 666-->
-<!--    },-->
-<!--    "mainEntityOfPage": {-->
-<!--      "@type": "WebPage",-->
-<!--      "@id": "{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}"-->
-<!--    },-->
-<!--    "description": "{% if excerpt %}{{ excerpt }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"-->
-<!--  }-->
-<!--</script>-->
-
-<!--<script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>-->
-<!--<script type="text/javascript">-->
-<!--  ghost.init({-->
-<!--    clientId: "ghost-frontend",-->
-<!--    clientSecret: "f84a07a72b17"-->
-<!--  });-->
-<!--</script>-->
-
-<!-- highlight.js -->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>-->
-<!--<script type="text/javascript">-->
-<!--  $(document).ready(function () {-->
-<!--    $('pre code').each(function (i, block) {-->
-<!--      hljs.highlightBlock(block);-->
-<!--    });-->
-<!--  });-->
-
-<!--  (function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');-->
-<!--</script>-->
-
 <!-- jQuery + Fitvids, which makes all video embeds responsive -->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-<!--<script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.fitvids.js"></script>-->
-<!--<script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script>-->
+
+<!-- https://highlightjs.org/ + https://highlightjs.readthedocs.io/en/latest/ -->
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- and it's easy to individually load additional languages -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>-->
+<!--<script>hljs.highlightAll();</script>-->
 
 <!-- Paginator increased to "infinit" in _config.yml -->
-<!-- if paginator.posts  -->
-<!-- <script>
-    var maxPages = parseInt('{{ paginator.total_pages }}');
-</script>
-<script src="{{ site.baseurl }}assets/js/infinitescroll.js"></script> -->
-<!-- /endif -->
-
 {% if paginator.total_pages > site.paginate %}
-<!--<script>-->
-<!--  const maxPages = parseInt('{{ paginator.total_pages }}')-->
-<!--</script>-->
-<!--<script src="{{ site.baseurl }}/assets/js/infinitescroll.js"></script>-->
-{% endif %}
-
-<!-- Add Google Analytics -->
-<!--{% include analytics.html %}-->
-
-<!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript
- which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
-{% if page.class == "post-template" %}
-  {% include post-scripts.html %}
-{% elsif page.class == "page-template" %}
-  {% include page-scripts.html %}
+<script>
+    const maxPages = parseInt({{ paginator.total_pages }});
+</script>
 {% endif %}
