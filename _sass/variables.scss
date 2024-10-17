@@ -3,9 +3,9 @@
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 // Breakpoints
 // ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-$breakpoint-mobile: 320px;
+$breakpoint-mobile: 576px;
 $breakpoint-tablet: 768px;
-$breakpoint-laptop: 1024px;
+$breakpoint-laptop: 1200px;
 $breakpoint-desktop: 1440px;
 
 // Fonts
@@ -20,7 +20,7 @@ $breakpoint-desktop: 1440px;
 //$base-font: -apple-system, "Blender Pro Book", "Noto Sans KR", sans-serif;
 $base-font: -apple-system, "Nanum Gothic", sans-serif;
 $base-font-size: 62.5%;
-$base-font-weight: 300;
+$base-font-weight: 400;
 
 $code-font: "Fira Code", monospace;
 

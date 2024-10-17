@@ -56,94 +56,36 @@ table {
 //    box-sizing: inherit;
 //}
 
-/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
- * Base Styles: opinionated defaults
- * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 html {
     box-sizing: border-box;
-    font-size: $base-font-size;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    font-family: $base-font;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body {
-    background-color: $neon-yellow;
-    color: adjust-color($lavender-indigo, $lightness: -25%);
-    font-family: $base-font;
-    font-size: 1.8rem;
-    font-weight: $base-font-weight;
-    letter-spacing: 0;
-    line-height: 1.6em;
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -moz-font-feature-settings: "liga" on;
+img {
+    max-width: 100%;
 }
 
 a {
-    color: adjust-color($electric-cyan, $lightness: -5%);
-    text-decoration: none;
-
-    &:link, &:visited {
-        color: adjust-color($electric-cyan, $lightness: -10%);
-    }
+    background-color: transparent;
 
     &:active, &:hover {
-        color: $electric-cyan;
         outline: 0;
     }
 }
 
 b, strong {
-    font-weight: 700;
+    font-weight: bold;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.15;
-    margin: 1.5em 0 0.5em 0;
-    text-rendering: optimizeLegibility;
+i, em, dfn {
+    font-style: italic;
 }
 
 h1 {
-    font-size: 4.6rem;
-    margin-top: 0;
-
-    @include mobile {
-        font-size: 2.2rem;
-    }
-}
-
-h2 {
-    font-size: 2rem;
-
-    @include mobile {
-        font-size: 1.8rem;
-    }
-}
-
-h3 {
-    font-size: 1.8rem;
-
-    @include mobile {
-        font-size: 1.6rem;
-    }
-}
-
-h4 {
-    font-size: 1.6rem;
-}
-
-h5 {
-    font-size: 1.4rem;
-}
-
-h6 {
-    font-size: 1.2rem;
+    font-size: 2em;
+    margin: 0.67em 0;
 }
 
 small {
@@ -157,17 +99,16 @@ sub, sup {
     vertical-align: baseline;
 }
 
-sub {
-    bottom: -0.25em;
-}
-
 sup {
     top: -0.5em;
 }
 
+sub {
+    bottom: -0.25em;
+}
+
 img {
     border: 0;
-    max-width: 100%;
 }
 
 svg:not(:root) {
@@ -175,11 +116,11 @@ svg:not(:root) {
 }
 
 mark {
-    background-color: #fdffb6;
+    background-color: $neon-yellow;
 }
 
 code, kbd, pre, samp {
-    font-family: $code-font;
+    font-family: monospace, monospace;
     font-optical-sizing: auto;
     font-size: 1em;
     font-style: normal;
@@ -190,6 +131,11 @@ button, input, optgroup, select, textarea {
     color: inherit;
     font: inherit;
     margin: 0;
+}
+
+button {
+    border: none;
+    overflow: visible;
 }
 
 button, select {
@@ -205,14 +151,10 @@ button[disabled], html input[disabled] {
     cursor: default;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
+button::-moz-focus-inner,
+input::-moz-focus-inner {
     border: 0;
     padding: 0;
-}
-
-button {
-    border: none;
-    overflow: visible;
 }
 
 input {
@@ -226,6 +168,10 @@ input {
 input[type="checkbox"], input[type="radio"] {
     box-sizing: border-box;
     padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
 }
 
 input[type="search"] {
@@ -256,6 +202,59 @@ td, th {
     padding: 0;
 }
 
+/* ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+ * Base Styles: opinionated defaults
+ * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
+html {
+    font-size: $base-font-size;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    background: $neon-yellow;
+    color: adjust-color($lavender-indigo, $lightness: -25%);
+    font-family: $base-font;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: $base-font-weight;
+    letter-spacing: 0;
+    line-height: 1.6em;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -moz-font-feature-settings: "liga" on;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid adjust-color($lavender-indigo, $lightness: 10%);
+    display: block;
+    height: 1px;
+    margin: 2.5em 0 3.5em;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+audio, canvas, iframe, img, svg, video {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
 p, ul:not(.nav), ol, dl, blockquote {
     margin: 0 0 1.5em 0;
 }
@@ -265,16 +264,16 @@ ol, ul:not(.nav) {
     padding-right: 1.5em;
 }
 
-ol ol, ol ul, ul ul, ul ol {
+ol ol, ul ul, ul ol, ol ul {
     margin: 0.5em 0 1em;
-}
-
-ol {
-    list-style: decimal;
 }
 
 ul {
     list-style: disc;
+}
+
+ol {
+    list-style: decimal;
 }
 
 li {
@@ -283,12 +282,8 @@ li {
     padding-left: 0.3em;
 }
 
-dd {
-    margin: 0 0 5px 0;
-    text-align: left;
-}
-
 dt {
+    color: $raisin-black;
     float: left;
     font-weight: 500;
     margin: 0 20px 0 0;
@@ -296,60 +291,15 @@ dt {
     width: 120px;
 }
 
-hr {
-    border: 0;
-    border-top: 1px solid adjust-color($raisin-black, $lightness: 10%);
-    display: block;
-    height: 1px;
-    margin: 2.5em 0 3.5em;
-    padding: 0;
-    position: relative;
-    width: 100%;
-}
-
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-audio, canvas, iframe, img, svg, video {
-    vertical-align: middle;
+dd {
+    margin: 0 0 5px 0;
+    text-align: left;
 }
 
 blockquote {
-    border-left: $raisin-black 1px solid;
-    display: block;
+    border-left: 0.5em solid $light-gray;
     margin: 1.5em 0;
     padding: 0 1.6em 0 1.6em;
-    position: relative;
-
-    &:before {
-        border-right: 4px solid transparent;
-        border-top: 4px solid $raisin-black;
-        content: "";
-        left: 0;
-        position: absolute;
-        top: 1px;
-    }
-
-    &:after {
-        background-color: $raisin-black;
-        content: "";
-        height: 1px;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 4px;
-    }
-
-    cite {
-        font-weight: bold;
-
-        a {
-            font-weight: normal;
-        }
-    }
 
     p {
         font-size: 1.2em;
@@ -361,17 +311,79 @@ blockquote {
         display: inline-block;
         font-size: 0.9em;
         margin: 0.8em 0 0.8em 1.5em;
-        opacity: 0.9;
+        opacity: 0.8;
 
         &:before {
             content: "\2014 \00A0";
         }
     }
+
+    cite {
+        font-weight: 700;
+
+        a {
+            font-weight: normal;
+        }
+    }
+}
+
+a {
+    color: adjust-color($electric-cyan, $lightness: -5%);
+    text-decoration: none;
+
+    &:link, &:visited {
+        color: adjust-color($electric-cyan, $lightness: -10%);
+    }
+
+    &:hover, &:active {
+        color: $electric-cyan;
+        outline: 0;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 1.5em 0 0.5em 0;
+    text-rendering: optimizeLegibility;
+}
+
+h1 {
+    font-size: 2.8em;
+    margin: 0 0 0.5em 0;
+
+    @include mobile {
+        font-size: 2.2rem;
+    }
+}
+
+h2 {
+    font-size: 2rem;
+
+    @include mobile {
+        font-size: 1.8rem;
+    }
+}
+
+h3 {
+    font-size: 1.8rem;
+
+    @include mobile {
+        font-size: 1.6rem;
+    }
+}
+
+h4 {
+    font-size: 1.6rem;
+}
+
+h5, h6 {
+    font-size: 1.4rem;
 }
 
 ::selection {
-    background-color: $lavender-indigo;
-    color: $neon-yellow;
+    background: adjust-color($electric-cyan, $lightness: 30%);
+    color: $lavender-indigo;
     text-shadow: none;
 }
 

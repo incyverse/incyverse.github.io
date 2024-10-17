@@ -99,7 +99,7 @@ subscribe: false
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 markdown: kramdown
-#highlighter: rouge
+highlighter: rouge
 
 # Gem and other configs
 #plugins_dir: [_plugins]
@@ -179,28 +179,5 @@ exclude:
   - .jekyll-cache
   - .sass-cache
   - CNAME
-#  - Gemfile
-#  - Gemfile.lock
-#  - node_modules
-#  - vendor
   - LICENSE
   - README.md
-
-#  - .travis.yml
-#  - gemfiles
-#  - Gemfile
-#  - Gemfile.lock
-#  - gulpfile.js
-#  - package.json
-#  - package-lock.json
-#  - Rakefile
-#  - script.py
-#  - changelog.md
-#  - "*.Rmd"
-#  - .git*
-
-#  - gemfiles/
-#  - vendor/bundle/
-#  - vendor/cache/
-#  - vendor/gems/
-#  - vendor/ruby/

@@ -19,9 +19,6 @@ Markdown 구문에 대한 전체 소개는 <https://www.markdownguide.org/>에 �
 
 단락을 구분하려면 하나 이상의 빈 줄을 사용하고, 단락 내의 줄을 나누려면 두 개의 이상의 공백을 사용하십시오.
 
-
-
-
 ### Headings
 
 ```markdown
@@ -36,13 +33,14 @@ This is an H2
 ##  This is an H2
 
 ######  This is an H6
-```
-
-### 引用
-
-在每一行前面写一个`>`：
 
 ```
+
+### Blockquote
+
+각 줄 앞에 `>`를 쓰세요.
+
+```markdown
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
 > consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 > Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
@@ -52,15 +50,13 @@ This is an H2
 
 ```
 
-效果：
-
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 >
 > Donec sit amet nisl. Aliquam semper ipsum sit amet velit. Suspendisse id sem consectetuer libero luctus adipiscing.
 
-或者在每一段前面写一个`>`：
+또는 각 단락 앞에 `>`를 쓰세요.
 
-```
+```markdown
 > This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
 consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
 Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
