@@ -130,7 +130,7 @@ a.underline {
 .inner {
     height: 100%;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1240px;
     width: 100%;
 }
 
@@ -170,10 +170,6 @@ a.underline {
             margin-left: 0;
             padding-left: 0;
         }
-    }
-
-    .site-main .inner {
-        max-width: 1240px;
     }
 }
 
@@ -371,11 +367,6 @@ a.underline {
         }
     }
 
-    @include tablet-max {
-        //padding-left: 0;
-        //padding-right: 0;
-    }
-
     @include mobile-max {
         background-attachment: inherit;
     }
@@ -437,6 +428,7 @@ a.underline {
     font-weight: 700;
     height: 40px;
     justify-content: space-between;
+    margin: 0 20px;
     position: relative;
     text-transform: uppercase;
     z-index: 300;
@@ -514,7 +506,7 @@ a.underline {
     }
 
     @include tablet-max {
-        margin-right: 0;
+        //margin-right: 0;
         //padding-left: 4vw;
     }
 }
@@ -778,6 +770,7 @@ a.underline {
  * 9. Single Post
  * ────────────────────────────────────────────────────────────────────────────────────────────────────────────────── */
 .post-single {
+    margin: 0 20px;
     position: relative;
     z-index: 50;
 
@@ -1020,13 +1013,8 @@ a.underline {
 
     iframe {
         border-radius: 12px;
-        height: 84vh;
         margin: 0 auto;
         width: 100%;
-
-        @include mobile-max {
-            height: 22vh;
-        }
     }
 
     blockquote {
@@ -1219,13 +1207,13 @@ a.underline {
         text-decoration: none !important;
     }
 
-    //@include tablet-max {
-    //    padding: 5vw 7vw 0;
-    //}
+    @include tablet-max {
+        padding: 5vw 7vw 0;
+    }
 
-    //@include mobile-max {
-    //    font-size: 1.9rem;
-    //}
+    @include mobile-max {
+        font-size: 1.9rem;
+    }
 }
 
 .kg-card-markdown {

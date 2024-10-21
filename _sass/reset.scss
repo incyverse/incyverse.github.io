@@ -353,7 +353,7 @@ h1 {
     font-size: 2.8em;
     margin: 0 0 0.5em 0;
 
-    @include mobile {
+    @include mobile-max {
         font-size: 2.2rem;
     }
 }
@@ -361,7 +361,7 @@ h1 {
 h2 {
     font-size: 2rem;
 
-    @include mobile {
+    @include mobile-max {
         font-size: 1.8rem;
     }
 }
@@ -369,7 +369,7 @@ h2 {
 h3 {
     font-size: 1.8rem;
 
-    @include mobile {
+    @include mobile-max {
         font-size: 1.6rem;
     }
 }
