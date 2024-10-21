@@ -84,7 +84,7 @@ socials:
   youtube: # channel/<YOUR LONG STRING> or user/USERNAME
 
 # Replace with your GA tracking identifier `UA-69281367-1`
-google_analytics:
+google_analytics: G-BN5KNTR7QG
 
 # Additional settings available on the front-matter site logo in the index.html. The same for page.html and tag.html
 # layouts. Post's page cover as per-post basis _posts/... Disqus comments as a per-post basis.
