@@ -72,6 +72,11 @@
 <!--<meta name="twitter:site" content="@{{ site.social-links.twitter }}">-->
 <!--<meta name="twitter:creator" content="@{{ site.social-links.twitter }}">-->
 
+{% if site.google_adsense %}
+<!-- Google AdSense -->
+<meta name="google-adsense-account" content="{{ site.google_adsense }}">
+{% endif %}
+
 <link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}">
 <link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}/{{ site.favicon }}">
