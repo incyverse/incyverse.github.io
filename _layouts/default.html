@@ -29,7 +29,7 @@
     </header>
 
     <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-<!--    <figure class="post-full-image" style="background-image: url({{ site.baseurl }}/{{ site.cover }}"></figure>-->
+    <!--<figure class="post-full-image" style="background-image: url({{ site.baseurl }}/{{ site.cover }}"></figure>-->
     <main id="site-main" class="site-main outer" role="main">
         <div class="inner">
             {{ content }}
@@ -68,8 +68,8 @@
     </footer>
 </div>
 
-<!-- The big email subscribe modal content -->
 {% if site.subscribe %}
+<!-- The big email subscribe modal content -->
 <div id="subscribe" class="subscribe-overlay">
     {% if site.logo %}
         <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">

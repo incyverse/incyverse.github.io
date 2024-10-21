@@ -218,7 +218,7 @@ body {
     background: $neon-yellow;
     color: adjust-color($lavender-indigo, $lightness: -25%);
     font-family: $base-font;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-style: normal;
     font-weight: $base-font-weight;
     letter-spacing: 0;
@@ -328,11 +328,12 @@ blockquote {
 }
 
 a {
-    color: adjust-color($electric-cyan, $lightness: -5%);
+    color: adjust-color($oc-white, $lightness: -5%);
+    font-weight: 800;
     text-decoration: none;
 
     &:link, &:visited {
-        color: adjust-color($electric-cyan, $lightness: -10%);
+        color: adjust-color($oc-white, $lightness: -10%);
     }
 
     &:hover, &:active {

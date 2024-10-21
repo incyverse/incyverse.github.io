@@ -10,7 +10,7 @@ class: post-template
 subclass: post
 navigation: true
 categories: [development]
-tags: []
+tags: [version,a]
 ---
 
 # 버전 포맷

@@ -1,34 +1,11 @@
 {% assign words_per_minute = site.words_per_minute | default: 200 %}
 
-<div class="post-prev {{ page.previous.class }}{% unless page.previous.cover %} no-image{% endunless %}" style="background-image: url('{{ site.baseurl }}{{ page.previous.cover }}')">
+<div class="post-prev {{ page.previous.class }}{% unless page.previous.cover %} no-image{% endunless %}">
+    <img src="{{ site.baseurl }}{{ page.previous.cover }}" class="post-nav-image" alt="{{ psge.previous.title }}">
     <a href="{{ site.baseurl }}{{ page.previous.url | remove_first: '/' }}" class="post-nav-link">
-        <h2 class="post-nav-title">{{ page.previous.title }} <i class="material-icons">navigate_next</i></h2>
-        <p class="post-nav-excerpt">
-            {% if page.previous.excerpt %}
-                {{ page.previous.excerpt | strip_html | truncatewords: 1, "" }}
-            {% else %}
-                {{ page.previous.content | strip_html | truncatewords: 1, "" }}
-            {% endif %}
-        </p>
+        <div class="post-nav"><span class="material-symbols-outlined">chevron_left</span> PREV POST</div>
+        <h4 class="post-nav-title">
+            {{ page.previous.title | strip_html | truncatewords: 30, "" }}
+        </h4>
     </a>
-    <footer class="post-nav-meta">
-        {% for author in site.data.authors %}
-            {% if author[1].username == page.previous.author %}
-                {% if author[1].picture %}
-                    <img src="{{ site.baseurl }}/{{ author[1].picture }}" class="author-profile-image" alt="{{ author[1].name }}">
-                {% endif %}
-                <span class="post-nav-author">
-                    <a href="{{ site.baseurl }}/author/{{ post.author }}/">{{ author[1].name }}</a>
-                </span>
-            {% endif %}
-        {% endfor %}
-        <span class="reading-time">
-            {% assign words = post.content | strip_html | number_of_words %}
-            {% if words <= words_per_minute %}
-                1 min read
-            {% else %}
-                {{ words | divided_by: words_per_minute }} min read
-            {% endif %}
-        </span>
-    </footer>
 </div>

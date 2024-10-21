@@ -8,15 +8,28 @@ disqus: false
 <article class="post-single{% if page.tags.size > 0 %}{% for tag in page.tags %} tag-{{ tag | slugify: 'latin' }}{% endfor %}{% endif %} {{ page.subclass }} {% unless page.cover %}no-image{% endunless %}">
     <section class="post-header">
         <div class="post-header-meta">
-            <time class="post-header-date" datetime="{{ page.date | date: '%e %B %Y' }}">{{ page.date | date: '%B %e, %Y' }}</time>
-            {% if page.tags.size > 0 %}
+            <div class="header-meta-left">
+                {% if page.tags.size > 0 %}
+                <span class="post-header-tags">
+                    {% for tag in page.tags %}
+                        <a href="{{ site.baseurl }}/tag/{{ tag | slugify: 'latin' }}/" class="post-tag">{{ tag | upcase }}</a>
+                    {% endfor %}
+                </span>
+                {% endif %}
                 <span class="date-divider"></span>
-                {% for tag in page.tags %}
-                    {% if forloop.index == page.tags.size %}
-                        <a href="{{ site.baseurl }}/tag/{{ tag | slugify: 'latin' }}/" class="post-header-tag">{{ tag | upcase }}</a>
+                <time class="post-header-date" datetime="{{ page.date | date: '%e %B %Y' }}">{{ page.date | date: '%B %e, %Y' }}</time>
+            </div>
+            <div class="header-meta-right">
+                <span class="reading-time">
+                    {% assign words = page.content | strip_html | number_of_words %}
+                    {% assign words_per_minute = site.words_per_minute | default: 200 %}
+                    {% if words <= words_per_minute %}
+                        1 min read
+                    {% else %}
+                        {{ words | divided_by: words_per_minute }} min read
                     {% endif %}
-                {% endfor %}
-            {% endif %}
+                </span>
+            </div>
         </div>
         <h1 class="post-header-title">{{ page.title }}</h1>
     </section>
@@ -53,10 +66,6 @@ disqus: false
                         {% endif %}
                     </section>
                 </section>
-
-                <div class="post-footer-right">
-                    <a href="{{ site.baseurl }}/author/{{ page.author }}" class="author-card-button">Read More</a>
-                </div>
             {% endif %}
         {% endfor %}
     </section>

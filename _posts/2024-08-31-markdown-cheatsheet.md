@@ -9,7 +9,7 @@ current: post
 class: post-template
 subclass: post
 navigation: true
-categories: []
+categories: [development]
 tags: [markdown]
 ---
 
