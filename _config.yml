@@ -50,38 +50,54 @@ cover: assets/images/cover.jpg
 navigation:
   - name: Home
     url: /
+  - name: Projects
+    url: /projects
+  - name: Blog
+    url: /blog
   - name: About
     url: /about
   - name: Archive
     url: /archive
 
 socials:
-  behance: # https://www.behance.net/USERNAME
-  dribbble: # https://dribbble.com/USERNAME
-  facebook:
-    name: facebook
-    username: incyverse
-    url: https://www.facebook.com/incyverse
-    icon: social-facebook
-  flickr: # https://www.flickr.com/USERNAME
-  github:
-    name: github
-    username: incyverse
-    url: https://github.com/incyverse
-    icon: social-github
-  instagram: # https://instagram.com/USERNAME
-  linkedin: # https://www.linkedin.com/in/USERNAME
-  pinterest: # https://www.pinterest.com/USERNAME
-  rss:
-  stackoverflow: # https://stackoverflow.com/USERNAME
-  tumblr: # https://USERNAME.tumblr.com
-  twitter:
-    name: twitter
-    username: incyverse
-    url: https://www.twitter.com/incyverse
-    icon: social-twitter
-  weibo: # https://www.weibo.com/USERNAME
-  youtube: # channel/<YOUR LONG STRING> or user/USERNAME
+  - name: bahance
+    link: https://www.behance.net/USERNAME
+    icon:
+  - name: dribbble
+    link: https://dribbble.com/USERNAME
+    icon:
+  - name: facebook
+    link: https://www.facebook.com/incyverse
+    icon:
+  - name: flickr
+    link: https://flickr.com/USERNAME
+    icon:
+  - name: github
+    link: https://github.com/incyverse
+    icon:
+  - name: instagram
+    link: https://www.instagram.com/USERNAME
+    icon:
+  - name: linkedin
+    link: https://www.linkedin.com/in/USERNAME
+    icon:
+  - name: pinterest
+    link: https://pinterest.com/USERNAME
+    icon:
+  - name: stackoverflow
+    link: https://stackoverflow.com/USERNAME
+    icon:
+  - name: tumblr
+    link: https://USERNAME.tumblr.com/
+    icon:
+  - name: Twitter
+    link: https://x.com/incyverse
+    icon:
+  - name: weibo
+    link: https://weibo.com/USERNAME
+    icon:
+  - name: youtube
+    link: https://www.youtube.com/channel/UCm32viH2ofJd1AkJDT16RGw
 
 # Replace with your GA tracking identifier
 google_analytics: G-BN5KNTR7QG
