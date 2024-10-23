@@ -32,9 +32,9 @@ email: incyverse@gmail.com
 
 # The subpath of your site, e.g. /blog/
 # Edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: ""
+baseurl: "/"
 # The base hostname & protocol for your site, e.g. http://example.com
-url: ""
+url: "https://incyverse.github.io"
 # Add CNAME for website to be created
 #CNAME:
 
@@ -52,8 +52,8 @@ navigation:
     url: /
   - name: Projects
     url: /projects
-  - name: Blog
-    url: /blog
+  - name: Posts
+    url: /posts
   - name: About
     url: /about
   - name: Archive
@@ -134,19 +134,23 @@ plugins:
 paginate: 100 # It will paginate after this number
 paginate_path: /page:num
 permalink: /:title
+#permalink: pretty
 # Author's info in `_data/authors.yml`
 #permalink: /author/:author
 # Tag's info in `_data/tags.yml`
 #permalink: /tag/:tag
 
-words_per_minute: 200
+words_per_minute: 150
 excerpt_separator: ---
 
 #defaults:
-#  -
-#    scope:
-#      path: ""
-#      type: "posts"
+#  - scope:
+#      path: "_pages"
+#      values:
+#        permalink: /:basename:output_ext
+
+include:
+  - _pages
 
 sass:
   sass_dir: _sass
