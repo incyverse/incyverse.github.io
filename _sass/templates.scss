@@ -1,0 +1,130 @@
+//.home-template .featured-posts {
+//    @include laptop-min {
+//        //margin-top: -70px;
+//        padding-top: 0;
+//    }
+//}
+//
+//.home-template {
+//    .site-nav {
+//        @include tablet-min {
+//            //top: -80px;
+//        }
+//    }
+//
+//    .featured-posts {
+//        @include mobile-min {
+//            margin-top: -80px;
+//            padding-top: 0;
+//        }
+//    }
+//}
+//
+//@media (min-width: $breakpoint-mobile) {
+//    .home-template .site-nav {
+//        position: relative;
+//        //top: -5vh;
+//    }
+//
+//    .home-template .featured-posts {
+//        //margin-top: -5vh;
+//        padding-top: 0;
+//    }
+//}
+
+//.home-template .featured-posts,
+//.author-template .post-feed,
+//.tag-template .post-feed {
+//    @include laptop-min {
+//        margin-top: -70px;
+//        padding-top: 0;
+//    }
+//}
+//
+
+//.post-template,
+//.page-template {
+//    .site-header {
+//        height: 100vh;
+//        //position: absolute;
+//        //width: 100%;
+//    }
+//
+//    .site-main {
+//        padding-bottom: 4vw;
+//    }
+//}
+//
+//.post-template {
+//    .kg-card-markdown > p:first-child {
+//        //font-size: 1.25rem;
+//        //line-height: 1.5em;
+//    }
+//}
+
+.error-template {
+    .site-nav-center {
+        align-items: center;
+        display: flex;
+        font-weight: 700;
+        height: 40px;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        text-transform: uppercase;
+        z-index: 300;
+
+        .site-nav-logo {
+            margin-right: 0;
+        }
+    }
+
+    .site-main {
+        //background-color: $oc-white;
+        padding: 7vw 4vw;
+
+        .error-image {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .error-message {
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 12vw;
+            letter-spacing: -5px;
+            line-height: 1em;
+            margin: 0;
+            opacity: 0.3;
+        }
+
+        .error-type {
+            //color: $lavender-indigo;
+            line-height: 1.3em;
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 400;
+
+            @include tablet-max {
+                font-size: 1.8rem;
+                margin: 5px 0 0;
+            }
+        }
+
+        .error-description {
+            margin-top: 5px;
+        }
+
+        .error-link {
+            display: inline-block;
+            margin-top: 5px;
+        }
+    }
+
+    .post-feed {
+        padding-top: 0;
+    }
+}

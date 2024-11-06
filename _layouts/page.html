@@ -1,8 +1,15 @@
 ---
 layout: default
-current: page
-class: page-template
-disqus: false
 ---
 
-page
+<section>
+    {% if page.layout == 'page' %}
+        {% assign title = page.title %}
+        <h1>{{ title }}</h1>
+        <div>
+            {{ content }}
+        </div>
+    {% else %}
+        {{ content }}
+    {% endif %}
+</section>

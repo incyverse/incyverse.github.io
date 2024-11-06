@@ -29,12 +29,13 @@ description: >-
 name: incyverse
 email: incyverse@gmail.com
 
-
 # The subpath of your site, e.g. /blog/
 # Edit baseurl to simply '/' if using as your personal page (instead of a project page)
 baseurl: "/"
+
 # The base hostname & protocol for your site, e.g. http://example.com
 url: "https://incyverse.github.io"
+
 # Add CNAME for website to be created
 #CNAME:
 
@@ -45,64 +46,11 @@ logo: assets/images/logo.png
 # Favicon (appears in browser tab) image URL, preferably smaller 64px * 64px
 favicon: assets/images/favicon.png
 
-cover: assets/images/cover.jpg
-
-navigation:
-  - name: Home
-    url: /
-  - name: Projects
-    url: /projects
-  - name: Posts
-    url: /posts
-  - name: About
-    url: /about
-  - name: Archive
-    url: /archive
-
-socials:
-  - name: bahance
-    link: https://www.behance.net/USERNAME
-    icon:
-  - name: dribbble
-    link: https://dribbble.com/USERNAME
-    icon:
-  - name: facebook
-    link: https://www.facebook.com/incyverse
-    icon:
-  - name: flickr
-    link: https://flickr.com/USERNAME
-    icon:
-  - name: github
-    link: https://github.com/incyverse
-    icon:
-  - name: instagram
-    link: https://www.instagram.com/USERNAME
-    icon:
-  - name: linkedin
-    link: https://www.linkedin.com/in/USERNAME
-    icon:
-  - name: pinterest
-    link: https://pinterest.com/USERNAME
-    icon:
-  - name: stackoverflow
-    link: https://stackoverflow.com/USERNAME
-    icon:
-  - name: tumblr
-    link: https://USERNAME.tumblr.com/
-    icon:
-  - name: Twitter
-    link: https://x.com/incyverse
-    icon:
-  - name: weibo
-    link: https://weibo.com/USERNAME
-    icon:
-  - name: youtube
-    link: https://www.youtube.com/channel/UCm32viH2ofJd1AkJDT16RGw
+cover: assets/images/cover-cyberpunk.gif
 
 # Replace with your GA tracking identifier
 google_analytics: G-BN5KNTR7QG
 google_adsense: ca-pub-7025527560636552
-
 
 # Additional settings available on the front-matter site logo in the index.html. The same for page.html and tag.html
 # layouts. Post's page cover as per-post basis _posts/... Disqus comments as a per-post basis.
@@ -113,11 +61,32 @@ disqus_shortname:
 # You need to connect an external service for this to work.
 subscribe: false
 
+# Newsletter
+#mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
+
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 markdown: kramdown
+
+paginate: 12 # It will paginate after this number
+paginate_path: page:num
+permalink: :title:output_ext
+#permalink: pretty
+# Author's info in `_data/authors.yml`
+#permalink: /author/:author
+# Tag's info in `_data/tags.yml`
+#permalink: /tag/:tag
+
+words_per_minute: 200
+excerpt_separator: ---
+
+highlight_theme: syntax-base16.monokai.dark
 highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  style: :expanded # You might prefer to minify using :compressed
 
 # Gem and other configs
 #plugins_dir: [_plugins]
@@ -128,20 +97,11 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
 
+extensions:
+  mermaid_enable: true
+
 #feed:
 #  path: feed.xml
-
-paginate: 100 # It will paginate after this number
-paginate_path: /page:num
-permalink: /:title
-#permalink: pretty
-# Author's info in `_data/authors.yml`
-#permalink: /author/:author
-# Tag's info in `_data/tags.yml`
-#permalink: /tag/:tag
-
-words_per_minute: 150
-excerpt_separator: ---
 
 #defaults:
 #  - scope:
@@ -149,12 +109,17 @@ excerpt_separator: ---
 #      values:
 #        permalink: /:basename:output_ext
 
-include:
-  - _pages
+defaults:
+  - scope:
+      path: _posts
+      type: post
+    values:
+      layout: post
+      permalink: /post/:title/
 
-sass:
-  sass_dir: _sass
-  style: :expanded # You might prefer to minify using :compressed
+include:
+  - _categories
+  - _pages
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # JEKYLL CONFIGURATION:

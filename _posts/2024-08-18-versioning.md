@@ -1,16 +1,13 @@
 ---
-layout: post
-cover: assets/images/bear.jpg
-title: Versioning
-date: 2024-08-18 00:21:34 +0900
+type: post
+title: Software Versioning
 description:
 author: anthony
-current: post
-class: post-template
-subclass: post
+date: 2024-08-18 00:21:34 +0900
+cover: assets/images/post/versioning.png
+categories: [ knowledge, technology ]
+tags: [ semantic, version ]
 navigation: true
-categories: [development]
-tags: [version,a]
 ---
 
 # 버전 포맷
@@ -61,21 +58,26 @@ ___
 
 ## 프로젝트 시작
 
-| **Phase** | Start        | Iteration 1  | Iteration 2  | Iteration 3  |
-|:---------:|--------------|--------------|--------------|--------------|
-|     1     | v0.1.0-alpha | v0.1.1-alpha | v0.1.2-alpha | v0.1.3-alpha |
-|     2     | v1.0.0-alpha | v1.0.1-alpha |              |              |
-|     3     | v1.1.0-alpha | v1.1.1-alpha | v1.1.2-alpha |              |
-|     4     | v2.0.0-alpha | v2.0.1-alpha | v2.0.2-alpha | v2.0.3-alpha |
+| PHASE | START        | ITERATION 1  | ITERATION 2  |  ITERATION 3 |
+|:------|:-------------|:-------------|:-------------|-------------:|
+| 1     | v0.1.0-alpha | v0.1.1-alpha | v0.1.2-alpha | v0.1.3-alpha |
+
+
+| **Phase** | Start        | Iteration 1  | Iteration 2  |   Iteration 3 |
+|:----------|--------------|--------------|--------------|--------------:|
+| 1         | v0.1.0-alpha | v0.1.1-alpha | v0.1.2-alpha |  v0.1.3-alpha |
+| 2         | v1.0.0-alpha | v1.0.1-alpha |              |               |
+| 3         | v1.1.0-alpha | v1.1.1-alpha | v1.1.2-alpha |               |
+| 4         | v2.0.0-alpha | v2.0.1-alpha | v2.0.2-alpha |  v2.0.3-alpha |
 
 ## 베타 테스트 시작
 
-| **Phase** | Latest Alpha | Bug Fix 1    | Bug Fix 2    | Bug Fix 3    |
-|:---------:|--------------|--------------|--------------|--------------|
-|     1     | v0.1.3-beta  | v0.1.3-beta1 | v0.1.3-beta2 | v0.1.3-beta3 |
-|     2     | v1.0.1-beta  | v1.0.1-beta1 |              |              |
-|     3     | v1.1.2-beta  | v1.1.2-beta1 | v1.1.2-beta2 |              |
-|     4     | v2.0.3-beta  | v2.0.3-beta1 |              |              |
+| **Phase** | Latest Alpha | Bug Fix 1    | Bug Fix 2    |     Bug Fix 3 |
+|:----------|--------------|--------------|--------------|--------------:|
+| 1         | v0.1.3-beta  | v0.1.3-beta1 | v0.1.3-beta2 |  v0.1.3-beta3 |
+| 2         | v1.0.1-beta  | v1.0.1-beta1 |              |               |
+| 3         | v1.1.2-beta  | v1.1.2-beta1 | v1.1.2-beta2 |               |
+| 4         | v2.0.3-beta  | v2.0.3-beta1 |              |               |
 
 ## 최종 버전
 

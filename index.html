@@ -1,15 +1,16 @@
 ---
 layout: default
-current: home
-class: home-template
+type: home
 navigation: true
 ---
 
-<div class="post-feed">
-    <!-- The tag below includes the markup for each post - partials/post-card.hbs -->
-    {% if site.posts.size == 0 %}
-        <h2>No post found</h2>
-    {% else %}
-        {% include post-card.html %}
-    {% endif %}
-</div>
+{% assign all_featured = site.posts | where: 'featured', 'true' %}
+{% assign all_posts = site.posts | where_exp: 'item', 'item.featured != true' %}
+
+{% assign posts = '' | split: '' %}
+
+{% assign visible_start = paginator.page | minus: 1 | times: paginator.per_page %}
+{% assign visible_end = visible_start | plus: paginator.per_page %}
+
+{% include post/featured.html %}
+{% include post/latest.html %}

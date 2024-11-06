@@ -1,22 +1,5 @@
-{% if page.url %}
-    {% if page.url contains 'tag/' %}
-        {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: '-', ' ' | capitalizeall %}
-    {% elsif page.url contains 'author/' %}
-        {% assign username = page.url | remove: 'author' | remove: '/' | replace: '-', ' ' | remove: ' ' %}
-        {% for author in site.data.authors %}
-            {% if author[1].username == username %}
-                {% assign title = author[1].name %}
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-{% endif %}
-
-{% if title %}
-    {% assign title = title | append: ' - ' | append: site.title %}
-{% endif %}
-
-{% if page.content and page.current == 'post' or page.current == 'about' %}
-    {% assign excerpt = page.content | strip_html | truncatewords: 50, '' %}
+{% if page.content and page.type == 'post' or page.type == 'about' %}
+    {% assign excerpt = page.content | strip_html | truncate: 50, '' %}
 {% endif %}
 
 <!-- Document Settings -->
@@ -25,7 +8,7 @@
 
 <!-- Base Meta -->
 <meta name="HandheldFriendly" content="true">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, user-scalable=no initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
 
 <!-- This tag outputs SEO meta+structured data and other important settings -->
 <meta name="author" content="{{ site.name }}">
@@ -39,7 +22,7 @@
 <meta property="og:title" content="{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:url" content="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}">
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}">
 {% if excerpt %}
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="933">
@@ -79,12 +62,12 @@
         "publisher": {
             "@type": "Organization",
             "name": "{{ site.title }}",
-            "logo": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"
+            "logo": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}"
         },
         "url": "{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' ||",
         "image": {
             "@type": "ImageObject",
-            "url": "{{ site.url }}{{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}",
+            "url": "{{ site.url }}{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}",
             "width": 2000,
             "height": 666
         },
@@ -102,10 +85,11 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7025527560636552" crossorigin="anonymous"></script>
 {% endif %}
 
-<link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}/feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-<link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}">
-<link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}/{{ site.favicon }}">
+<!--<link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">-->
+<!--<link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}{% endif %}{{ page.url | remove_first: '/' }}">-->
+<link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}{{ site.favicon }}">
 
-<!-- Styles'n'Script -->
-<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/themes/atom-one-dark.min.css">
-<link rel="stylesheet" href="{{ site.baseurl }}/style.css">
+<!-- Styles -->
+<link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
+<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}assets/themes/atom-one-dark.min.css">
+<link rel="stylesheet" href="{{ site.baseurl }}style.css">

@@ -1,0 +1,53 @@
+.site-main {
+    //background-color: $neon-yellow;
+    //flex-grow: 1;
+    //padding-bottom: 130px;
+    //position: relative;
+
+    .main-meta {
+        background: fixed no-repeat center;
+        background-size: cover;
+        color: $cyber-electric-cyan;
+        height: 100vh;
+        padding: 20vw 4vw;
+        position: relative;
+
+        &:before {
+            //background: linear-gradient(180deg, rgba($nier-dark-olive-gray, 1) 0%, rgba($nier-dark-olive-gray, 0.2) 100%);
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        &:after {
+            //background: rgba($raisin-black, 0.25);
+            //backdrop-filter: blur(20px);
+            //mask-image: linear-gradient(180deg, rgba($raisin-black, 0.8) 0%, rgba($raisin-black, 1) 100%);
+            bottom: 0;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        .site-title {
+            animation: fadeInDown 0.6s both;
+            animation-delay: 0.2s;
+            font-family: "Rubik Glitch", system-ui;
+            font-weight: 400;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .site-description {
+            font-size: 2.2rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            text-shadow: -1px -1px 5px $nier-dark-olive-gray, 1px 1px 5px $nier-dark-olive-gray;
+        }
+    }
+}

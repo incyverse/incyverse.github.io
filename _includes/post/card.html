@@ -1,0 +1,46 @@
+{% assign words_per_minute = site.words_per_minute | default: 200 %}
+{% assign categories = post.categories %}
+<article class="post-card{% unless post.cover %} no-image{% endunless %}">
+    <div class="post-card-image">
+        <img src="{{ site.baseurl }}{{ post.cover }}" alt="{{ post.title }}">
+    </div>
+
+    <div class="post-card-content">
+        <div class="post-card-categories">
+            {% for category in categories.first %}
+            <a href="/category/{{ category }}">{{ category }}</a>
+            {% endfor %}
+        </div>
+
+        <h2 class="post-card-title">
+            <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">
+                {{ post.title | strip_html | truncate: 30 }}
+            </a>
+        </h2>
+
+        <div class="post-card-meta">
+            <div class="author">
+                {% for author in site.data.authors %}
+                    {% if author.name == post.author %}
+                        {% if author.picture %}
+                            <img src="{{ site.baseurl }}{{ author.picture }}" class="author-picture" alt="{{ author.name }}">
+                        {% endif %}
+                        <a href="{{ site.baseurl }}author/{{ post.author }}">{{ author.name }}</a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            <div class="time">
+                <time class="datetime" datetime="{{ page.date | date_to_xmlschema }}">{{ post.date | date: '%e %b %Y' }}</time>
+                <span class="reading-time">
+                {% assign words = post.content | number_of_words %}
+                {% if words <= words_per_minute %}
+                    • 1 min read
+                {% else %}
+                    • {{ words | plus: 150 | divided_by: words_per_minute | append: ' min read' }}
+                {% endif %}
+                </span>
+            </div>
+        </div>
+        <p class="post-card-excerpt">{{ post.content | strip_html | truncate: 130 }}</p>
+    </div>
+</article>

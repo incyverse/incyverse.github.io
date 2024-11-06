@@ -16,109 +16,91 @@ $breakpoint-desktop: 1920px;
     font-weight: 400;
     font-style: normal;
 }
-//$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygne, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-//$base-font: -apple-system, "Blender Pro Book", "Noto Sans KR", sans-serif;
-$base-font: -apple-system, "Nanum Gothic", sans-serif;
-$code-font: "Fira Code", monospace;
 
+$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygne, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 $base-font-size: 62.5%;
-$small-font-size: 60%;
-
 $base-font-weight: 400;
+
+// 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
+$code-font: "Fira Code", monospace;
 
 // Colors
 // ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+//$base-color: #290805;
+$base-color: #4c2b16;
+$base-background: rgba(226, 173, 61, 0.6);
+
 // Dracula
-//$darkgray: #282a36;
-//$gray: #44475a;
-$light-gray: #f8f8f2;
-//$midnight: #6272a4;
-//$cyan: #8be9fd;
-//$green: #50fa7b;
-//$orange: #ffb86c;
-//$pink: #ff79c6;
-//$purple: #bd93f9;
-//$red: #ff5555;
-//$yellow: #f1fa8c;
+$dracula-ghost-white: #f8f8f2; // 텍스트 색상
+$dracula-gunmetal-blue: #282a36; // 배경 색상
+$dracula-charcoal-blue: #44475a;
+$dracula-dusk-blue: #6272a4; // 강조 색상
+$dracula-sky-blue: #8be9fd; // 키워드 색상
+$dracula-neon-green: #50fa7b; // 문자열 강조 색상
+$dracula-mango-orange: #ffb86c; // 변수, 속성 강조 색상
+$dracula-hot-pink: #ff79c6; // 상수, 리터럴 강조 색상
+$dracula-lavender-purple: #bd93f9; // 함수, 클래스 강조 색상
+$dracula-classic-red: #ff5555; // 경고, 오류 강조 색상
+$dracula-light-yellow: #f1fa8c; // 주석, 비활성 강조 색상
+
+// Retro
+$retro-midnight-purple: #1f004b;
+$retro-deep-purple: #733b73;
+$retro-turquoise: #51ccdc;
+$retro-sky-blue: #54efea;
+$retro-neon-pink: #ec00f0;
+$retro-bright-red: #f55654;
+$retro-apricot: #f99551;
+$retro-cream: #ffd58c;
+$retro-olive-green: #91b87c;
+$retro-tiffany-blue: #427c80;
+
+// Steel
+$steel-dark-blue: #202d36;
+$steel-blue: #5c7896;
+$steel-powder-blue: #7598b9;
+$steel-dark-red: #3c0007;
+$steel-burgundy: #800c1f;
+$steel-gray: #929caa;
 
 // Cyberpunk
-$pale-silver: #d1c5c0; // 209, 197, 192, 1
-$raisin-black: #272932;
+$cyber-light-gray: #f2f4f7;
+$cyber-pale-gray: #b8c0d1;
+$cyber-pale-blue-gray: #777B84;
+$cyber-raisin-black: #272932;
+$cyber-fiery-red: #d62f09;
+$cyber-bright-orange: #ff6600;
+$cyber-light-olive: #b2bea1;
+$cyber-electric-cyan: #00f0ff;
+$cyber-light-purple: #b0acb0;
+$cyber-dark-gray: #2e322d;
+$cyber-dark-cyan: #2a4541;
+$cyber-emerald-blue: #01012b;
+$cyber-charcoal-blue: #2f404d;
+$cyber-dark-aqua-blue: #005678;
+$cyber-teal: #3d898d;
+$cyber-vibrant-cyan: #1ac5b0;
+$cyber-bright-cyan: #05d9e8;
+$cyber-mint: #85ebd9;
+$cyber-pale-sky-blue: #d1f7ff;
+$cyber-champagne: #e0cda2;
+$cyber-light-yellow: #fcdd71;
+$cyber-dark-red: #de0e03;
+
 $rich-lemon: #fdf500;
-$electric-cyan: #00f0ff;
-$vibrant-cyan: #1ac5b0;
-$dark-teal: #004f59;
-$bright-blue: #0088ff;
-$bright-orange: #ff6600;
 $frostbite: #e455ae;
 $steel-pink: #cb1dcd;
 $blush-purple: #9370db;
 $lavender-indigo: #6272a4;
 $blood-red: #710000;
 $deep-purple: #290028;
-
 $neon-red: #fd0130;
 $neon-yellow: #fcee0a;
 $neon-green: #00ff00;
 
-///*──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-// * VARIABLES
-// * ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────*/
-//// Colors
-//$base-color: $oc-gray-8;
-//$base-lighten-color: $oc-gray-6;
-//
-//$text-color: $base-color;
-//$divider-color: $oc-gray-1;
-//
-//$table-border-color: $oc-gray-2;
-//$table-background-color: $oc-gray-1;
-//
-//$blockquote-color: $base-lighten-color;
-//$blockquote-border-color: $oc-gray-3;
-//
-//$footnote-link-border-color: $oc-gray-1;
-//$footnote-link-background-over-color: $oc-gray-1;
-//
-
-//
-//// Fonts
-//// "Noto Serif", "PT Serif",source-han-serif-sc, "Source Han Serif SC", "Source Han Serif CN", "Source Han Serif TC", "Source Han Serif TW", "Source Han Serif", "Songti SC", SimSon, serif;
-//$base-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-//// 'Menlo', 'Courier New', 'Monaco', 'Spoqa Han Sans', monospace;
-//$code-font: "Fira Code", monospace;
-//
-//// Font stacks
-//$helvetica: Helvetica, Arial, sans-serif;
-//$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-//$georgia: Georgia, Times, serif;
-//
-//// Font sizes
-//$base-font-size: 62.5%;
-//
-//
-//// Height
-//$base-line-height: 1em;
-//
-//// List
-//$ul-bullets-font: inherit;
-//$ul-bullets-font-size: 1.4em;
-//$ul-bullets-font-line-height: 1.2;
-//$ul-bullets-right-space: .3em;
-//
-//$ol-bullets-font: inherit;
-//$ol-bullets-font-size: 1em;
-//$ol-bullets-font-line-height: inherit;
-//$ol-bullets-right-space: .3em;
-//
-//$li-bottom-space: .4em;
-//$li-bullets-width: 1.4em;
-//$li-line-height: 1.55;
-//$li-child-size-ratio: .95;
-//
-//$dt-width: 180px;
-//$dt-dd-space: 20px;
-//
-//$dd-position: $dt-width + $dt-dd-space;
-//
-
+// Nier Automata
+$nier-sand-gray: #d7d2bb;
+$nier-warm-gray: #b1ae9a;
+$nier-dark-olive-gray: #4e4c44;
+$nier-terracotta: #b5654f;
+$nier-soft-mint-green: #6aa79e;

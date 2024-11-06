@@ -7,6 +7,12 @@
     }
 }
 
+@mixin mobile-min {
+    @media only screen and (min-width: #{$breakpoint-mobile}) {
+        @content;
+    }
+}
+
 @mixin tablet-min {
     @media only screen and (min-width: #{$breakpoint-mobile + 1}) {
         @content;

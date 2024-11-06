@@ -1,16 +1,13 @@
 ---
-layout: post
-cover: assets/images/post/markdown.jpg
+type: post
 title: Markdown Cheatsheet
-date: 2024-08-31 21:45:56
 description:
 author: anthony
-current: post
-class: post-template
-subclass: post
+date: 2024-08-31 21:45:56 +0900
+cover: assets/images/post/markdown.jpg
+categories: [ development, programming, language, markdown ]
+tags: [ markdown ]
 navigation: true
-categories: [development]
-tags: [markdown]
 ---
 
 Markdown 구문에 대한 전체 소개는 <https://www.markdownguide.org/>에 있습니다. 블로그를 작성할 때 쉽게 참고할 있도록 아래에 정리했습니다.

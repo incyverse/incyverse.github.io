@@ -1,0 +1,38 @@
+- name: bahance
+  link: https://www.behance.net/USERNAME
+  icon:
+- name: dribbble
+  link: https://dribbble.com/USERNAME
+  icon:
+- name: facebook
+  link: https://www.facebook.com/incyverse
+  icon:
+- name: flickr
+  link: https://flickr.com/USERNAME
+  icon:
+- name: github
+  link: https://github.com/incyverse
+  icon:
+- name: instagram
+  link: https://www.instagram.com/USERNAME
+  icon:
+- name: linkedin
+  link: https://www.linkedin.com/in/USERNAME
+  icon:
+- name: pinterest
+  link: https://pinterest.com/USERNAME
+  icon:
+- name: stackoverflow
+  link: https://stackoverflow.com/USERNAME
+  icon:
+- name: tumblr
+  link: https://USERNAME.tumblr.com/
+  icon:
+- name: Twitter
+  link: https://x.com/incyverse
+  icon:
+- name: weibo
+  link: https://weibo.com/USERNAME
+  icon:
+- name: youtube
+  link: https://www.youtube.com/channel/UCm32viH2ofJd1AkJDT16RGw

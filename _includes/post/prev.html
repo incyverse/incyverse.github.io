@@ -1,0 +1,13 @@
+{% assign words_per_minute = site.words_per_minute | default: 200 %}
+
+<div class="post-prev"{% unless page.previous.cover %} no-cover{% endunless %}>
+    <div class="post-nav-link">
+        <img src="{{ site.baseurl }}{{ page.previous.cover }}" class="post-nav-image" alt="{{ page.previous.title }}">
+    </div>
+    <div class="post-nav-content">
+        <div class="post-nav"><i class="ion ion-ios-arrow-back"></i> PREV POST</div>
+        <a href="{{ site.baseurl }}{{ page.previous.url | remove_first: '/' }}">
+            <h2 class="post-nav-title">{{ page.previous.title | strip_html }}</h2>
+        </a>
+    </div>
+</div>

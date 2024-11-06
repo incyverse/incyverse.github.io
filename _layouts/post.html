@@ -1,107 +1,88 @@
 ---
 layout: default
-current: post
-class: post-template
-disqus: false
 ---
 
-<article class="post-single{% if page.tags.size > 0 %}{% for tag in page.tags %} tag-{{ tag | slugify: 'latin' }}{% endfor %}{% endif %} {{ page.subclass }} {% unless page.cover %}no-image{% endunless %}">
-    <section class="post-header">
-        <div class="post-header-meta">
-            <time class="post-header-date" datetime="{{ page.date | date: '%e %B %Y' }}">{{ page.date | date: '%B %e, %Y' }}</time>
-            <span class="reading-time">
-                {% assign words = page.content | strip_html | number_of_words %}
-                {% assign words_per_minute = site.words_per_minute | default: 200 %}
-                {% if words <= words_per_minute %}
-                    1 min read
-                {% else %}
-                    {{ words | divided_by: words_per_minute }} min read
+<section class="post-wrapper{% if page.tags.size > 0 %}{% endif %}">
+    <article class="post-header">
+        <div class="container">
+            <div class="row">
+                {% if page.tags.size > 0 %}
+                <span class="post-tags">
+                    {% for tag in page.tags %}
+                    <a href="{{ site.baseurl }}tag/{{tag | slugify: 'latin' }}/" class="post-tag">{{ tag | upcase }}</a>
+                    {% endfor %}
+                </span>
                 {% endif %}
-            </span>
-<!--            <span class="date-divider"></span>-->
-        </div>
-        {% if page.tags.size > 0 %}
-            <span class="post-header-tags">
-                {% for tag in page.tags %}
-                    <a href="{{ site.baseurl }}/tag/{{ tag | slugify: 'latin' }}/" class="post-tag">{{ tag | upcase }}</a>
-                {% endfor %}
-            </span>
-        {% endif %}
-        <h1 class="post-header-title">{{ page.title }}</h1>
-    </section>
-
-    <section class="post-content">
-        <div class="kg-card-markdown">
-            {{ content }}
-        </div>
-    </section>
-
-    <!-- Email subscribe form at the bottom of the page -->
-    {% if site.subscribe %}
-        <section class="subscribe-form">
-            <h3 class="subscribe-form-title">Subscribe to {{ site.title }}</h3>
-            <p>Get the latest posts delivered right to your inbox</p>
-            {% include subscribe-form.html placeholder="email address" %}
-        </section>
-    {% endif %}
-
-    <section class="post-footer">
-        {% for author in site.data.authors %}
-            {% if author[1].username == page.author %}
-                <section class="author-card">
-                    {% if author[1].picture %}
-                        <img src="{{ site.baseurl }}/{{ author[1].picture }}" class="author-profile-image" alt="{{ page.author }}">
-                    {% endif %}
-
-                    <section class="author-card-content">
-                        <h4 class="author-card-name"><a href="{{ site.baseurl }}/author/{{ page.author }}">{{ author[1].name }}</a></h4>
-                        {% if author[1].bio %}
-                            <p>{{ author[1].bio }}</p>
+                <h1 class="post-title">{{ page.title }}</h1>
+                <div class="post-meta">
+                    <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%e %b %Y' }}</time> –
+                    <span class="post-reading-time">
+                        {% assign words = page.content | strip_html | number_of_words %}
+                        {% assign words_per_minute = site.words_per_minute | default: 200 %}
+                        {% if words <= words_per_minute %}
+                            1 min read
                         {% else %}
-                            <p>Read <a href="{{ site.baseurl }}/author/{{ page.author }}">more posts</a> by this author.</p>
+                            {{ words | divided_by: words_per_minute }} min read
                         {% endif %}
-                    </section>
-                </section>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="post-content">
+        <div class="container">
+            <div class="row">
+                <div class="kg-card-markdown">
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <article class="post-navigation">
+        {% if page.previous %}
+            {% include post/prev.html %}
+        {% endif %}
+
+        {% if page.next %}
+            {% include post/next.html %}
+        {% endif %}
+    </article>
+
+    <article class="post-comments">
+        {% if site.disqus or page.disqus %}
+        <div class="container">
+            <div class="row"></div>
+        </div>
+        {% endif %}
+    </article>
+
+    <article class="post-footer">
+        {% for author in site.data.authors %}
+            {% if author.name == page.author %}
+                <div class="post-author">
+                    {% if author.picture %}
+                    <img src="{{ site.baseurl }}{{ author.picture }}" class="author-picture" alt="{{ page.author }}">
+                    {% endif %}
+                    <div class="author-content">
+                        <h4 class="author-name"><a href="{{ site.baseurl }}author/{{ page.author }}">{{ author.name }}</a></h4>
+                        {% if author.bio %}
+                            <p>{{ author.bio }}</p>
+                        {% else %}
+                            <p></p>
+                        {% endif %}
+                    </div>
+                </div>
             {% endif %}
         {% endfor %}
-    </section>
+    </article>
 
-    {% if site.disqus or page.disqus %}
-        <section class="post-comments">
-            <div id="disqus_thread"></div>
-            <script>
-                const disqus_config = () => {
-                    const thisPageUrl = '{{ site.url }}{{ page.url }}';
-                    const thisPageIdentifier = '{{ page.id }}';
-                    const thisPageTitle = '{{ page.title }}';
-                }
-                (function () {
-                    const d = document, s = d.createElement('script');
-                    s.src = 'https://{{ site.disqus_shortname }}.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                })();
-            </script>
-        </section>
-    {% endif %}
-
-    <section class="post-navigation">
-        {% if page.previous %}
-            {% include post-card-prev.html %}
+    <article class="subscribe-form">
+        {% if site.subscribe %}
+        <div class="container">
+            <div class="row"></div>
+        </div>
         {% endif %}
-        {% if page.next %}
-            {% include post-card-next.html %}
-        {% endif %}
-    </section>
-</article>
-
-<!-- 기본 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-7025527560636552"
-     data-ad-slot="5182601619"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    </article>
+</section>

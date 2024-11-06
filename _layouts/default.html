@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="{{ site.language }}">
 <head>
-    {% include head.html %}
-
-    <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-</head>
-
-<body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.class %}{{ page.class }}{% else %}home-template{% endif %}">
-<div class="site-wrapper">
-    <header class="site-header outer{% if page.cover or site.cover %}" style="background-image: url({{ site.baseurl }}/{% if page.cover %}{{ page.cover }}{% elsif site.cover %}{{ site.cover }}{% endif %}){% else %} no-cover{% endif %}">
-        <div class="inner">
-            {% if page.class == "home-template" %}
-                <section class="site-header-content">
-                    <h1 class="site-title">
-                        {% if site.logo %}
-<!--                            <img src="{{ site.baseurl }}/{{ site.logo }}" class="site-logo" alt="{{ site.title }}">-->
-                            {{ site.title }}
-                        {% else %}
-                            {{ site.title }}
-                        {% endif %}
-                    </h1>
-                    <h2 class="site-description">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</h2>
-                </section>
-            {% endif %}
-
-            {% include navigation.html %}
-        </div>
-    </header>
-
-    <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
-    <!--<figure class="post-full-image" style="background-image: url({{ site.baseurl }}/{{ site.cover }}"></figure>-->
-    <main id="site-main" class="site-main outer" role="main">
-        <div class="inner">
-            {{ content }}
-        </div>
-    </main>
-
-    <!-- previous/next links - displayed on every page -->
-    {% if paginator.total_posts > site.paginate %}
-        {% if page.class == 'author-template' %}
-            {% include author-pagination.html %}
-        {% elsif page.class == 'tag-template' %}
-            {% include tag-pagination.html %}
-        {% else %}
-            {% include post-pagination.html %}
+    {% if page.url %}
+        {% if page.url contains 'tag/' %}
+            {% assign title = page.url | remove: 'tag' | remove: '/' | url_decode | replace: '-', ' ' | capitalizeall %}
+        {% elsif page.url contains 'author/' %}
+            {% assign username = page.url | remove: 'author' | remove: '/' | replace: '-', ' ' | remove: ' ' %}
+            {% for author in site.data.authors %}
+                {% if author.name == username %}
+                    {% assign title = author.name %}
+                {% endif %}
+            {% endfor %}
         {% endif %}
     {% endif %}
 
-    <!-- The footer at the very bottom of the screen -->
-    <footer class="site-footer outer">
-        <div class="inner">
-            <section class="site-footer-content">
-                <article class="copyright">
-                    <a href="{{ site.url }}{{ site.baseurl }}/" class="underline">{{ site.title }}</a> &copy; {{ site.time | date: '%Y' }}
-                </article>
-                <article class="powered-by">
-                    <!-- Proudly published with <a href="">Incyverse</a> -->
-                </article>
-                <nav class="site-footer-nav">
-                    <a href="{{ site.baseurl }}/" class="underline">Latest Posts</a>
-                    {% if site.facebook %}
-                    <a href="https://facebook.com/{{ site.facebook }}" target="_blank" rel="noopener">Facebook</a>
+    {% if title %}
+        {% assign title = title | append: ' - ' | append: site.title %}
+    {% endif %}
+
+    <title>{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    {% include head.html %}
+</head>
+
+{% assign cover = site.cover %}
+{% if page.type != 'home' %}
+    {% assign cover = page.cover %}
+{% endif %}
+
+<body class="{% if paginator.page > 1 %}paged archive-template{% elsif page.type %}{{ page.type }}-template{% else %}home-template{% endif %}">
+<div class="site-wrapper">
+    <header class="site-header">
+        <div class="container">
+            <div class="row">
+                {% include navigation.html %}
+            </div>
+        </div>
+    </header>
+
+    <main id="site-main" class="site-main outer" role="main">
+        <section class="main-meta{% if cover %}" style="background-image: url('{{ site.baseurl }}{{ cover }}');{% else %} no-cover{% endif %}">
+            <div class="container">
+                <div class="row">
+                    {% if page.type == "home" %}
+                    <h1 class="site-title">{{ site.title }}</h1>
+                    <h4 class="site-description">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</h4>
+                    <!--        <div class="header-cover" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: -1;">-->
+                    <!--            <video autoplay muted loop style="height: 700px;width: 100%;object-fit: cover;">-->
+                    <!--                <source src="assets/video/cover.mp4" type="video/mp4">-->
+                    <!--            </video>-->
+                    <!--        </div>-->
+                    {% elsif page.type == 'post' or page.type == 'page' %}
                     {% endif %}
-                </nav>
-            </section>
+                </div>
+            </div>
+        </section>
+
+        {% include refactor-content.html content=content %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="site-footer-header"></div>
+                <div class="site-footer-content">
+                    <div class="copyright">
+                        {{ site.time | date: '2018 - %Y' }} &copy; <a href="{{ site.baseurl }}">{{ site.title | upcase }}.</a> Crafted & Designed by Incyverse.
+                    </div>
+
+                    <div class="top">
+                        <i class="ion ion-ios-arrow-up"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 </div>
@@ -72,7 +81,7 @@
 <!-- The big email subscribe modal content -->
 <div id="subscribe" class="subscribe-overlay">
     {% if site.logo %}
-        <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
+        <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
     {% endif %}
     <a href="" class="subscribe-overlay-close"></a>
     <div class="subscribe-overlay-content">
@@ -84,6 +93,6 @@
 </div>
 {% endif %}
 
-{% include site-scripts.html %}
+{% include scripts.html %}
 </body>
 </html>

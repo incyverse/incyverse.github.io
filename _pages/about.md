@@ -1,17 +1,11 @@
 ---
 layout: page
-cover: assets/images/bear.jpg
-title: About
+type: page
+title: about
 date: 2024-08-18 00:21:34 +0900
-description:
-author: anthony
-current: page
-class: page-template
-subclass: post
+cover: assets/images/page/about.jpg
 navigation: true
 permalink: /about/
-categories: [development]
-tags: []
 ---
 
-这是一个关于页面，请编辑about.md以介绍你的博客。
+about

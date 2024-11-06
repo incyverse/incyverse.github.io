@@ -1,0 +1,41 @@
+<!-- jQuery + Fitvids, which makes all video embeds responsive -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!--<script type="text/javascript" src="{{ site.baseurl }}/assets/js/jquery.fitvids.js"></script>-->
+
+<!-- Icons -->
+<!--<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>-->
+<!--<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
+
+<!-- Paginator increased to "infinit" in _config.yml -->
+{% if paginator.total_pages > site.paginate %}
+<script>
+  const maxPages = parseInt({{ paginator.total_pages }});
+</script>
+<!--<script src="{{ site.baseurl }}/assets/js/infinitescroll.js"></script>-->
+{% endif %}
+
+<!-- https://highlightjs.org/ + https://highlightjs.readthedocs.io/en/latest/ -->
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>-->
+<!--<script>hljs.highlightAll();</script>-->
+<script type="text/javascript">
+  $(document).ready(() => {
+    $('pre code').each((i, block) => {
+      hljs.highlightBlock(block);
+    });
+  });
+
+  // (function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');
+</script>
+
+<!-- and it's easy to individually load additional languages -->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.10.0/components/prism-abap.min.js"></script>-->
+
+<!--The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript-->
+<!--which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded.-->
+<script src="{{ site.baseurl }}assets/js/common.js"></script>
+<script src="{{ site.baseurl }}assets/js/app.js"></script>
+
+<!-- Add Google Analytics -->
+{% include analytics.html %}

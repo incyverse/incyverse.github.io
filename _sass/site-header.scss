@@ -1,0 +1,70 @@
+.site-header {
+    //backdrop-filter: saturate(180%) blur(20px);
+    //background-color: rgba($nier-dark-olive-gray, 0.2);
+    font-size: 1.2rem;
+    height: auto;
+    mask-image: linear-gradient(180deg, $nier-dark-olive-gray 0%, rgba($nier-dark-olive-gray, 1) 100%);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: 99;
+
+    .site-nav-logo {
+        align-items: center;
+        display: none;
+        flex-shrink: 0;
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+        line-height: 1em;
+        margin-right: 24px;
+
+        img {
+            display: block;
+            height: 22px;
+            width: auto;
+        }
+    }
+}
+
+/*
+ * Site Nav Hack Explanation (above):
+ *
+ * What's happening above it .site-nav-left is set to overflow-x and allow sideways scrolling, so that when there isn't
+ * enough space for all nav items (either due to lots of nav items, or a small viewport), you can still scroll
+ * side-to-side to reach them.
+ * The knock-on effect of this is ugly browser-scroll bars at the bottom, so 80px of padding-bottom and a 40px fixed
+ * height parent (.site-nav) hides that entirely. Slightly hacky code. But nice clean end-result.
+ */
+.site-nav {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: space-between;
+    margin: 0 20px;
+    padding: 24px 0;
+    position: relative;
+
+    .site-nav-left {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        letter-spacing: 0.4px;
+        white-space: nowrap;
+
+        .nav {
+            align-items: center;
+            display: flex;
+            height: 100%;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 6px;
+        }
+    }
+}

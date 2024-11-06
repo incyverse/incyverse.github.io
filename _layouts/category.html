@@ -1,0 +1,22 @@
+---
+layout: page
+---
+
+{% assign sort_category = site.categories | sort %}
+{% assign category = sort_category.categories | jsonify %}
+{{ category }}
+
+{% for category in site.categories %}
+<h2>{{ category | first }}</h2>
+{% for posts in category %}
+{% for post in posts %}
+{{ post.title }}
+{% endfor %}
+{% endfor %}
+{% endfor %}
+<div>
+    <h1>
+        {{ page.title }}
+        <span>{{ site.posts | size }}</span>
+    </h1>
+</div>
