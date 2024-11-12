@@ -9,7 +9,7 @@ layout: default
                 {% if page.tags.size > 0 %}
                 <span class="post-tags">
                     {% for tag in page.tags %}
-                    <a href="{{ site.baseurl }}tag/{{tag | slugify: 'latin' }}/" class="post-tag">{{ tag | upcase }}</a>
+                    <a href="{{ site.baseurl }}/tag/{{tag | slugify: 'latin' }}/" class="post-tag">{{ tag | upcase }}</a>
                     {% endfor %}
                 </span>
                 {% endif %}
@@ -63,10 +63,10 @@ layout: default
             {% if author.name == page.author %}
                 <div class="post-author">
                     {% if author.picture %}
-                    <img src="{{ site.baseurl }}{{ author.picture }}" class="author-picture" alt="{{ page.author }}">
+                    <img src="{{ site.baseurl }}/{{ author.picture }}" class="author-picture" alt="{{ page.author }}">
                     {% endif %}
                     <div class="author-content">
-                        <h4 class="author-name"><a href="{{ site.baseurl }}author/{{ page.author }}">{{ author.name }}</a></h4>
+                        <h4 class="author-name"><a href="{{ site.baseurl }}/author/{{ page.author }}">{{ author.name }}</a></h4>
                         {% if author.bio %}
                             <p>{{ author.bio }}</p>
                         {% else %}

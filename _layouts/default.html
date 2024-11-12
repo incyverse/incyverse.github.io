@@ -39,7 +39,7 @@
     </header>
 
     <main id="site-main" class="site-main outer" role="main">
-        <section class="main-meta{% if cover %}" style="background-image: url('{{ site.baseurl }}{{ cover }}');{% else %} no-cover{% endif %}">
+        <section class="main-meta{% if cover %}" style="background-image: url('{{ site.baseurl }}/{{ cover }}');{% else %} no-cover{% endif %}">
             <div class="container">
                 <div class="row">
                     {% if page.type == "home" %}
@@ -65,7 +65,7 @@
                 <div class="site-footer-header"></div>
                 <div class="site-footer-content">
                     <div class="copyright">
-                        {{ site.time | date: '2018 - %Y' }} &copy; <a href="{{ site.baseurl }}">{{ site.title | upcase }}.</a> Crafted & Designed by Incyverse.
+                        {{ site.time | date: '2018 - %Y' }} &copy; <a href="{{ site.baseurl }}/">{{ site.title | upcase }}.</a> Crafted & Designed by Incyverse.
                     </div>
 
                     <div class="top">
@@ -81,7 +81,7 @@
 <!-- The big email subscribe modal content -->
 <div id="subscribe" class="subscribe-overlay">
     {% if site.logo %}
-        <img src="{{ site.baseurl }}{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
+        <img src="{{ site.baseurl }}/{{ site.logo }}" class="subscribe-overlay-logo" alt="{{ site.title }}">
     {% endif %}
     <a href="" class="subscribe-overlay-close"></a>
     <div class="subscribe-overlay-content">

@@ -22,7 +22,7 @@
 <meta property="og:title" content="{% if title %}{{ title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% elsif page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 <meta property="og:url" content="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' }}">
-<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}">
+<meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{% if page.cover %}/{{ page.cover }}{% else %}/{{ site.cover }}{% endif %}">
 {% if excerpt %}
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="933">
@@ -62,12 +62,12 @@
         "publisher": {
             "@type": "Organization",
             "name": "{{ site.title }}",
-            "logo": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}"
+            "logo": "{{ site.url }}{{ site.baseurl }}/{{ site.logo }}"
         },
         "url": "{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}/{% endif %}{{ page.url | remove_first: '/' ||",
         "image": {
             "@type": "ImageObject",
-            "url": "{{ site.url }}{{ site.baseurl }}{% if page.cover %}{{ page.cover }}{% else %}{{ site.cover }}{% endif %}",
+            "url": "{{ site.url }}{{ site.baseurl }}{% if page.cover %}/{{ page.cover }}{% else %}/{{ site.cover }}{% endif %}",
             "width": 2000,
             "height": 666
         },
@@ -87,9 +87,9 @@
 
 <!--<link rel="alternate" type="application/rss+xml" href="{{ site.baseurl }}feed.xml" title="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">-->
 <!--<link rel="canonical" href="{{ site.url }}{% if site.baseurl %}{{ site.baseurl }}{% endif %}{{ page.url | remove_first: '/' }}">-->
-<link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}{{ site.favicon }}">
+<link rel="shortcut icon" type="image/png" href="{{ site.url }}{{ site.baseurl }}/{{ site.favicon }}">
 
 <!-- Styles -->
 <link rel="stylesheet" href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css">
-<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}assets/themes/atom-one-dark.min.css">
-<link rel="stylesheet" href="{{ site.baseurl }}style.css">
+<link rel="stylesheet" href="{{ site.url }}{{ site.baseurl }}/assets/themes/atom-one-dark.min.css">
+<link rel="stylesheet" href="{{ site.baseurl }}/style.css">

@@ -2,7 +2,7 @@
 {% assign categories = post.categories %}
 <article class="post-card{% unless post.cover %} no-image{% endunless %}">
     <div class="post-card-image">
-        <img src="{{ site.baseurl }}{{ post.cover }}" alt="{{ post.title }}">
+        <img src="{{ site.baseurl }}/{{ post.cover }}" alt="{{ post.title }}">
     </div>
 
     <div class="post-card-content">
@@ -13,7 +13,7 @@
         </div>
 
         <h2 class="post-card-title">
-            <a href="{{ site.baseurl }}{{ post.url | remove_first: '/' }}">
+            <a href="{{ site.baseurl }}/{{ post.url | remove_first: '/' }}">
                 {{ post.title | strip_html | truncate: 30 }}
             </a>
         </h2>
@@ -23,9 +23,9 @@
                 {% for author in site.data.authors %}
                     {% if author.name == post.author %}
                         {% if author.picture %}
-                            <img src="{{ site.baseurl }}{{ author.picture }}" class="author-picture" alt="{{ author.name }}">
+                            <img src="{{ site.baseurl }}/{{ author.picture }}" class="author-picture" alt="{{ author.name }}">
                         {% endif %}
-                        <a href="{{ site.baseurl }}author/{{ post.author }}">{{ author.name }}</a>
+                        <a href="{{ site.baseurl }}/author/{{ post.author }}">{{ author.name }}</a>
                     {% endif %}
                 {% endfor %}
             </div>

@@ -2,11 +2,11 @@
 
 <div class="post-next"{% unless page.next.cover %} no-cover{% endunless %}>
     <div class="post-nav-link">
-        <img src="{{ site.baseurl }}{{ page.next.cover }}" class="post-nav-image" alt="{{ page.next.title }}">
+        <img src="{{ site.baseurl }}/{{ page.next.cover }}" class="post-nav-image" alt="{{ page.next.title }}">
     </div>
     <div class="post-nav-content">
         <div class="post-nav">NEXT POST <i class="ion ion-ios-arrow-forward"></i></div>
-        <a href="{{ site.baseurl }}{{ page.next.url | remove_first: '/' }}">
+        <a href="{{ site.baseurl }}/{{ page.next.url | remove_first: '/' }}">
             <h2 class="post-nav-title">{{ page.next.title | strip_html }}</h2>
         </a>
     </div>
