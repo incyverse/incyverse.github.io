@@ -56,6 +56,7 @@
     .post-card-tags {
         display: flex;
         margin-bottom: 8px;
+        min-height: 30px;
 
         a {
             background-color: $nier-warm-gray;
@@ -440,8 +441,14 @@
         ![img](/some/image.jpg#full)
      */
     img[src$="#full"] {
+        border-radius: 0;
+        display: block;
+        margin-left: 50%;
         max-width: none;
-        //width: 100vw;
+        pointer-events: none;
+        transform: translateX(-50%);
+        user-select: none;
+        width: 100vw;
     }
 
     /* Image captions
@@ -449,10 +456,16 @@
         ![img](/some/image.jpg)
         <small>Your image caption</small>
      */
+    img + em,
     img + br + small {
+        color: adjust-color($nier-warm-gray, $lightness: -20%);
         display: block;
-        margin-bottom: 1.5em;
-        margin-top: -3em;
+        font-size: 1.2rem;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 100%;
+        margin-top: 20px;
+        text-align: center;
     }
 
     iframe {
@@ -462,6 +475,13 @@
     }
 
     blockquote {
+        background-color: adjust-color($nier-sand-gray, $lightness: 5%);
+        border-left: $nier-dark-olive-gray 2px solid;
+
+        &[class^=prompt-] {
+            position: relative;
+            padding: 1rem 1rem 1rem 3rem;
+        }
     }
 
     hr {
@@ -473,7 +493,7 @@
             border-top: 4px solid $nier-dark-olive-gray;
             content: "";
             height: 4px;
-            left: 40px;
+            left: 60px;
             position: absolute;
             top: 0;
             width: 4px;
@@ -486,8 +506,21 @@
             left: 0;
             position: absolute;
             top: 0;
-            width: 40px;
+            width: 60px;
         }
+    }
+
+    kbd {
+        background-color: adjust-color($nier-sand-gray, $lightness: 5%);
+        border: $nier-dark-olive-gray 1px solid;
+        border-radius: 2px;
+        box-shadow: inset 0 -2px 0 adjust-color($nier-dark-olive-gray, $lightness: 5%);
+        margin: 0 0.2em;
+        padding: 0.16em 0.32em;
+    }
+
+    .highlight {
+        margin-bottom: 1.5em;
     }
 }
 
@@ -495,7 +528,7 @@
     //align-items: center;
     display: flex;
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 1300px;
 }
 
 @media (max-width: $breakpoint-mobile) {

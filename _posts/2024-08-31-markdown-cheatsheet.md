@@ -10,13 +10,16 @@ tags: [ markdown ]
 navigation: true
 ---
 
-Markdown 구문에 대한 전체 소개는 <https://www.markdownguide.org/>에 있습니다. 블로그를 작성할 때 쉽게 참고할 있도록 아래에 정리했습니다.
+## 개요
 
-### 세그먼트 및 분기
+이 마크다운<sup>Markdown, md</sup> 치트시트는 모든 마크다운 구문 요소에 대한 간략한 개요를 제공합니다. 마크다운 구문에 대한 전체 소개는
+[마크다운 가이드][guide]에 있습니다. 블로그를 작성할 때 쉽게 참고할 있도록 아래에 정리했습니다.
+
+## 세그먼트 및 분기
 
 단락을 구분하려면 하나 이상의 빈 줄을 사용하고, 단락 내의 줄을 나누려면 두 개의 이상의 공백을 사용하십시오.
 
-### Headings
+## 제목 <sup>Headings</sup>
 
 ```markdown
 This is an H1
@@ -25,13 +28,24 @@ This is an H1
 This is an H2
 -------------
 
-# This is an H1
+# H1 Default styles for headings
 
-##  This is an H2
+## H2 Default styles for headings
 
-######  This is an H6
+### H3 Default styles for headings
 
+#### H4 Default styles for headings
+
+##### H5 Default styles for headings
+
+###### H6 Default styles for headings
 ```
+
+## 문단 <sup>Paragraphs</sup>
+
+문단을 만들려면 빈 줄을 사용하여 하나 이상의 텍스트 줄을 구분합니다.
+
+---
 
 ### Blockquote
 
@@ -256,3 +270,5 @@ _   underscore
 .   dot
 !   exclamation mark
 ```
+
+[guide]: https://www.markdownguide.org/
