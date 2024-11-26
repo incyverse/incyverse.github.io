@@ -341,20 +341,20 @@
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
-        margin: 0.5em 0 0.2em 0;
+        margin: 1em 0 0.2em 0;
         min-width: 100%;
     }
 
     h1 {
-        font-size: 4.6rem;
+        font-size: 3.6rem;
 
         @include mobile-max {
-            font-size: 2.8rem;
+            font-size: 3rem;
         }
     }
 
     h2 {
-        font-size: 3.6rem;
+        font-size: 3rem;
 
         @include mobile-max {
             font-size: 2.6rem;
@@ -362,14 +362,6 @@
     }
 
     h3 {
-        font-size: 2.8rem;
-
-        @include mobile-max {
-            font-size: 2.4rem;
-        }
-    }
-
-    h4 {
         font-size: 2.6rem;
 
         @include mobile-max {
@@ -377,14 +369,23 @@
         }
     }
 
+    h4 {
+        font-size: 2.2rem;
+
+        @include mobile-max {
+            font-size: 1.8rem;
+        }
+    }
+
     h5 {
-        border: 0;
-        display: block;
-        font-size: 3.2rem;
-        line-height: 1.35em;
-        margin: 0.5em 0;
-        padding: 1em 0 1.5em;
-        text-align: center;
+        font-size: 2rem;
+        //border: 0;
+        //display: block;
+        //font-size: 3.2rem;
+        //line-height: 1.35em;
+        //margin: 0.5em 0;
+        //padding: 1em 0 1.5em;
+        //text-align: center;
 
         @include laptop-min {
             max-width: 1200px;
@@ -392,17 +393,12 @@
         }
 
         @include mobile-max {
-            font-size: 2.2rem;
             padding: 0 0 0.5em;
         }
     }
 
     h6 {
-        font-size: 2.3rem;
-
-        @include mobile-max {
-            font-size: 2rem;
-        }
+        font-size: 1.8rem;
     }
 
     li {
@@ -486,7 +482,7 @@
 
     hr {
         height: 5px;
-        margin: 1em 0 3.5em;
+        margin: 0 0 2em;
 
         &:before {
             border-right: 4px solid transparent;
@@ -507,6 +503,10 @@
             position: absolute;
             top: 0;
             width: 60px;
+        }
+
+        + * {
+            margin-top: 0;
         }
     }
 
@@ -529,6 +529,10 @@
     display: flex;
     flex-direction: column;
     max-width: 1300px;
+
+    *:first-child {
+        margin-top: 0;
+    }
 }
 
 @media (max-width: $breakpoint-mobile) {
