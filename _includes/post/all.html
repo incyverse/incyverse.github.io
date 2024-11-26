@@ -1,0 +1,16 @@
+<!-- 모든 게시물 -->
+{% assign all = all_posts | sort: 'date' | reverse %}
+
+<section class="all-posts animate">
+    <div class="container">
+        <div class="row">
+            <div class="section-content">
+                {% for post in all %}
+                    {% include post/card.html %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% include post/pagination.html %}
+</section>

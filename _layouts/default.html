@@ -50,7 +50,8 @@
                     <!--                <source src="assets/video/cover.mp4" type="video/mp4">-->
                     <!--            </video>-->
                     <!--        </div>-->
-                    {% elsif page.type == 'post' or page.type == 'page' %}
+                    {% elsif page.type == 'page' %}
+                    <h1 class="site-title">{{ page.title }}</h1>
                     {% endif %}
                 </div>
             </div>

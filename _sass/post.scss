@@ -341,12 +341,13 @@
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
-        margin: 1em 0 0.2em 0;
+        margin: 0.5em 0 0.2em 0;
         min-width: 100%;
     }
 
     h1 {
         font-size: 3.6rem;
+        margin-top: 2.5em;
 
         @include mobile-max {
             font-size: 3rem;
@@ -414,7 +415,7 @@
     }
 
     strong, em {
-        color: adjust-color($nier-terracotta, $lightness: -5%);
+        //color: adjust-color($nier-terracotta, $lightness: -5%);
     }
 
     small {
@@ -472,12 +473,18 @@
 
     blockquote {
         background-color: adjust-color($nier-sand-gray, $lightness: 5%);
-        border-left: $nier-dark-olive-gray 2px solid;
+        border-left: $nier-dark-olive-gray 4px solid;
 
         &[class^=prompt-] {
             position: relative;
             padding: 1rem 1rem 1rem 3rem;
         }
+    }
+
+    code.highlighter-rouge {
+        background-color: adjust-color($nier-sand-gray, $lightness: -15%);
+        border-radius: 2px;
+        padding: 2px 5px;
     }
 
     hr {
@@ -510,7 +517,7 @@
         }
     }
 
-    kbd {
+    code.highlighter-rouge, kbd {
         background-color: adjust-color($nier-sand-gray, $lightness: 5%);
         border: $nier-dark-olive-gray 1px solid;
         border-radius: 2px;
@@ -530,7 +537,7 @@
     flex-direction: column;
     max-width: 1300px;
 
-    *:first-child {
+    > *:first-child {
         margin-top: 0;
     }
 }

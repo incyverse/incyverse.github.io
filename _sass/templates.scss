@@ -62,6 +62,14 @@
 //    }
 //}
 
+.post-template,
+.page-template {
+    .site-main .main-meta {
+        color: $nier-dark-olive-gray;
+        height: 50vh;
+    }
+}
+
 .error-template {
     .site-nav-center {
         align-items: center;

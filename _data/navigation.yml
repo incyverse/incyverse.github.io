@@ -2,8 +2,8 @@
   url: /
 #- name: Projects
 #  url: /projects
-#- name: Posts
-#  url: /posts
+- name: Posts
+  url: /posts
 #- name: About
 #  url: /about
 #- name: Archive
