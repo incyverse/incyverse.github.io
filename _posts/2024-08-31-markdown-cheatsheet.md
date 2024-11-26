@@ -4,7 +4,7 @@ title: Markdown Cheatsheet
 description:
 author: anthony
 date: 2024-08-31 21:45:56 +0900
-cover: assets/images/post/markdown.jpg
+cover: assets/images/post/markdown-1.jpg
 categories: [ development, programming, language, markdown ]
 tags: [ markdown ]
 navigation: true

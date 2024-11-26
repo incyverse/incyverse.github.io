@@ -4,7 +4,7 @@ title: Git Commit Messages 작성법
 description:
 author: anthony
 date: 2024-09-10 00:24:02 +0900
-cover: assets/images/post/git.webp
+cover: assets/images/post/git-1.webp
 categories: [ devops, git ]
 tags: [ git ]
 navigation: true

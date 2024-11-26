@@ -4,16 +4,16 @@ title: Create a kotlin project
 description:
 author: anthony
 date: 2024-11-26 09:22:01 +0900
-cover: assets/images/post/kotlin-1.png
-categories: [ ]
-tags: [ ]
+cover: assets/images/post/kotlin-1.jpg
+categories: [ development, programming, language, kotlin ]
+tags: [ kotlin ]
 navigation: true
 featured: false
 math: false
 mermaid: false
 ---
 
-# Spring Initializr 사용
+# [Spring Initializr][initializr]{:target="_blank"} 사용
 
 Spring Initializr는 Spring Boot 프로젝트 생성을 빠르고 간편하게 할 수 있는 도구다.
 
@@ -26,18 +26,19 @@ Spring Initializr는 Spring Boot 프로젝트 생성을 빠르고 간편하게 �
    - **Project**: Gradle - Kotlin
    - **Language**: Kotlin
    - **Spring Boot Version**: 최신 안정 버전 선택
-   - **Dependencies**: 필요한 의존성을 추가 (Spring Web, Spring Data JPA, H2 Database 등)
    - **Group**: com.example
    - **Artifact**: my-kotlin-project
    - **Name**: MyKotlinProject
-   - **Packaging**: WAR
+   - **Description**:
+   - **Packaging name**: Jar
    - **Java Version**: 프로젝트에 적합한 버전 선택
+   - **Dependencies**: 필요한 의존성을 추가 (Spring Web, Spring Data JPA, H2 Database 등)
 3. Generate 버튼 클릭
 
-## IntelliJ IDEA에서 [Spring Initializr][initializr] 사용
+## IntelliJ IDEA에서 생성
 
 1. `IntelliJ IDEA` 실행
-2. New Project > Spring Intializr 선택
+2. New Project > Spring Boot 선택
 3. 위의 웹 UI와 동일한 설정을 입력
 4. 프로젝트 생성 후 IntelliJ에서 바로 작업 시작
 

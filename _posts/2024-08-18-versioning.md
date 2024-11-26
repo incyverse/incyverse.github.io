@@ -4,7 +4,7 @@ title: Software Versioning
 description:
 author: anthony
 date: 2024-08-18 00:21:34 +0900
-cover: assets/images/post/versioning.png
+cover: assets/images/post/versioning-1.gif
 categories: [ knowledge, technology ]
 tags: [ semantic, version ]
 navigation: true
