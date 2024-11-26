@@ -349,10 +349,10 @@ a {
     }
 
     &:active, &:hover {
-        color: adjust-color($nier-soft-mint-green, $lightness: -15%);
+        color: adjust-color($nier-soft-mint-green, $lightness: -10%);
         outline: 0;
         text-decoration: underline;
-        text-decoration-color: adjust-color($nier-soft-mint-green, $lightness: -15%);
+        text-decoration-color: adjust-color($nier-soft-mint-green, $lightness: -10%);
         transition: all 0.3s ease-in-out
     }
 }

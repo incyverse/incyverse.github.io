@@ -5,17 +5,20 @@
     //position: relative;
 
     .main-meta {
+        align-items: center;
         background-attachment: fixed;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
         color: $cyber-electric-cyan;
+        display: flex;
         height: 100vh;
-        padding: 20vw 4vw;
+        //padding: 20vw 4vw;
         position: relative;
 
         &:before {
-            //background: linear-gradient(180deg, rgba($nier-dark-olive-gray, 1) 0%, rgba($nier-dark-olive-gray, 0.2) 100%);
+            //background: linear-gradient(180deg, rgba($cyber-raisin-black, 1) 0%, rgba($cyber-raisin-black, 0.1) 100%);
+            background: linear-gradient(180deg, rgba($cyber-raisin-black, 0.75) 0%, rgba($cyber-raisin-black, 0.1) 100%);
             bottom: 0;
             content: "";
             left: 0;
@@ -25,9 +28,9 @@
         }
 
         &:after {
-            //background: rgba($raisin-black, 0.25);
+            //background: rgba($cyber-raisin-black, 0.25);
             //backdrop-filter: blur(20px);
-            //mask-image: linear-gradient(180deg, rgba($raisin-black, 0.8) 0%, rgba($raisin-black, 1) 100%);
+            //mask-image: linear-gradient(180deg, rgba($cyber-raisin-black, 0.8) 0%, rgba($cyber-raisin-black, 1) 100%);
             bottom: 0;
             content: "";
             left: 0;
