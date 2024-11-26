@@ -5,7 +5,9 @@
     //position: relative;
 
     .main-meta {
-        background: no-repeat center;
+        background-attachment: fixed;
+        background-position: center center;
+        background-repeat: no-repeat;
         background-size: cover;
         color: $cyber-electric-cyan;
         height: 100vh;
