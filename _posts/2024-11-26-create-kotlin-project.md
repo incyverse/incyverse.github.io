@@ -4,7 +4,7 @@ title: Create a kotlin project
 description:
 author: anthony
 date: 2024-11-26 09:22:01 +0900
-cover: assets/images/post/kotlin.png
+cover: assets/images/post/kotlin-1.png
 categories: [ ]
 tags: [ ]
 navigation: true
@@ -47,21 +47,27 @@ Spring CLI를 사용하면 터미널에서 Spring Boot 프로젝트를 생성할
 
 ---
 
-1. **Spring CLI 설치**: Spring CLI가 설치되어 있어야 한다. ([SDKMAN][sdkman]으로 설치)
+## Spring CLI 설치
+
+Spring CLI가 설치되어 있어야 한다. ([SDKMAN][sdkman]으로 설치)
+
 ```bash
 sdk install springboot
 ```
 
-2. 프로젝트 생성
+## 프로젝트 생성
+
 ```bash
 spring init --dependencies=web,h2 --build=gradle --language=kotlin my-kotlin-project
 ```
+
 - --dependencies: 필요한 의존성을 쉼표로 구분하여 입력
 - --build: 빌드 도구를 Gradle로 설정
 - --language: Kotlin 사용
 - my-kotlin-project: 생성될 프로젝트 디렉토리 이름
 
-3. 생성된 디렉토리로 이동
+## 생성된 디렉토리로 이동
+
 ```bash
 cd my-kotlin-project
 ```
@@ -73,6 +79,7 @@ cd my-kotlin-project
 ---
 
 ## 기본 build.gradle.kts 구조
+
 ```kotlin
 plugins {
     id("org.springframework.boot") version "3.1.0" // 최신 버전 확인
@@ -104,19 +111,21 @@ tasks.withType<Test> {
 }
 ```
 
-## 프로젝트 실행
+# 프로젝트 실행
 
 ---
 
-1. Gradle Wrapper 실행
+## Gradle Wrapper 실행
+
 ```bash
 ./gradlew bootRun
 ```
 
-2. 브라우저에서 확인
-   - 기본적으로 http://localhost:8080에서 애플리케이션 실행
+## 브라우저에서 확인
 
-## 디렉토리 구조
+기본적으로 http://localhost:8080에서 애플리케이션 실행
+
+# 디렉토리 구조
 
 Spring Initializr 또는 CLI로 생성한 프로젝트의 기본 디렉토리 구조는 다음과 같다.
 

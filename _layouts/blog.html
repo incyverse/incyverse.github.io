@@ -2,6 +2,6 @@
 layout: default
 ---
 
-{% assign all_posts = site.posts | where_exp: 'item', 'item.featured != true' %}
+{% assign all_posts = site.posts %}
 
 {% include post/all.html %}
