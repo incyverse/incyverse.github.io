@@ -11,8 +11,6 @@ navigation: true
 featured: true
 ---
 
-:musical_note:
-
 {% include embed/youtube.html id='xLscpRjb8DI?si=FYXK7-ngi0E5PQLg' title='莫文蔚 Karen Mok《這世界那麼多人 Empty World》Official MV - 電影「我要我們在一起」主題曲' %}
 
 [//]: # ([![這世界那麼多人]&#40;assets/images/music/empty-world.webp#full&#41;]&#40;https://www.youtube.com/watch?app=desktop&v=xLscpRjb8DI&#41;)
