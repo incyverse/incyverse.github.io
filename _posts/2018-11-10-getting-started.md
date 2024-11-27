@@ -5,8 +5,8 @@ description:
 author: anthony
 date: 2018-11-10 23:33:19 +0900
 cover: assets/images/post/base.jpg
-categories: [  ]
-tags: [  ]
+categories: [ knowledge, technology ]
+tags: [ github pages, blog ]
 navigation: true
 featured: false
 math: false
@@ -47,13 +47,5 @@ mermaid: false
 ## Docker 사용
 
 Docker를 사용하여 격리된 환경을 제공하며, 이를 통해 시스템과의 충돌을 방지하고 모든 종속성이 컨테이너 내에서 관리되도록 한다.
-
-**Steps**
-
-1. Docker Desktop 설치:
-
-```bash
-brew install --cask docker
-```
 
 [starter]: https://github.com/

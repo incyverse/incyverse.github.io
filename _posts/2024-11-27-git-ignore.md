@@ -4,7 +4,7 @@ title: .gitignore를 사용해서 버전 관리에서 제외하기
 description:
 author: anthony
 date: 2024-11-27 01:26:28 +0900
-cover: assets/images/post/base.jpg
+cover: assets/images/post/git-1.webp
 categories: [ development, devops, git ]
 tags: [ git ]
 navigation: true

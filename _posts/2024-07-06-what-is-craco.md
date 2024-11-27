@@ -6,7 +6,7 @@ author: anthony
 date: 2024-07-06 03:22:53 +0900
 cover: assets/images/post/react-2.png
 categories: [ development, programming, library, react ]
-tags: [ react, CRACO, CRA ]
+tags: [ react, craco, cra ]
 navigation: true
 ---
 

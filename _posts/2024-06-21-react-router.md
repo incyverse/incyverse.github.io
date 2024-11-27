@@ -6,7 +6,7 @@ author: anthony
 date: 2024-06-21 11:52:22 +0900
 cover: assets/images/post/react-1.avif
 categories: [ development, programming, library, react ]
-tags: [ react ]
+tags: [ react, router ]
 navigation: true
 ---
 
@@ -14,8 +14,8 @@ navigation: true
 
 ---
 
-React Router는 URL 경로를 기반으로 React Application 내에서 페이지 전환을 관리하는 Library다. React Router에서 URL 경로의 변경을 감지하고
-이에 대응하는 방식을 구현하기 위해 구독(subscribe) 개념을 사용할 수 있다.
+React Router는 URL 경로를 기반으로 React Application 내에서 페이지 전환을 관리하는 라이브러리다. React Router에서 URL 경로의 변경을 감지하고
+이에 대응하는 방식을 구현하기 위해 구독<sup>Subscribe</sup> 개념을 사용할 수 있다.
 
 React Router v6부터는 직접적인 구독 기능이 제공되지 않지만, React의 기본 기능과 React Router의 Hook을 조합하여 비슷한 효과를 얻을 수 있다.
 예를 들어, `useEffect` Hook을 사용하여 경로 변경을 감지할 수 있다.
@@ -23,11 +23,13 @@ React Router v6부터는 직접적인 구독 기능이 제공되지 않지만, R
 아래는 React v6에서 `useEffect`와 `useLocation` Hook을 사용하여 경로 변경을 감지하는 예제다.
 
 ## React Router의 필요한 package를 설치
+
 ```bash
 npm install react-router-dom
 ```
 
 ## 경로 변경을 감지하는 예제 코드
+
 ```jsx
 import React, { useEffect } from 'react';
 import {
@@ -70,7 +72,6 @@ const Root = () => {
 }
 
 export default Root;
-
 ```
 
 `useCustomHook` Custom Hook을 정의하고, `useLocation` Hook을 사용하여 현재 경로를 가져온다. `useEffect`를 사용하여 경로 변경 시 Callback 함수를
@@ -85,11 +86,13 @@ Context API를 사용하여 변겨을 감지하고 처리할 수 있다. 하지�
 구독할 수 있다.
 
 ## history package 설치
+
 ```bash
 npm install history
 ```
 
-## history package를 사용하여 커스텀 history 객체를 생성하고, 이 객체를 React Router에 전달한다.
+history package를 사용하여 커스텀 history 객체를 생성하고, 이 객체를 React Router에 전달한다.
+
 ```jsx
 import React, { useEffect } from 'react';
 import { Router, Routes, Route, useLocation } from 'react-router-dom';

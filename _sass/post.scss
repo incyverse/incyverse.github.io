@@ -347,7 +347,7 @@
 
     h1 {
         font-size: 3.6rem;
-        margin-top: 2.5em;
+        margin-top: 2em;
 
         @include mobile-max {
             font-size: 3rem;
@@ -473,7 +473,7 @@
 
     blockquote {
         background-color: adjust-color($nier-sand-gray, $lightness: 5%);
-        border-left: $nier-dark-olive-gray 4px solid;
+        border-left: $nier-dark-olive-gray 5px solid;
 
         &[class^=prompt-] {
             position: relative;
@@ -496,7 +496,7 @@
             border-top: 4px solid $nier-dark-olive-gray;
             content: "";
             height: 4px;
-            left: 60px;
+            left: 100px;
             position: absolute;
             top: 0;
             width: 4px;
@@ -509,7 +509,7 @@
             left: 0;
             position: absolute;
             top: 0;
-            width: 60px;
+            width: 100px;
         }
 
         + * {
