@@ -6,7 +6,7 @@ author: anthony
 date: 2024-11-27 01:26:28 +0900
 cover: assets/images/post/git-1.webp
 categories: [ development, devops, git ]
-tags: [ git ]
+tags: [ git, github ]
 navigation: true
 featured: false
 math: false
@@ -34,6 +34,7 @@ mermaid: false
 - **특정 파일/디렉토리 제외 (무시하지 않음)** !important.txt -> important.txt는 무시하지 않음
 
 .gitignore 예제
+
 ```text
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # ENVIRONMENT:
@@ -48,16 +49,16 @@ mermaid: false
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # DEPENDENCIES:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#────: JAVA
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
 #────: NODE
 node_modules/
 .pnp
 .pnp.js
-
-#────: JAVA
-.gradle
-!gradle/wrapper/gradle.wrapper.jar
-!**/src/main/**/build
-!**/src/test/**/build
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # TESTING:
@@ -87,16 +88,6 @@ yarn-error.log*
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # IDE:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#────: JETBRAINS
-.idea/
-
-#────: VSCODE
-.vscode/
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extension.json
-
 #────: STS
 .apt_generated
 .classpath
@@ -105,19 +96,37 @@ yarn-error.log*
 .settings
 .springBeans
 .sts4-cache
-bin
-!**/src/main/**/bin
-!**/src/test/**/bin
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+#────: JETBRAINS
+.kotlin
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+#────: VSCODE
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extension.json
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # OS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#----: MAC
+#────: MAC
 .DS_Store
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # VM:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+#----: DOCKER
 .docker-sync
 docker-storage/
 
@@ -128,7 +137,7 @@ docker-storage/
 .temp
 .tmp
 
-#----: Runtime data
+#----: Runtime Data
 pids
 *.pid
 *.seed
