@@ -341,12 +341,12 @@
 
     h1, h2, h3, h4, h5, h6 {
         font-weight: 700;
-        margin: 0.5em 0 0.2em 0;
+        margin: 0.5em 0 16px;
         min-width: 100%;
     }
 
     h1 {
-        font-size: 3.6rem;
+        font-size: 3.8rem;
         margin-top: 2em;
 
         @include mobile-max {
@@ -356,6 +356,7 @@
 
     h2 {
         font-size: 3rem;
+        margin-top: 1.6em;
 
         @include mobile-max {
             font-size: 2.6rem;
@@ -363,7 +364,7 @@
     }
 
     h3 {
-        font-size: 2.6rem;
+        font-size: 2.4rem;
 
         @include mobile-max {
             font-size: 2.2rem;
@@ -371,7 +372,7 @@
     }
 
     h4 {
-        font-size: 2.2rem;
+        font-size: 2rem;
 
         @include mobile-max {
             font-size: 1.8rem;
@@ -379,7 +380,7 @@
     }
 
     h5 {
-        font-size: 2rem;
+        font-size: 2.2rem;
         //border: 0;
         //display: block;
         //font-size: 3.2rem;
@@ -483,7 +484,7 @@
 
     hr {
         height: 5px;
-        margin: 0 0 2.5em;
+        margin: 0 0 2em;
 
         &:before {
             border-right: 4px solid transparent;
@@ -507,12 +508,8 @@
         }
 
         + * {
-            margin-top: 0;
+            //margin-top: 0;
         }
-    }
-
-    p, pre {
-        margin-bottom: 1em;
     }
 
     code.highlighter-rouge {
@@ -528,6 +525,10 @@
         box-shadow: inset 0 -2px 0 adjust-color($nier-dark-olive-gray, $lightness: 5%);
         margin: 0 0.2em;
         padding: 0.16em 0.32em;
+    }
+
+    blockquote, p, pre, dl, ol, ul {
+        margin-bottom: 1em;
     }
 
     .highlight {
