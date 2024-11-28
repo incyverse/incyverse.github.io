@@ -68,6 +68,11 @@ subscribe: false
 # BUILD SETTINGS:
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 markdown: kramdown
+highlighter: none
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 paginate: 12 # It will paginate after this number
 paginate_path: page:num
@@ -80,9 +85,6 @@ permalink: :title:output_ext
 
 words_per_minute: 200
 excerpt_separator: ---
-
-highlight_theme: syntax-base16.monokai.dark
-highlighter: rouge
 
 sass:
   sass_dir: _sass

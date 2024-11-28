@@ -15,18 +15,23 @@
 {% endif %}
 
 <!-- https://highlightjs.org/ + https://highlightjs.readthedocs.io/en/latest/ -->
-<script src="{{ site.url }}{{ site.baseurl }}/assets/js/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>-->
-<!--<script>hljs.highlightAll();</script>-->
-<script type="text/javascript">
-  $(document).ready(() => {
-    $('pre code').each((i, block) => {
-      hljs.highlightBlock(block);
+<script src="{{ '/assets/js/highlight.min.js' | relative_url }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/go.min.js"></script>
+<script>
+  // hljs.configure({ languages: [ 'javascript', 'bash', 'shell' ] });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    hljs.highlightAll();
+    // hljs.initHighlightingOnLoad();
+    // hljs.initLineNumbersOnLoad();
+
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightElement(block);
+      // hljs.highlightBlock(block);
     });
   });
-
-  // (function(g,h,o,s,t){h[o]('.location')[s]=h[o]('.location')[s] || g.location.href;h[o]('.referrer')[s]=h[o]('.referrer')[s] || h.referrer;})(window,document,'querySelector','value');
 </script>
 
 <!-- and it's easy to individually load additional languages -->

@@ -239,7 +239,7 @@
     //flex-direction: column;
     margin: -140px auto 48px;
     min-height: 240px;
-    padding: 30px 0;
+    padding: 3em 0;
     position: relative;
     max-width: 1300px;
 
@@ -300,8 +300,8 @@
 
     .post-title {
         margin-bottom: 32px;
-        font-size: 7.2rem;
-        line-height: 1;
+        font-size: 6rem;
+        line-height: 1.2;
     }
 
     .post-meta {
@@ -481,12 +481,6 @@
         }
     }
 
-    code.highlighter-rouge {
-        background-color: adjust-color($nier-sand-gray, $lightness: -15%);
-        border-radius: 2px;
-        padding: 2px 5px;
-    }
-
     hr {
         height: 5px;
         margin: 0 0 2.5em;
@@ -515,6 +509,16 @@
         + * {
             margin-top: 0;
         }
+    }
+
+    p, pre {
+        margin-bottom: 1em;
+    }
+
+    code.highlighter-rouge {
+        background-color: adjust-color($nier-sand-gray, $lightness: -15%);
+        border-radius: 2px;
+        padding: 2px 5px;
     }
 
     code.highlighter-rouge, kbd {
