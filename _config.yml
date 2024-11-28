@@ -49,7 +49,7 @@ favicon: assets/images/favicon.png
 cover: assets/images/cover-cyberpunk.gif
 
 # Replace with your GA tracking identifier
-#google_analytics: G-BN5KNTR7QG
+google_analytics: G-BN5KNTR7QG
 #google_adsense: ca-pub-7025527560636552
 
 # Additional settings available on the front-matter site logo in the index.html. The same for page.html and tag.html
