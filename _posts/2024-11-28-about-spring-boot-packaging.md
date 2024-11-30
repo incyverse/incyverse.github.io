@@ -13,8 +13,6 @@ math: false
 mermaid: false
 ---
 
-# JAR and WAR
-
 Spring Boot에서 **JAR**<sup>Java Archive</sup>와 **WAR**<sup>Web Application Archive</sup> 중 무엇을 사용할지는 애플리케이션의
 **배포 환경**과 **요구사항**에 따라 다르다. 새로운 프로젝트나 클라우드 네이티브 애플리케이션을 개발하는 경우라면 JAR로 시작하는 것이 좋으며, 기존
 인프라와의 통합이 중요한 경우라면 WAR를 고려해야 한다. 유연하게 상황에 맞게 사용하자.

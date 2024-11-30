@@ -13,13 +13,13 @@ math: false
 mermaid: false
 ---
 
-# [Spring Initializr][initializr]{:target="_blank"} 사용
+## [Spring Initializr][initializr]{:target="_blank"} 사용
 
 Spring Initializr는 Spring Boot 프로젝트 생성을 빠르고 간편하게 할 수 있는 도구다.
 
----
+____
 
-## 웹 UI를 사용한 생성
+### 웹 UI를 사용한 생성
 
 1. Spring Initializr 웹사이트 방문
 2. 설정 입력
@@ -35,20 +35,20 @@ Spring Initializr는 Spring Boot 프로젝트 생성을 빠르고 간편하게 �
    - **Dependencies**: 필요한 의존성을 추가 (Spring Web, Spring Data JPA, H2 Database 등)
 3. Generate 버튼 클릭
 
-## IntelliJ IDEA에서 생성
+### IntelliJ IDEA에서 생성
 
 1. `IntelliJ IDEA` 실행
 2. New Project > Spring Boot 선택
 3. 위의 웹 UI와 동일한 설정을 입력
 4. 프로젝트 생성 후 IntelliJ에서 바로 작업 시작
 
-# CLI를 사용한 생성
+## CLI를 사용한 생성
 
 Spring CLI를 사용하면 터미널에서 Spring Boot 프로젝트를 생성할 수 있다.
 
----
+____
 
-## Spring CLI 설치
+### Spring CLI 설치
 
 Spring CLI가 설치되어 있어야 한다. ([SDKMAN][sdkman]으로 설치)
 
@@ -56,7 +56,7 @@ Spring CLI가 설치되어 있어야 한다. ([SDKMAN][sdkman]으로 설치)
 sdk install springboot
 ```
 
-## 프로젝트 생성
+### 프로젝트 생성
 
 ```bash
 spring init --dependencies=web,h2 --build=gradle --language=kotlin my-kotlin-project
@@ -67,19 +67,19 @@ spring init --dependencies=web,h2 --build=gradle --language=kotlin my-kotlin-pro
 - --language: Kotlin 사용
 - my-kotlin-project: 생성될 프로젝트 디렉토리 이름
 
-## 생성된 디렉토리로 이동
+### 생성된 디렉토리로 이동
 
 ```bash
 cd my-kotlin-project
 ```
 
-# Gradle 설정 확인 및 수정
+## Gradle 설정 확인 및 수정
 
 프로젝트 생성 후 Gradle 설정 파일(build.gradle.kts)을 확인하고 필요한 설정을 추가 또는 수정한다.
 
----
+____
 
-## 기본 build.gradle.kts 구조
+### 기본 build.gradle.kts 구조
 
 ```kotlin
 plugins {
@@ -112,25 +112,25 @@ tasks.withType<Test> {
 }
 ```
 
-# 프로젝트 실행
+## 프로젝트 실행
 
----
+____
 
-## Gradle Wrapper 실행
+### Gradle Wrapper 실행
 
 ```bash
 ./gradlew bootRun
 ```
 
-## 브라우저에서 확인
+### 브라우저에서 확인
 
 기본적으로 http://localhost:8080에서 애플리케이션 실행
 
-# 디렉토리 구조
+## 디렉토리 구조
 
 Spring Initializr 또는 CLI로 생성한 프로젝트의 기본 디렉토리 구조는 다음과 같다.
 
----
+____
 
 ```
 my-kotlin-project

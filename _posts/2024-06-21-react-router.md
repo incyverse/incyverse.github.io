@@ -10,9 +10,9 @@ tags: [ react, router ]
 navigation: true
 ---
 
-# React Router 기본
+## React Router 기본
 
----
+____
 
 React Router는 URL 경로를 기반으로 React Application 내에서 페이지 전환을 관리하는 라이브러리다. React Router에서 URL 경로의 변경을 감지하고
 이에 대응하는 방식을 구현하기 위해 구독<sup>Subscribe</sup> 개념을 사용할 수 있다.
@@ -22,13 +22,13 @@ React Router v6부터는 직접적인 구독 기능이 제공되지 않지만, R
 
 아래는 React v6에서 `useEffect`와 `useLocation` Hook을 사용하여 경로 변경을 감지하는 예제다.
 
-## React Router의 필요한 package를 설치
+### React Router의 필요한 package를 설치
 
 ```bash
 npm install react-router-dom
 ```
 
-## 경로 변경을 감지하는 예제 코드
+### 경로 변경을 감지하는 예제 코드
 
 ```jsx
 import React, { useEffect } from 'react';
@@ -77,15 +77,15 @@ export default Root;
 `useCustomHook` Custom Hook을 정의하고, `useLocation` Hook을 사용하여 현재 경로를 가져온다. `useEffect`를 사용하여 경로 변경 시 Callback 함수를
 호출한다. `App` Component 내에서 이 Custom Hook을 사용하여 경로 변경을 감지하고 Console에 Log를 출력한다.
 
-# Subscribe 사용하기
+## Subscribe 사용하기
 
----
+____
 
 React Router v6에서는 이전 버번과 달리 `router.subscribe`와 같은 직접적인 구독 메시지를 제공하지 않는다. 대신, React Router의 Hook과
 Context API를 사용하여 변겨을 감지하고 처리할 수 있다. 하지만, `history` package를 사용하면 `router.subscribe`와 비슷한 방식으로 경로 변경을 
 구독할 수 있다.
 
-## history package 설치
+### history package 설치
 
 ```bash
 npm install history

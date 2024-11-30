@@ -426,7 +426,7 @@
 
     img, video {
         display: block;
-        margin: 1.5em auto;
+        //margin: 1.5em auto;
 
         @include laptop-max {
             width: 100%;
@@ -462,7 +462,7 @@
         font-style: normal;
         font-weight: normal;
         line-height: 100%;
-        margin-top: 20px;
+        margin: 1.5em auto;
         text-align: center;
     }
 
@@ -512,23 +512,26 @@
         }
     }
 
-    code.highlighter-rouge {
-        background-color: adjust-color($nier-sand-gray, $lightness: -15%);
-        border-radius: 2px;
-        padding: 2px 5px;
-    }
-
-    code.highlighter-rouge, kbd {
+    code:not([class]), kbd {
         background-color: adjust-color($nier-sand-gray, $lightness: 5%);
         border: $nier-dark-olive-gray 1px solid;
-        border-radius: 2px;
-        box-shadow: inset 0 -2px 0 adjust-color($nier-dark-olive-gray, $lightness: 5%);
-        margin: 0 0.2em;
-        padding: 0.16em 0.32em;
+        border-radius: 3px;
+        box-shadow: 0 1px 1px adjust-color($nier-dark-olive-gray, $lightness: 5%), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+        display: inline-block;
+        font-weight: 700;
+        letter-spacing: normal;
+        line-height: 1;
+        margin: 0 2px;
+        padding: 3px 4px 0;
+        white-space: nowrap;
     }
 
     blockquote, p, pre, dl, ol, ul {
-        margin-bottom: 1em;
+        margin-bottom: 0.8em;
+    }
+
+    blockquote {
+        margin-top: 0;
     }
 
     .highlight {
