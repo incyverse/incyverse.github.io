@@ -512,7 +512,18 @@
         }
     }
 
-    code:not([class]), kbd {
+    code:not([class]) {
+        background-color: adjust-color($nier-dark-olive-gray, $lightness: 15%);
+        border-radius: 3px;
+        color: $nier-sand-gray;
+        font-weight: 700;
+        letter-spacing: normal;
+        line-height: 1;
+        padding: 0 4px;
+        white-space: nowrap;
+    }
+
+    kbd {
         background-color: adjust-color($nier-sand-gray, $lightness: 5%);
         border: $nier-dark-olive-gray 1px solid;
         border-radius: 3px;

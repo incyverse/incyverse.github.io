@@ -10,10 +10,9 @@ tags: [ react, craco, cra ]
 navigation: true
 ---
 
-CRACO<sup>Create React App Configuration Override</sup>는 **CRA**<sup>Create React App</sup>으로 생성된 프로젝트에서 Webpack,
-Babel 등의 설정을 손쉽게 확장하거나 수정할 수 있도록 도와주는 도구다. CRA는 간편하게 React 프로젝트를 시작할 수 있도록 기본적인 설정을 제공하지만,
-설정 파일(e.g., Webpack, Babel 등)을 숨기고 있어 일부 고급 설정을 직접 변경하기가 어렵다. CRACO는 이러한 CRA의 기본 설정을
-**"eject"하지 않고"** 커스터마이징할 수 있게 해준다.
+CRACO<sup>Create React App Configuration Override</sup>는 CRA<sup>Create React App</sup>로 생성된 React 프로젝트에서 Webpack,
+Babel 등의 설정을 손쉽게 커스터마이징할 수 있도록 도와주는 도구다. CRA는 간편하게 React 프로젝트를 시작할 수 있도록 기본적인 설정을 제공하지만, 기본적으로
+설정 파일을 숨기고 있어 커스터마이징하려면 eject 명령어를 사용해야 하지만, CRACO를 사용하면 eject 없이 커스터마이징할 수 있다.
 
 CRACO는 CRA 프로젝트에서 **유연성**과 **간결함**을 제공하는 훌륭한 도구다.
 

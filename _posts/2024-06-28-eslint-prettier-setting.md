@@ -1,0 +1,150 @@
+---
+type: post
+title: ESLint, Prettier 설정하기
+description:
+author: anthony
+date: 2024-06-28 11:08:19 +0900
+cover: assets/images/post/coding-1.gif
+categories: [ knowledge, technology ]
+tags: [ eslint, javascript ]
+navigation: true
+---
+
+## ESLint 설정
+
+____
+
+
+
+### ESLint 패키지 설치
+
+```bash
+npm install --save-dev eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-prettier
+# or
+yarn add -D eslint @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier eslint-plugin-react-hooks eslint-plugin-prettier
+```
+
+### ESLint 설정 파일 생성
+
+루트 디렉토리에 .eslintrc.mjs 파일을 생성한다.
+
+```javascript
+export default {
+  env: {
+    browser: true,
+    es2021: true
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    // 'plugin:import/recommended',
+    'plugin:prettier/recommended',
+    'plugin:react/recommended',
+    // 'plugin:react-hooks/recommended',
+    // 'airbnb',
+    // 'prettier'
+  ],
+  ignorePatterns: [
+    'node_modules/'
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2021,
+    sourceType: 'module'
+    // ecmaFeatures: { jsx: true }
+  },
+  plugins: [
+    '@typescript-eslint',
+    // 'import',
+    'prettier',
+    'react',
+    // 'react-hooks'
+  ],
+  root: true,
+  rules: {
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'import/extensions': ['off'],
+    'prettir/prettir': 'error',
+    'react/jsx-filename-extension': ['error', {
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
+    }],
+    'react/react-in-jsx-scope': 'off'
+  },
+  settings: {
+    // 'import/resolver': {
+    //   node: {
+    //     extensions: ['.js', '.jsx', '.ts', 'tsx']
+    //   },
+    //   typescript: {
+    //     alwaysTryTypes: true
+    //   }
+    // },
+    react: {
+      version: 'detect'
+    }
+  }
+};
+```
+
+## Prettier 설정
+
+____
+
+### Prettier 패키지 설치
+
+```bash
+npm install --save-dev prettier
+# or
+yarn add -D prettier
+```
+
+### Prettier 설정 파일 생성
+
+루트 디렉토리에 .prettier 파일을 생성한다.
+
+```json
+{
+  "semi": true,
+  "trailingComma": "es5",
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2
+}
+
+1 {
+  2 "arrowParens": "avoid",
+  3 "bracketSameLine": false,
+  4 "bracketSpacing": true,
+  5 "endOfLine": "auto",
+  6 "htmlWhitespaceSensitivity": "css",
+  7 "insertPragma": false,
+  8 "jsxSingleQuote": false,
+  9 "parser": "typescript",
+  10 "printWidth": 120,
+  11 "proseWrap": "preserve",
+  12 "requirePragma": false,
+  13 "quoteProps": "as-needed",
+  14 "semi": true,
+  15 "singleQuote": true,
+  16 "tabWidth": 2,
+  17 "trailingComma": "none",
+  18 "useTabs": false
+  19 }
+```
+
+### Prettier 무시 파일 생성
+
+.prettierignore 파일을 생성하여 포맷팅에서 제외할 파일 및 폴더를 지정할 수 있다.
+
+```text
+build/
+node_modules/
+```
+
+## ESLint와 Prettier 통합
+
+____
+
+eslint-config-prettier와 eslint-plugin-prettier를 사용하면 ESLint와 Prettier 규칙 충돌을 방지할 수 있다. 위의 .eslintrc.js 설저에서
+이미 plugin:prettier/recommended를 추가했음로 충돌이 자동으로 해결된다.
