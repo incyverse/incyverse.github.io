@@ -103,34 +103,28 @@ yarn add -D prettier
 
 루트 디렉토리에 .prettier 파일을 생성한다.
 
-```json
-{
-  "semi": true,
-  "trailingComma": "es5",
-  "singleQuote": true,
-  "printWidth": 120,
-  "tabWidth": 2
-}
+```javascript
+const config = {
+  arrowParens: "avoid",
+  bracketSameLine: false,
+  bracketSpacing: true,
+  endOfLine: "auto",
+  htmlWhitespaceSensitivity: "css",
+  insertPragma: false,
+  jsxSingleQuote: false,
+  parser: "typescript",
+  printWidth: 120,
+  proseWrap: "preserve",
+  requirePragma: false,
+  quoteProps: "as-needed",
+  semi: true,
+  singleQuote: true,
+  tabWidth: 2,
+  trailingComma: "", // es5
+  useTabs: false
+};
 
-1 {
-  2 "arrowParens": "avoid",
-  3 "bracketSameLine": false,
-  4 "bracketSpacing": true,
-  5 "endOfLine": "auto",
-  6 "htmlWhitespaceSensitivity": "css",
-  7 "insertPragma": false,
-  8 "jsxSingleQuote": false,
-  9 "parser": "typescript",
-  10 "printWidth": 120,
-  11 "proseWrap": "preserve",
-  12 "requirePragma": false,
-  13 "quoteProps": "as-needed",
-  14 "semi": true,
-  15 "singleQuote": true,
-  16 "tabWidth": 2,
-  17 "trailingComma": "none",
-  18 "useTabs": false
-  19 }
+export default config;
 ```
 
 ### Prettier 무시 파일 생성
