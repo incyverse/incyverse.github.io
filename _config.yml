@@ -1,172 +1,140 @@
-# Welcome to Jekyll!!
-#
-# This config file is meant for settings that affect your whole blog, values which you are expected to set up once and
-# rarely edit after that. If you find yourself editing this file very often, consider using Jekyll's data files feature
-# for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use `bundle exec jekyll serve`. If you
-# change this file. Please restart the server process.
-#
-# If you need help with YAML syntax, here are some quick reference for you:
-# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
-# https://learnxinyminutes.com/docs/yaml/
-
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # SITE CONFIGURATION:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# There are used to personalize your new site. If you look in the HTML files, you will see time accessed via
-# {{ site.title }}, {{ site.email }}, and so on. You can create any custom variable you would like, and they will be
-# accessible in the templates via {{ site.myvariable }}
+#   There are used to personalize your new site. If you look in the HTML files. You will see time accessed via
+#   {{ site.title }}, {{ site.email }}, and so on. You can create any custom variable yo would like, and they will be
+#   accessible in the templates via {{ site.my-variable }}
+#
+#   The site option is the content and settings for your site. You can set it in `_config.yml` or use it within your
+#   Liquid templates.
+# ↓ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+version: v2.3.0
 
-version: v2.0.0
-lang: en
-language: en-US
+# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
+# e.g. {{ site.language }}
+language: ko-KR
+
+language_direction: ltr
+
+# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
+# otherwise, the layout languages will use the default value of 'en'.
+locale: ko
+
+# Set the time zone for site generation.
+# Change to your timezone › https://kevinnovak.github.io/Time-Zone-Picker
 timezone: Asia/Seoul
 
-title: Incyverse
-description: >-
-  언제 죽더라도 후회 없도록 부끄럽지 않은 것들을 좀 더 남기고 싶다.
+# e.g. {{ site.title }}
+title: InCyVerse
 name: incyverse
-email: incyverse@gmail.com
 
-# The subpath of your site, e.g. /blog/
-# Edit baseurl to simply '/' if using as your personal page (instead of a project page)
-baseurl: ""
-
-# The base hostname & protocol for your site, e.g. http://example.com
-url: "https://incyverse.github.io"
-
-# Add CNAME for website to be created
-#CNAME:
-
-# Blog logo image URL, recommended size cannot exceed 300px * 300 px
+# Blog logo image URL, recommended size cannot exceed 300px * 300px
 logo: assets/images/logo.png
-#logo_dark: assets/images/logo-dark.png
+logo_dark: assets/images/logo-dark.png
 
 # Favicon (appears in browser tab) image URL, preferably smaller 64px * 64px
 favicon: assets/images/favicon.png
 
-cover: assets/images/cover-cyberpunk.gif
+tagline:
+  "I want to leave behind more things that I won't be ashamed of so that I won't have any regrets even when I die."
 
-# Replace with your GA tracking identifier
-google_analytics: G-BN5KNTR7QG
-#google_adsense: ca-pub-7025527560636552
+# e.g. {{ site.description }}
+description: >-
+  언제 죽더라도 후회하지 않도록 부끄럽지 않은 것들을 좀 더 남기고 싶다.
 
-# Additional settings available on the front-matter site logo in the index.html. The same for page.html and tag.html
-# layouts. Post's page cover as per-post basis _posts/... Disqus comments as a per-post basis.
-disqus: false
-disqus_shortname:
+# Add CNAME for the website to be created
+#CNAME:
 
-# If 'true' the submit button is disabled for now, but you can change that by editing `_includes/subscribe-form.html`
-# You need to connect an external service for this to work.
+# Fill in the hostname & protocol for your site. e.g. 'https://username.github.io', not that it does not end with a '/'.
+# e.g. {{ site.url }}
+url: https://incyverse.github.io
+
+# The subpath or your. e.g. /blog/
+# Edit baseurl to simply '/' if using as your personal page (instead of a project page)
+# e.g. {{ site.baseurl }}
+baseurl: "/"
+
+cover: "assets/images/cover-cyberpunk.gif"
+
+# If 'true' the submit button is disabled for now, but can change that by editing `_includes/subscribe-form.html`.
+# You need to connect external service for this to work.
 subscribe: false
+
+seo:
+  provider: true
+  facebook:
+    publisher:
+  google:
+    anonymize_ip: true
+    # Replace it with your GA tracking identifier
+    analytics: G-BN5KNTR7QG
+    adsense: ca-pub-7025527560636552
+
+# Defining custom content types other than posts.
+# e.g. {% for item in site.portfolio %}
+collections:
+  posts:
+    output: true
+  projects:
+    output: true
+    permalink: /projects:/:path/
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
+    sort_by: date
+    order: [ reverse ]
 
 # Newsletter
 #mailchimp: "https://github.us1.list-manage.com/subscribe/post?u=8ece198b3eb260e6838461a60&amp;id=397d90b5f4"
 
+#production_url: "https://jekyll.github.io/incyverse"
+#source_url: "https://github.com/jekyllt/incyverse/"
+# ↑ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# BUILD SETTINGS:
+# SERVE CONFIGURATION:
+#   The serve option is the setting when jekyll runs a local server. It is used with Jekyll serve command.
+# ↓ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# e.g. jekyll serve --livereload
+livereload: true
+# ↑ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+
+
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-markdown: kramdown
-highlighter: none
-kramdown:
-  syntax_highlighter_opts:
-    block:
-      line_numbers: false
-
-paginate: 12 # It will paginate after this number
-paginate_path: page:num
-permalink: :title:output_ext
-#permalink: pretty
-# Author's info in `_data/authors.yml`
-#permalink: /author/:author
-# Tag's info in `_data/tags.yml`
-#permalink: /tag/:tag
-
-words_per_minute: 200
-excerpt_separator: ---
-
-sass:
-  sass_dir: _sass
-  style: :expanded # You might prefer to minify using :compressed
-
-# Gem and other configs
-#plugins_dir: [_plugins]
-
+# BUILD CONFIGURATION:
+#   Settings for building main branch with travis-ci, jekyll-travis and deploy rake task Username and repo of github repo.
+#   e.g. https://github.com/USERNAME/repo.git
+#   Username defaults to ENV['GIT_NAME'] used by Travis repo defaults so USERNAME.github.io branch defaults so 'source'
+#   for USERNAME.github.io or 'main' otherwise.
+# ↓ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 # Use the following plug-ins
-plugins:
-  - jekyll-feed # Create a Atom using the official Jekyll feed gem
-  - jekyll-paginate
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+#plugins:
+#  - jekyll-sass-converter
+# ↑ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 
-extensions:
-  mermaid_enable: true
-
-#feed:
-#  path: feed.xml
-
-#defaults:
-#  - scope:
-#      path: "_pages"
-#      values:
-#        permalink: /:basename:output_ext
-
-defaults:
-  - scope:
-      path: _posts
-      type: post
-    values:
-      layout: post
-      permalink: /post/:title/
-
-include:
-  - _categories
-  - _pages
 
 #───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# JEKYLL CONFIGURATION:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-#jekyll_compose:
-#  default_front_matter:
-#    posts:
-#      description:
-#      categories:
-#      tags:
-#      image:
-#        path:
-#        alt:
-#      pin: false
-#      math: true
-#      mermaid: true
-
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# DEPLOY SETTINGS:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# Settings for building main branch with travis-ci, jekyll-travis and deploy rake task
-# Username and repo of github repo, e.g. https://github.com/USERNAME/REPO.git
-# username defaults to ENV['GIT_NAME'] used by Travis repo defaults to USERNAME.github.io
-# Branch defaults to 'source' for USERNAME.github.io or 'main' otherwise
-#safe: false
-#lsi: false
-#username: jekyllt
-#repo: incyverse
-#branch: main
-#relative_source: ../incyverse/
-#destination: ../incyverse-pages/
-#production_url: https://jekyllt.github.io/incyverse/
-#source_url: https://github.com/jekyllt/incyverse/
-
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# EXCLUDE FROM PROCESSING:
-#───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
-# The following items will not be processed. By default.
-# Any item listed under the `exclude:` key here will be automatically added to the internal "default list".
-#
-# Excluded items can be processed by explicitly listing the directories or their entries file path in the `included:`
-# list.
+# EXCLUDE AND INCLUDE FROM PROCESSING:
+# ↓ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+# Exclude from processing.
+# The following items will not be processed. By default, any item listed under the `exclude:` key here will be
+# automatically added to the internal "default list".
 exclude:
   - .jekyll-cache
   - .sass-cache
   - CNAME
   - LICENSE
   - README.md
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - "*.gem"
+  - "*.gemspec"
+  - "*.config.js"
+  - node_modules
+  - vendor
+
+# Force inclusion of directories and/or files in the conversion. `.htaccess` is a good example since dotfiles are
+# excluded by default.
+include_dir: _includes
+# ↑ ────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
