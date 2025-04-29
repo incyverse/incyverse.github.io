@@ -51,7 +51,7 @@ url: https://incyverse.github.io
 # The subpath or your. e.g. /blog/
 # Edit baseurl to simply '/' if using as your personal page (instead of a project page)
 # e.g. {{ site.baseurl }}
-baseurl: "/"
+baseurl: ""
 
 cover: "assets/images/cover-cyberpunk.gif"
 
